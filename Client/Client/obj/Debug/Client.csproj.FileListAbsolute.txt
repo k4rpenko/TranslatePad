@@ -1,0 +1,10 @@
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\Client.exe.config
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\Client.exe
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\Client.pdb
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.Dictionary.resources
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.Properties.Resources.resources
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.GenerateResource.cache
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.exe
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.pdb
