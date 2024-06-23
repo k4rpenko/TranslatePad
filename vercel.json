@@ -9,7 +9,7 @@
   "routes": [
     {
       "url": "/api/(.*)",
-      "destination": "/Server/main.js"
+      "dest": "/Server/main.js"
     }
   ],
   "cleanUrls": true,
