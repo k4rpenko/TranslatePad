@@ -4,12 +4,22 @@
     {
       "src": "./Server/main.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "./website/package.json",
+      "use": "@vercel/next"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "Server/main.js"
+      "source": "/api/(.*)",
+      "destination": "/Server/main.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/website/$1"
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
