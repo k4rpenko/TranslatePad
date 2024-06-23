@@ -12,3 +12,5 @@ router.get('/', async (req, res) => {
         return res.status(500).json({ error: 'Internal Server Error: ' + error.message });
     }
 });
+
+module.exports = router;
