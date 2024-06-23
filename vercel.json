@@ -8,10 +8,8 @@
   ],
   "routes": [
     {
-      "url": "/api/(.*)",
-      "dest": "/Server/main.js"
+      "src": "/api/(.*)",
+      "dest": "Server/main.js"
     }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  ]
 }
