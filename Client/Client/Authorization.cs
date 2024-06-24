@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace Client
 {
+
     public partial class Authorization : Form
     {
         private bool isEmailValidSignUp = false;
@@ -12,6 +13,10 @@ namespace Client
         private bool isEmailValidSignIn = false;
         private bool isPasswordValidSignIn = false;
         private bool buttonClicked = false;
+
+
+
+
 
         public Authorization()
         {
@@ -32,6 +37,7 @@ namespace Client
             Sign_up_pass2.Leave += (sender, e) => SetPasswordPlaceholder(Sign_up_pass2, "Repeat Password");
             Sign_in_pass.Enter += RemovePlaceholder;
             Sign_in_pass.Leave += (sender, e) => SetPasswordPlaceholder(Sign_in_pass, "Password");
+
         }
 
         #region WorkWithButton
@@ -55,10 +61,10 @@ namespace Client
         private async void Sign_up_button_Click(object sender, EventArgs e)
         {
 
-            Font buttonFont = new Font("Arial", 10, FontStyle.Bold); // Наприклад, Arial шрифт, розмір 12, жирний стиль
+            //Font buttonFont = new Font("Arial", 10, FontStyle.Bold); // Наприклад, Arial шрифт, розмір 12, жирний стиль
 
-            // Встановлення шрифту для кнопки "Sign in"
-            Sign_up_button.Font = buttonFont;
+            //// Встановлення шрифту для кнопки "Sign in"
+            //Sign_up_button.Font = buttonFont;
 
             if (!isEmailValidSignUp)
             {
@@ -96,6 +102,9 @@ namespace Client
         #region WorkWithPassword
         private async void Sign_up_pass2_TextChanged(object sender, EventArgs e)
         {
+
+            Sign_up_pass2.ForeColor = Color.White;
+
             isPasswordValidSignUp = ArePasswordsMatching();
 
             //if (isPasswordValidSignUp)
@@ -112,6 +121,7 @@ namespace Client
         {
             string passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$";
             isPasswordValidSignUp = Regex.IsMatch(Sign_up_pass.Text, passwordPattern);
+            Sign_up_pass.ForeColor = Color.White;
 
             //if (buttonClicked && !isPasswordValidSignUp)
             //{
@@ -125,6 +135,7 @@ namespace Client
 
         private async void Sign_in_pass_TextChanged(object sender, EventArgs e)
         {
+            Sign_in_pass.ForeColor = Color.White;
             // Логіка для обробки зміни тексту пароля при вході
         }
         #endregion
@@ -132,6 +143,8 @@ namespace Client
         #region WorkWithEmail
         private async void Sign_in_email_TextChanged(object sender, EventArgs e)
         {
+
+            Sign_in_email.ForeColor = Color.White;
             string emailPattern = @"^[^@\s]+@[^\s@]+\.[^\s@]+$";
             isEmailValidSignIn = Regex.IsMatch(Sign_in_email.Text, emailPattern);
 
@@ -145,10 +158,18 @@ namespace Client
             }
         }
 
+
+
+
+
+
+
+
         private async void Sign_up_email_TextChanged(object sender, EventArgs e)
         {
             string emailPattern = @"^[^@\s]+@[^\s@]+\.[^\s@]+$";
             isEmailValidSignUp = Regex.IsMatch(Sign_up_email.Text, emailPattern);
+            Sign_up_email.ForeColor = Color.White;
 
             //if (buttonClicked && !isEmailValidSignUp)
             //{
@@ -167,7 +188,7 @@ namespace Client
             if (string.IsNullOrEmpty(textBox.Text))
             {
                 textBox.Text = placeholderText;
-                textBox.ForeColor = Color.Black;
+                textBox.ForeColor = Color.Gray;
             }
         }
 
@@ -176,7 +197,7 @@ namespace Client
             if (string.IsNullOrEmpty(textBox.Text))
             {
                 textBox.Text = placeholderText;
-                textBox.ForeColor = Color.Black;
+                textBox.ForeColor = Color.Gray;
                 textBox.UseSystemPasswordChar = false;
             }
         }
@@ -189,7 +210,7 @@ namespace Client
                 if (textBox.Text == "Email" || textBox.Text == "Password" || textBox.Text == "Repeat Password")
                 {
                     textBox.Text = "";
-                    textBox.ForeColor = Color.Black;
+                    textBox.ForeColor = Color.Gray;
                     if (textBox == Sign_up_pass || textBox == Sign_up_pass2 || textBox == Sign_in_pass)
                     {
                         textBox.UseSystemPasswordChar = true;

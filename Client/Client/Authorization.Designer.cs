@@ -61,6 +61,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.Black;
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.Sign_up_pass);
@@ -73,7 +74,6 @@
             this.tabPage1.Size = new System.Drawing.Size(546, 369);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sign up";
-            this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label1
@@ -88,45 +88,59 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Black;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.checkBox1.Location = new System.Drawing.Point(226, 138);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(101, 17);
+            this.checkBox1.Size = new System.Drawing.Size(108, 17);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Show password";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Sign_up_pass
             // 
+            this.Sign_up_pass.BackColor = System.Drawing.Color.Black;
+            this.Sign_up_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Sign_up_pass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_up_pass.Location = new System.Drawing.Point(213, 86);
             this.Sign_up_pass.Name = "Sign_up_pass";
-            this.Sign_up_pass.Size = new System.Drawing.Size(125, 20);
+            this.Sign_up_pass.Size = new System.Drawing.Size(125, 22);
             this.Sign_up_pass.TabIndex = 3;
             this.Sign_up_pass.UseSystemPasswordChar = true;
             this.Sign_up_pass.TextChanged += new System.EventHandler(this.Sign_up_pass_TextChanged);
             // 
             // Sign_up_pass2
             // 
+            this.Sign_up_pass2.BackColor = System.Drawing.Color.Black;
+            this.Sign_up_pass2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Sign_up_pass2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_up_pass2.Location = new System.Drawing.Point(213, 112);
             this.Sign_up_pass2.Name = "Sign_up_pass2";
-            this.Sign_up_pass2.Size = new System.Drawing.Size(125, 20);
+            this.Sign_up_pass2.Size = new System.Drawing.Size(125, 22);
             this.Sign_up_pass2.TabIndex = 2;
             this.Sign_up_pass2.UseSystemPasswordChar = true;
             this.Sign_up_pass2.TextChanged += new System.EventHandler(this.Sign_up_pass2_TextChanged);
             // 
             // Sign_up_email
             // 
-            this.Sign_up_email.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Sign_up_email.BackColor = System.Drawing.Color.Black;
+            this.Sign_up_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Sign_up_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Sign_up_email.ForeColor = System.Drawing.Color.Silver;
             this.Sign_up_email.Location = new System.Drawing.Point(213, 42);
             this.Sign_up_email.Name = "Sign_up_email";
-            this.Sign_up_email.Size = new System.Drawing.Size(125, 20);
+            this.Sign_up_email.Size = new System.Drawing.Size(125, 22);
             this.Sign_up_email.TabIndex = 1;
             this.Sign_up_email.TextChanged += new System.EventHandler(this.Sign_up_email_TextChanged);
             // 
             // Sign_up_button
             // 
-            this.Sign_up_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Sign_up_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sign_up_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(131)))), ((int)(((byte)(226)))));
+            this.Sign_up_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Sign_up_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Sign_up_button.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_up_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Sign_up_button.Location = new System.Drawing.Point(228, 212);
             this.Sign_up_button.Name = "Sign_up_button";
@@ -138,6 +152,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.Black;
             this.tabPage2.Controls.Add(this.checkBox2);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.Sign_in_button);
@@ -149,15 +164,16 @@
             this.tabPage2.Size = new System.Drawing.Size(546, 369);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sign in";
-            this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.checkBox2.Location = new System.Drawing.Point(228, 112);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(101, 17);
+            this.checkBox2.Size = new System.Drawing.Size(108, 17);
             this.checkBox2.TabIndex = 7;
             this.checkBox2.Text = "Show password";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -174,8 +190,9 @@
             // 
             // Sign_in_button
             // 
-            this.Sign_in_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Sign_in_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(131)))), ((int)(((byte)(226)))));
             this.Sign_in_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Sign_in_button.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Sign_in_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Sign_in_button.Location = new System.Drawing.Point(228, 212);
             this.Sign_in_button.Name = "Sign_in_button";
@@ -187,18 +204,24 @@
             // 
             // Sign_in_pass
             // 
+            this.Sign_in_pass.BackColor = System.Drawing.Color.Black;
+            this.Sign_in_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Sign_in_pass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_in_pass.Location = new System.Drawing.Point(213, 86);
             this.Sign_in_pass.Name = "Sign_in_pass";
-            this.Sign_in_pass.Size = new System.Drawing.Size(125, 20);
+            this.Sign_in_pass.Size = new System.Drawing.Size(125, 22);
             this.Sign_in_pass.TabIndex = 2;
             this.Sign_in_pass.UseSystemPasswordChar = true;
             this.Sign_in_pass.TextChanged += new System.EventHandler(this.Sign_in_pass_TextChanged);
             // 
             // Sign_in_email
             // 
+            this.Sign_in_email.BackColor = System.Drawing.Color.Black;
+            this.Sign_in_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Sign_in_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_in_email.Location = new System.Drawing.Point(213, 42);
             this.Sign_in_email.Name = "Sign_in_email";
-            this.Sign_in_email.Size = new System.Drawing.Size(125, 20);
+            this.Sign_in_email.Size = new System.Drawing.Size(125, 22);
             this.Sign_in_email.TabIndex = 1;
             this.Sign_in_email.TextChanged += new System.EventHandler(this.Sign_in_email_TextChanged);
             // 
@@ -208,6 +231,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 611);
             this.Controls.Add(this.tabControl1);
+            this.ForeColor = System.Drawing.Color.Cyan;
             this.Name = "Authorization";
             this.Text = "Authorization";
             this.tabControl1.ResumeLayout(false);
