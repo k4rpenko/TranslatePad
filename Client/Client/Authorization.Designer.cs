@@ -56,7 +56,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(98, 3);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(488, 404);
+            this.tabControl1.Size = new System.Drawing.Size(554, 419);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -68,12 +68,13 @@
             this.tabPage1.Controls.Add(this.Sign_up_email);
             this.tabPage1.Controls.Add(this.Sign_up_button);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "Sign_up";
+            this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(480, 378);
+            this.tabPage1.Size = new System.Drawing.Size(546, 393);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sign up";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label1
             // 
@@ -87,7 +88,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(188, 147);
+            this.checkBox1.Location = new System.Drawing.Point(226, 138);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(101, 17);
             this.checkBox1.TabIndex = 4;
@@ -97,7 +98,7 @@
             // 
             // Sign_up_pass
             // 
-            this.Sign_up_pass.Location = new System.Drawing.Point(175, 81);
+            this.Sign_up_pass.Location = new System.Drawing.Point(213, 86);
             this.Sign_up_pass.Name = "Sign_up_pass";
             this.Sign_up_pass.Size = new System.Drawing.Size(125, 20);
             this.Sign_up_pass.TabIndex = 3;
@@ -106,7 +107,7 @@
             // 
             // Sign_up_pass2
             // 
-            this.Sign_up_pass2.Location = new System.Drawing.Point(175, 107);
+            this.Sign_up_pass2.Location = new System.Drawing.Point(213, 112);
             this.Sign_up_pass2.Name = "Sign_up_pass2";
             this.Sign_up_pass2.Size = new System.Drawing.Size(125, 20);
             this.Sign_up_pass2.TabIndex = 2;
@@ -115,7 +116,8 @@
             // 
             // Sign_up_email
             // 
-            this.Sign_up_email.Location = new System.Drawing.Point(175, 37);
+            this.Sign_up_email.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Sign_up_email.Location = new System.Drawing.Point(213, 42);
             this.Sign_up_email.Name = "Sign_up_email";
             this.Sign_up_email.Size = new System.Drawing.Size(125, 20);
             this.Sign_up_email.TabIndex = 1;
@@ -123,12 +125,15 @@
             // 
             // Sign_up_button
             // 
-            this.Sign_up_button.Location = new System.Drawing.Point(188, 205);
+            this.Sign_up_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Sign_up_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sign_up_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Sign_up_button.Location = new System.Drawing.Point(228, 212);
             this.Sign_up_button.Name = "Sign_up_button";
             this.Sign_up_button.Size = new System.Drawing.Size(89, 35);
             this.Sign_up_button.TabIndex = 0;
             this.Sign_up_button.Text = "Sign up";
-            this.Sign_up_button.UseVisualStyleBackColor = true;
+            this.Sign_up_button.UseVisualStyleBackColor = false;
             this.Sign_up_button.Click += new System.EventHandler(this.Sign_up_button_Click);
             // 
             // tabPage2
@@ -139,9 +144,9 @@
             this.tabPage2.Controls.Add(this.Sign_in_pass);
             this.tabPage2.Controls.Add(this.Sign_in_email);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "Sign_in";
+            this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(480, 378);
+            this.tabPage2.Size = new System.Drawing.Size(546, 393);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sign in";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -150,7 +155,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(188, 107);
+            this.checkBox2.Location = new System.Drawing.Point(228, 112);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(101, 17);
             this.checkBox2.TabIndex = 7;
@@ -169,17 +174,20 @@
             // 
             // Sign_in_button
             // 
-            this.Sign_in_button.Location = new System.Drawing.Point(188, 205);
+            this.Sign_in_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Sign_in_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Sign_in_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Sign_in_button.Location = new System.Drawing.Point(228, 212);
             this.Sign_in_button.Name = "Sign_in_button";
             this.Sign_in_button.Size = new System.Drawing.Size(89, 35);
             this.Sign_in_button.TabIndex = 3;
             this.Sign_in_button.Text = "Sign in";
-            this.Sign_in_button.UseVisualStyleBackColor = true;
+            this.Sign_in_button.UseVisualStyleBackColor = false;
             this.Sign_in_button.Click += new System.EventHandler(this.Sign_in_button_Click);
             // 
             // Sign_in_pass
             // 
-            this.Sign_in_pass.Location = new System.Drawing.Point(175, 81);
+            this.Sign_in_pass.Location = new System.Drawing.Point(213, 86);
             this.Sign_in_pass.Name = "Sign_in_pass";
             this.Sign_in_pass.Size = new System.Drawing.Size(125, 20);
             this.Sign_in_pass.TabIndex = 2;
@@ -188,7 +196,7 @@
             // 
             // Sign_in_email
             // 
-            this.Sign_in_email.Location = new System.Drawing.Point(175, 37);
+            this.Sign_in_email.Location = new System.Drawing.Point(213, 42);
             this.Sign_in_email.Name = "Sign_in_email";
             this.Sign_in_email.Size = new System.Drawing.Size(125, 20);
             this.Sign_in_email.TabIndex = 1;
