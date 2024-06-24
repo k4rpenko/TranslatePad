@@ -144,6 +144,8 @@ namespace Client
 
         #endregion
 
+
+        #region WorkWithcCheck
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             // Якщо чекбокс позначений, властивість UseSystemPasswordChar вимкнена
@@ -159,7 +161,21 @@ namespace Client
                 Sign_up_pass2.UseSystemPasswordChar = true;
             }
         }
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            // Якщо чекбокс позначений, властивість UseSystemPasswordChar вимкнена
+            if (checkBox2.Checked)
+            {
+                Sign_in_pass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Якщо чекбокс не позначений, властивість UseSystemPasswordChar увімкнена
+                Sign_in_pass.UseSystemPasswordChar = true;
 
+            }
+        }
+        #endregion
 
         private void ShowError(string message)
         {
@@ -180,20 +196,7 @@ namespace Client
             label1.Visible = true;
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            // Якщо чекбокс позначений, властивість UseSystemPasswordChar вимкнена
-            if (checkBox2.Checked)
-            {
-                Sign_in_pass.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                // Якщо чекбокс не позначений, властивість UseSystemPasswordChar увімкнена
-                Sign_in_pass.UseSystemPasswordChar = true;
-
-            }
-        }
+        
 
         private void label2_Click(object sender, EventArgs e)
         {
