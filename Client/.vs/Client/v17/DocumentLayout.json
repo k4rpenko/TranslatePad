@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Work UA\\Git\\TranslatePad\\Client\\",
+  "WorkspaceRootPath": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|e:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\git_c#\\translatepad\\client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\client\\authorization.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\pass\\validpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\client\\pass\\validpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\pass\\validpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\pass\\validemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\client\\pass\\validemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\pass\\validemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,11 +40,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Authorization.Designer.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.Designer.cs",
+              "DocumentMoniker": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Authorization.Designer.cs",
               "RelativeDocumentMoniker": "Client\\Authorization.Designer.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.Designer.cs",
+              "ToolTip": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Authorization.Designer.cs",
               "RelativeToolTip": "Client\\Authorization.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAQAAAA",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAmwKcAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T21:50:09.972Z",
               "IsPinned": true,
@@ -53,22 +53,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
+              "Title": "Authorization.cs [Design]",
+              "DocumentMoniker": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Authorization.cs",
               "RelativeDocumentMoniker": "Client\\Authorization.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Authorization.cs [Design]",
+              "RelativeToolTip": "Client\\Authorization.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T22:04:18.667Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ValidEmail.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\pass\\ValidEmail.cs",
+              "DocumentMoniker": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\pass\\ValidEmail.cs",
               "RelativeDocumentMoniker": "Client\\pass\\ValidEmail.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\pass\\ValidEmail.cs",
+              "ToolTip": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\pass\\ValidEmail.cs",
               "RelativeToolTip": "Client\\pass\\ValidEmail.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -77,11 +77,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ValidPass.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\pass\\ValidPass.cs",
+              "DocumentMoniker": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\pass\\ValidPass.cs",
               "RelativeDocumentMoniker": "Client\\pass\\ValidPass.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\pass\\ValidPass.cs",
+              "ToolTip": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\pass\\ValidPass.cs",
               "RelativeToolTip": "Client\\pass\\ValidPass.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -90,28 +90,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Authorization.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
+              "DocumentMoniker": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Authorization.cs",
               "RelativeDocumentMoniker": "Client\\Authorization.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
+              "ToolTip": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Authorization.cs",
               "RelativeToolTip": "Client\\Authorization.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAowEEAAAAFAAAA",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAcwIsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T21:50:17.715Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Program.cs",
+              "DocumentMoniker": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Program.cs",
               "RelativeDocumentMoniker": "Client\\Program.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Program.cs",
+              "ToolTip": "E:\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0443\u0432\u0430\u043D\u043D\u044F\\Git_C#\\TranslatePad\\Client\\Client\\Program.cs",
               "RelativeToolTip": "Client\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T21:42:07.501Z"
+              "WhenOpened": "2024-06-23T21:42:07.501Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 96,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             }
           ]
         }
