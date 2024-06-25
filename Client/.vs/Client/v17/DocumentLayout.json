@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Work UA\\Git\\TranslatePad\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\api\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\api\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\api\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\api\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\pass\\validemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +19,8 @@
       "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\pass\\validpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,30 +30,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 314,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "send.cs",
               "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\api\\send.cs",
               "RelativeDocumentMoniker": "Client\\api\\send.cs",
               "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\api\\send.cs",
               "RelativeToolTip": "Client\\api\\send.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAuwBEAAAAAAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAkwAgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-25T13:35:00.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Authorization.cs",
               "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
               "RelativeDocumentMoniker": "Client\\Authorization.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
-              "RelativeToolTip": "Client\\Authorization.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAowEwAAAAnAAAA",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs*",
+              "RelativeToolTip": "Client\\Authorization.cs*",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAAwIwAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T21:50:17.715Z",
               "EditorCaption": ""
@@ -66,7 +66,7 @@
               "RelativeDocumentMoniker": "Client\\pass\\ValidPass.cs",
               "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\pass\\ValidPass.cs",
               "RelativeToolTip": "Client\\pass\\ValidPass.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAA8wAAAAAAAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAkwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T20:17:24.835Z",
               "EditorCaption": ""
@@ -86,12 +86,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
               "RelativeDocumentMoniker": "Client\\Authorization.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "RelativeToolTip": "Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T19:46:46.343Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"

@@ -68,31 +68,11 @@ namespace Client
                 {
                     int statusCodeValue = (int)statusCode;
                     Console.WriteLine(statusCodeValue);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        label_in.ForeColor = Color.Green;
-                        label_in.Text = "Registration successful";
-                        //Form1 form1 = new Form1();
-                        //form1.Show();
-                        //this.Hide();
-
-                    }
-                    else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                    {
-                        label_in.ForeColor = Color.Red;
-                        label_in.Text = "Invalid credentials";
-                    }
-                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        label_in.ForeColor = Color.Red;
-                        label_in.Text = "There is no account at the specified email address. You can Sign up account at this email address";
-                    }
-                    /*
+                    
                     if ((int)response.StatusCode == 200)
                     {
-                        label2.ForeColor = Color.Green;
-                        label2.Text = "Вхід пройшла успішно";
+                        label_in.ForeColor = Color.Green;
+                        label_in.Text = "Вхід пройшла успішно";
                         //Form1 form1 = new Form1();
                         //form1.Show();
                         //this.Hide();
@@ -100,14 +80,14 @@ namespace Client
                     }
                     else if ((int)response.StatusCode == 404)
                     {
-                        label2.ForeColor = Color.Red;
-                        label2.Text = "За вказаною адресою електронної пошти немає облікового запису. Ви можете зареєструвати обліковий запис на цю адресу електронної пошти";
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text = "За вказаною адресою електронної пошти немає облікового запису. Ви можете зареєструвати обліковий запис на цю адресу електронної пошти";
                     }
                     else if ((int)response.StatusCode == 401)
                     {
-                        label2.ForeColor = Color.Red;
-                        label2.Text = "Невірні облікові дані";
-                    }*/
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text = "Невірні облікові дані";
+                    }
                 }
                 else
                 {
@@ -152,10 +132,10 @@ namespace Client
                 HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email.Text.ToString(), Sign_up_pass.Text.ToString());
                 int statusCodeValue = (int)statusCode;
 
-                if (response.IsSuccessStatusCode)
+                if ((int)response.StatusCode == 200)
                 {
                     label1.ForeColor = Color.Green;
-                    label1.Text = "Login successful";
+                    label1.Text = "Register successful";
                     //Form1 form1 = new Form1();
                     //form1.Show();
                     //this.Hide();
