@@ -43,6 +43,8 @@
             this.Sign_in_button = new System.Windows.Forms.Button();
             this.Sign_in_pass = new System.Windows.Forms.TextBox();
             this.Sign_in_email = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -52,16 +54,18 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl1.Location = new System.Drawing.Point(227, 63);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(120, 15);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(554, 419);
+            this.tabControl1.Size = new System.Drawing.Size(559, 419);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Black;
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.Sign_up_pass);
@@ -71,7 +75,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 46);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(546, 369);
+            this.tabPage1.Size = new System.Drawing.Size(555, 369);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sign up";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
@@ -88,10 +92,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Black;
+            this.checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.checkBox1.Location = new System.Drawing.Point(226, 138);
+            this.checkBox1.Location = new System.Drawing.Point(139, 239);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(108, 17);
             this.checkBox1.TabIndex = 4;
@@ -101,37 +105,40 @@
             // 
             // Sign_up_pass
             // 
-            this.Sign_up_pass.BackColor = System.Drawing.Color.Black;
+            this.Sign_up_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Sign_up_pass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Sign_up_pass.Location = new System.Drawing.Point(213, 86);
+            this.Sign_up_pass.Location = new System.Drawing.Point(139, 137);
+            this.Sign_up_pass.Multiline = true;
             this.Sign_up_pass.Name = "Sign_up_pass";
-            this.Sign_up_pass.Size = new System.Drawing.Size(125, 22);
+            this.Sign_up_pass.Size = new System.Drawing.Size(270, 35);
             this.Sign_up_pass.TabIndex = 3;
             this.Sign_up_pass.UseSystemPasswordChar = true;
             this.Sign_up_pass.TextChanged += new System.EventHandler(this.Sign_up_pass_TextChanged);
             // 
             // Sign_up_pass2
             // 
-            this.Sign_up_pass2.BackColor = System.Drawing.Color.Black;
+            this.Sign_up_pass2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_pass2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Sign_up_pass2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Sign_up_pass2.Location = new System.Drawing.Point(213, 112);
+            this.Sign_up_pass2.Location = new System.Drawing.Point(139, 188);
+            this.Sign_up_pass2.Multiline = true;
             this.Sign_up_pass2.Name = "Sign_up_pass2";
-            this.Sign_up_pass2.Size = new System.Drawing.Size(125, 22);
+            this.Sign_up_pass2.Size = new System.Drawing.Size(270, 35);
             this.Sign_up_pass2.TabIndex = 2;
             this.Sign_up_pass2.UseSystemPasswordChar = true;
             this.Sign_up_pass2.TextChanged += new System.EventHandler(this.Sign_up_pass2_TextChanged);
             // 
             // Sign_up_email
             // 
-            this.Sign_up_email.BackColor = System.Drawing.Color.Black;
+            this.Sign_up_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Sign_up_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_up_email.ForeColor = System.Drawing.Color.Silver;
-            this.Sign_up_email.Location = new System.Drawing.Point(213, 42);
+            this.Sign_up_email.Location = new System.Drawing.Point(140, 50);
+            this.Sign_up_email.Multiline = true;
             this.Sign_up_email.Name = "Sign_up_email";
-            this.Sign_up_email.Size = new System.Drawing.Size(125, 22);
+            this.Sign_up_email.Size = new System.Drawing.Size(270, 35);
             this.Sign_up_email.TabIndex = 1;
             this.Sign_up_email.TextChanged += new System.EventHandler(this.Sign_up_email_TextChanged);
             // 
@@ -142,7 +149,7 @@
             this.Sign_up_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Sign_up_button.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_up_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Sign_up_button.Location = new System.Drawing.Point(228, 212);
+            this.Sign_up_button.Location = new System.Drawing.Point(237, 280);
             this.Sign_up_button.Name = "Sign_up_button";
             this.Sign_up_button.Size = new System.Drawing.Size(89, 35);
             this.Sign_up_button.TabIndex = 0;
@@ -152,7 +159,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.checkBox2);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.Sign_in_button);
@@ -161,7 +169,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 46);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(546, 369);
+            this.tabPage2.Size = new System.Drawing.Size(551, 369);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sign in";
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
@@ -171,7 +179,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.checkBox2.Location = new System.Drawing.Point(228, 112);
+            this.checkBox2.Location = new System.Drawing.Point(140, 189);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(108, 17);
             this.checkBox2.TabIndex = 7;
@@ -194,7 +202,7 @@
             this.Sign_in_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Sign_in_button.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Sign_in_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Sign_in_button.Location = new System.Drawing.Point(228, 212);
+            this.Sign_in_button.Location = new System.Drawing.Point(237, 280);
             this.Sign_in_button.Name = "Sign_in_button";
             this.Sign_in_button.Size = new System.Drawing.Size(89, 35);
             this.Sign_in_button.TabIndex = 3;
@@ -204,31 +212,59 @@
             // 
             // Sign_in_pass
             // 
-            this.Sign_in_pass.BackColor = System.Drawing.Color.Black;
+            this.Sign_in_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_in_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Sign_in_pass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Sign_in_pass.Location = new System.Drawing.Point(213, 86);
+            this.Sign_in_pass.Location = new System.Drawing.Point(140, 139);
+            this.Sign_in_pass.Multiline = true;
             this.Sign_in_pass.Name = "Sign_in_pass";
-            this.Sign_in_pass.Size = new System.Drawing.Size(125, 22);
+            this.Sign_in_pass.Size = new System.Drawing.Size(270, 35);
             this.Sign_in_pass.TabIndex = 2;
             this.Sign_in_pass.UseSystemPasswordChar = true;
             this.Sign_in_pass.TextChanged += new System.EventHandler(this.Sign_in_pass_TextChanged);
             // 
             // Sign_in_email
             // 
-            this.Sign_in_email.BackColor = System.Drawing.Color.Black;
+            this.Sign_in_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_in_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Sign_in_email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Sign_in_email.Location = new System.Drawing.Point(213, 42);
+            this.Sign_in_email.Location = new System.Drawing.Point(140, 50);
+            this.Sign_in_email.Multiline = true;
             this.Sign_in_email.Name = "Sign_in_email";
-            this.Sign_in_email.Size = new System.Drawing.Size(125, 22);
+            this.Sign_in_email.Size = new System.Drawing.Size(270, 35);
             this.Sign_in_email.TabIndex = 1;
             this.Sign_in_email.TextChanged += new System.EventHandler(this.Sign_in_email_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(85)))), ((int)(((byte)(90)))));
+            this.label3.Location = new System.Drawing.Point(140, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(272, 26);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Використовуйте електронну пошту організації, \r\nщоб легко співпрацювати з колегами" +
+    " по команді";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(85)))), ((int)(((byte)(90)))));
+            this.label4.Location = new System.Drawing.Point(140, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(272, 26);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Використовуйте електронну пошту організації, \r\nщоб легко співпрацювати з колегами" +
+    " по команді";
             // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(1004, 611);
             this.Controls.Add(this.tabControl1);
             this.ForeColor = System.Drawing.Color.Cyan;
@@ -259,5 +295,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -282,5 +282,9 @@ namespace Client
             return Sign_up_pass.Text == Sign_up_pass2.Text;
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
