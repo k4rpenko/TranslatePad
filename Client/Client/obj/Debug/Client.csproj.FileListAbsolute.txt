@@ -18,3 +18,24 @@ E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client
 E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
 E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.exe
 E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.pdb
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Buffers.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Memory.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Net.Http.Json.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Numerics.Vectors.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Text.Encodings.Web.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Text.Json.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.ValueTuple.dll
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Buffers.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Memory.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Net.Http.Json.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Numerics.Vectors.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Text.Encodings.Web.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Text.Json.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.ValueTuple.xml
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.Up2Date

@@ -1,6 +1,10 @@
 const express = require("express");
 require('dotenv').config();
+
 const Test = require('./api/Test/routes');
+const Login = require('./api/auth/Login/routes');
+const Regists = require('./api/auth/SignUp/routes');
+
 var cors = require('cors')
 const helmet = require('helmet');
 const csp = require('helmet-csp');
@@ -46,10 +50,10 @@ app.use((req, res, next) => {
 
 
 
-
 app.use(express.json());
 app.use("/api/Test", Test);
-
+app.use("/api/auth/Login", Login);
+app.use("/api/auth/Regists", Regists);
 
 
 

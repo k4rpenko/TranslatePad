@@ -39,7 +39,7 @@
             this.Sign_up_button = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_in = new System.Windows.Forms.Label();
             this.Sign_in_button = new System.Windows.Forms.Button();
             this.Sign_in_pass = new System.Windows.Forms.TextBox();
             this.Sign_in_email = new System.Windows.Forms.TextBox();
@@ -139,7 +139,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.checkBox2);
-            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.label_in);
             this.tabPage2.Controls.Add(this.Sign_in_button);
             this.tabPage2.Controls.Add(this.Sign_in_pass);
             this.tabPage2.Controls.Add(this.Sign_in_email);
@@ -163,14 +163,14 @@
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // label2
+            // label_in
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(172, 141);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label_in.AutoSize = true;
+            this.label_in.Location = new System.Drawing.Point(172, 141);
+            this.label_in.Name = "label_in";
+            this.label_in.Size = new System.Drawing.Size(0, 13);
+            this.label_in.TabIndex = 6;
+            this.label_in.Click += new System.EventHandler(this.label2_Click);
             // 
             // Sign_in_button
             // 
@@ -233,7 +233,7 @@
         private System.Windows.Forms.TextBox Sign_in_pass;
         private System.Windows.Forms.TextBox Sign_in_email;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_in;
         private System.Windows.Forms.CheckBox checkBox2;
     }
 }
