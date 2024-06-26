@@ -19,7 +19,7 @@ namespace Client
             Application.SetCompatibleTextRenderingDefault(false);
             if (File.Exists("user_refresh.txt"))
             {
-                Application.Run(new TestForm());
+                //Application.Run(new TestForm());
             }
             else
             {
