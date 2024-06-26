@@ -1,21 +1,60 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Client.pass;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using Client.api;
+using System.Net.Http;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json.Linq;
+
 
 namespace Client
 {
 
     public partial class Authorization : Form
     {
-        private bool isEmailValidSignUp = false;
-        private bool isPasswordValidSignUp = false;
-        private bool isEmailValidSignIn = false;
-        private bool isPasswordValidSignIn = false;
-        private bool buttonClicked = false;
+        private static string cookieFilePath = "cookies.dat";
+        PassValidation passValidation = new PassValidation();
+        EmailValidation emailValidation = new EmailValidation();
+        Http_Send httpSend = new Http_Send();
+        HttpStatusCode statusCode = HttpStatusCode.NotFound;
 
+        public static void SaveRefreshToken(string refreshToken)
+        {
+            try
+            {
+                using (FileStream fs = File.Create("user_refresh.txt"))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes(refreshToken);
+                    fs.Write(info, 0, info.Length);
+                }
+            }
+            catch (Exception ex) { }
+        }
 
+        public static void OpenRefreshToken()
+        {
+            try
+            {
+                using (StreamReader sr = File.OpenText("user_refresh.txt"))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            }
+            catch (Exception ex) { }
 
+        }
 
 
         public Authorization()
@@ -43,16 +82,67 @@ namespace Client
         #region WorkWithButton
         private async void Sign_in_button_Click(object sender, EventArgs e)
         {
-            buttonClicked = true;
-
-            if (!isEmailValidSignIn)
+            label_in.ForeColor = Color.Red;
+            var aEmail = emailValidation.ValidateEmail(Sign_in_email.Text);
+            if (!aEmail.IsValid)
             {
-                ShowError2("Уведіть правильну адресу електронної пошти");
+                label_in.Text = aEmail.Message;
+                return;
             }
-            else
+            var aPass = passValidation.ValidatePassword(Sign_in_pass.Text);
+            if (!aPass.IsValid)
             {
-                label2.Visible = false;
-                // Логіка входу, наприклад, перевірка користувача, виклик API і т.д.
+
+                label_in.Text = aPass.Message;
+                return;
+            }
+
+            label_in.Text = "";
+            Console.WriteLine($"email: {Sign_in_email.Text.ToString()}\nPassword: {Sign_in_pass.Text.ToString()}");
+            try
+            {
+                string url = "http://localhost:3001/api/auth/Login";
+                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_in_email.Text.ToString(), Sign_in_pass.Text.ToString());
+                if (response != null)
+                {
+                    if ((int)response.StatusCode == 200)
+                    {
+                        using (var streamReader = new StreamReader(await response.Content.ReadAsStreamAsync()))
+                        {
+                            var result = await streamReader.ReadToEndAsync();
+                            dynamic jsonResponse = JObject.Parse(result);
+                            string refreshToken = jsonResponse.refreshToken;
+                            SaveRefreshToken(refreshToken);
+
+
+                            label_in.ForeColor = Color.Green;
+                            label_in.Text = "Вхід пройшла успішно";
+                            //TestForm form1 = new TestForm();
+                            //form1.Show();
+                            //this.Hide();
+                        }
+                    }
+                    else if ((int)response.StatusCode == 404)
+                    {
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text = "За вказаною адресою електронної пошти немає облікового запису. Ви можете зареєструвати обліковий запис на цю адресу електронної пошти";
+                    }
+                    else if ((int)response.StatusCode == 401)
+                    {
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text = "Невірні облікові дані";
+                    }
+                }
+                else
+                {
+                    label_in.ForeColor = Color.Red;
+                    label_in.Text = "NULL";
+                }
+            }
+            catch
+            {
+
+                label_in.Text = "error occurred";
             }
         }
 
@@ -60,41 +150,65 @@ namespace Client
 
         private async void Sign_up_button_Click(object sender, EventArgs e)
         {
-
-            //Font buttonFont = new Font("Arial", 10, FontStyle.Bold); // Наприклад, Arial шрифт, розмір 12, жирний стиль
-
-            //// Встановлення шрифту для кнопки "Sign in"
-            //Sign_up_button.Font = buttonFont;
-
-            if (!isEmailValidSignUp)
+            label1.ForeColor = Color.Red;
+            var aEmail = emailValidation.ValidateEmail(Sign_up_email.Text);
+            if (!aEmail.IsValid)
             {
-                ShowError("Уведіть правильну адресу електронної пошти");
+                label1.Text = aEmail.Message;
+                return;
             }
-            else if (!isPasswordValidSignUp)
-
+            if (Sign_up_pass.Text != Sign_up_pass2.Text) { label1.Text = "Pass is not corect"; return; }
+            var aPass = passValidation.ValidatePassword(Sign_up_pass.Text);
+            if (!aPass.IsValid)
             {
-                if (isPasswordValidSignUp)
+
+                label1.Text = aPass.Message;
+                return;
+            }
+
+            label1.Text = "";
+
+
+            try
+            {
+                string url = "http://localhost:3001/api/auth/Regists";
+                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email.Text.ToString(), Sign_up_pass.Text.ToString());
+                int statusCodeValue = (int)statusCode;
+
+                if ((int)response.StatusCode == 200)
                 {
-                    label2.Visible = false;
+                    using (var streamReader = new StreamReader(await response.Content.ReadAsStreamAsync()))
+                    {
+                        var result = await streamReader.ReadToEndAsync();
+                        dynamic jsonResponse = JObject.Parse(result);
+                        string refreshToken = jsonResponse.refreshToken;
+                        SaveRefreshToken(refreshToken);
+
+
+                        label1.ForeColor = Color.Green;
+                        label1.Text = "Вхід пройшла успішно";
+                        //TestForm form1 = new TestForm();
+                        //Authorization _a = new Authorization();
+                        //form1.Show();
+                        //_a.Hide();
+                    }
+
+                }
+                else if ((int)response.StatusCode == 404)
+                {
+                    label1.ForeColor = Color.Red;
+                    label1.Text = "Вказана електронна адреса вже використовується, будь ласка, спробуйте ввести іншу або авторизуйтесь.";
                 }
                 else
                 {
-                    ShowError("Пароль не співпадає");
-                }
-
-                if (buttonClicked && !isPasswordValidSignUp)
-                {
-                    ShowError("Мінімум 8 символів, одну велику літеру, одну малу літеру та одну цифру");
-                }
-                else
-                {
-                    label1.Visible = false;
+                    label1.ForeColor = Color.Red;
+                    label1.Text = "Виникла непередбачувана помилка, будь ласка, спробуйте пізніше";
                 }
             }
-            else
+            catch
             {
-                label1.Visible = false;
-                // Логіка реєстрації, наприклад, збереження даних, виклик API і т.д.
+
+                label1.Text = "error occurred";
             }
         }
         #endregion
@@ -103,103 +217,39 @@ namespace Client
         private async void Sign_up_pass2_TextChanged(object sender, EventArgs e)
         {
 
-            Sign_up_pass2.ForeColor = Color.White;
-
-            isPasswordValidSignUp = ArePasswordsMatching();
-
-            //if (isPasswordValidSignUp)
-            //{
-            //    label2.Visible = false;
-            //}
-            //else
-            //{
-            //    ShowError("Пароль не співпадає");
-            //}
         }
 
         private async void Sign_up_pass_TextChanged(object sender, EventArgs e)
         {
-            string passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$";
-            isPasswordValidSignUp = Regex.IsMatch(Sign_up_pass.Text, passwordPattern);
-            Sign_up_pass.ForeColor = Color.White;
-
-            //if (buttonClicked && !isPasswordValidSignUp)
-            //{
-            //    ShowError("Мінімум 8 символів, одну велику літеру, одну малу літеру та одну цифру");
-            //}
-            //else
-            //{
-            //    label1.Visible = false;
-            //}
+           
         }
 
         private async void Sign_in_pass_TextChanged(object sender, EventArgs e)
         {
-            Sign_in_pass.ForeColor = Color.White;
-            // Логіка для обробки зміни тексту пароля при вході
+            
         }
         #endregion
 
         #region WorkWithEmail
         private async void Sign_in_email_TextChanged(object sender, EventArgs e)
         {
-
-            Sign_in_email.ForeColor = Color.White;
-            string emailPattern = @"^[^@\s]+@[^\s@]+\.[^\s@]+$";
-            isEmailValidSignIn = Regex.IsMatch(Sign_in_email.Text, emailPattern);
-
-            if (buttonClicked && !isEmailValidSignIn)
-            {
-                ShowError2("Уведіть правильну адресу електронної пошти");
-            }
-            else
-            {
-                label2.Visible = false;
-            }
         }
-
-
-
-
-
-
 
 
         private async void Sign_up_email_TextChanged(object sender, EventArgs e)
         {
-            string emailPattern = @"^[^@\s]+@[^\s@]+\.[^\s@]+$";
-            isEmailValidSignUp = Regex.IsMatch(Sign_up_email.Text, emailPattern);
-            Sign_up_email.ForeColor = Color.White;
-
-            //if (buttonClicked && !isEmailValidSignUp)
-            //{
-            //    ShowError("Уведіть правильну адресу електронної пошти");
-            //}
-            //else
-            //{
-            //    label1.Visible = false;
-            //}
         }
         #endregion
 
         #region Placeholder
         private void SetEmailPlaceholder(TextBox textBox, string placeholderText)
         {
-            if (string.IsNullOrEmpty(textBox.Text))
-            {
-                textBox.Text = placeholderText;
-                textBox.ForeColor = Color.Gray;
-            }
+
         }
 
         private void SetPasswordPlaceholder(TextBox textBox, string placeholderText)
         {
-            if (string.IsNullOrEmpty(textBox.Text))
-            {
-                textBox.Text = placeholderText;
-                textBox.ForeColor = Color.Gray;
-                textBox.UseSystemPasswordChar = false;
-            }
+
         }
 
         private void RemovePlaceholder(object sender, EventArgs e)
@@ -257,9 +307,9 @@ namespace Client
 
         private void ShowError2(string message)
         {
-            label2.Text = message;
-            label2.ForeColor = Color.Red;
-            label2.Visible = true;
+            label_in.Text = message;
+            label_in.ForeColor = Color.Red;
+            label_in.Visible = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
