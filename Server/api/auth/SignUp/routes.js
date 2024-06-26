@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
             //const accessToken = await TokenService.generateAccessToken(values);
             const refreshToken = await TokenService.generateRefreshToken(values);
             await client.query('UPDATE trap_users SET token_refresh = $1 WHERE id = $2;', [refreshToken, id]);
-            return res.status(200).json({refreshToken, userPreferences: { theme: 'dark', language: 'ua' }});
+            return res.status(200).json({refreshToken});
             //localStorage.setItem('accessToken', accessToken);
           }
     } catch (error) {

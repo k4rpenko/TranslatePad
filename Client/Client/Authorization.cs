@@ -1,22 +1,53 @@
 ﻿using Client.pass;
 using System;
 using System.Drawing;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Client.api;
-using Client.pass;
 using System.Net.Http;
 using System.Net;
-using System.Reflection.Emit;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace Client
 {
     public partial class Authorization : Form
     {
+        private static string cookieFilePath = "cookies.dat";
         PassValidation passValidation = new PassValidation();
         EmailValidation emailValidation = new EmailValidation();
         Http_Send httpSend = new Http_Send();
         HttpStatusCode statusCode = HttpStatusCode.NotFound;
+
+        public static void SaveRefreshToken(string refreshToken)
+        {
+            try
+            {
+                using (FileStream fs = File.Create("user_refresh.txt"))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes(refreshToken);
+                    fs.Write(info, 0, info.Length);
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void OpenRefreshToken()
+        {
+            try
+            {
+                using (StreamReader sr = File.OpenText("user_refresh.txt"))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            }
+            catch (Exception ex) { }
+
+        }
 
         public Authorization()
         {
@@ -61,22 +92,26 @@ namespace Client
             Console.WriteLine($"email: {Sign_in_email.Text.ToString()}\nPassword: {Sign_in_pass.Text.ToString()}");
             try
             {
-                Console.WriteLine($"one");
                 string url = "http://localhost:3001/api/auth/Login";    
                 HttpResponseMessage response = await httpSend.PostAuth(url, Sign_in_email.Text.ToString(), Sign_in_pass.Text.ToString());
                 if (response != null)
                 {
-                    int statusCodeValue = (int)statusCode;
-                    Console.WriteLine(statusCodeValue);
-                    
                     if ((int)response.StatusCode == 200)
                     {
-                        label_in.ForeColor = Color.Green;
-                        label_in.Text = "Вхід пройшла успішно";
-                        //Form1 form1 = new Form1();
-                        //form1.Show();
-                        //this.Hide();
+                        using (var streamReader = new StreamReader(await response.Content.ReadAsStreamAsync()))
+                        {
+                            var result = await streamReader.ReadToEndAsync();
+                            dynamic jsonResponse = JObject.Parse(result);
+                            string refreshToken = jsonResponse.refreshToken;
+                            SaveRefreshToken(refreshToken);
 
+
+                            label_in.ForeColor = Color.Green;
+                            label_in.Text = "Вхід пройшла успішно";
+                            TestForm form1 = new TestForm();
+                            form1.Show();
+                            this.Hide();
+                        }
                     }
                     else if ((int)response.StatusCode == 404)
                     {
@@ -134,11 +169,21 @@ namespace Client
 
                 if ((int)response.StatusCode == 200)
                 {
-                    label1.ForeColor = Color.Green;
-                    label1.Text = "Register successful";
-                    //Form1 form1 = new Form1();
-                    //form1.Show();
-                    //this.Hide();
+                    using (var streamReader = new StreamReader(await response.Content.ReadAsStreamAsync()))
+                    {
+                        var result = await streamReader.ReadToEndAsync();
+                        dynamic jsonResponse = JObject.Parse(result);
+                        string refreshToken = jsonResponse.refreshToken;
+                        SaveRefreshToken(refreshToken);
+
+
+                        label1.ForeColor = Color.Green;
+                        label1.Text = "Вхід пройшла успішно";
+                        TestForm form1 = new TestForm();
+                        Authorization _a = new Authorization();
+                        form1.Show();
+                        _a.Hide();
+                    }
 
                 }
                 else if ((int)response.StatusCode == 404)

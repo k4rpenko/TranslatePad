@@ -9,30 +9,13 @@ const bcrypt = require('bcryptjs');
 router.use(express.json());
 router.use(cookieParser());
 
-router.get('/', async (req, res) => {
-    try {
-        const refreshToken = req.cookies['auth_token'];
-        if (refreshToken) {
-            const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
-            const id = jwtres.data[1];
-            if (typeof jwtres === 'object' && jwtres !== null) {
-                return res.status(200).json({ id });
-            }
-        }
-        return res.status(400).json({ error: 'None coockie' });
-    } catch (error) {
-        return res.status(500).json({ error: 'Internal Server Error ' + error.message });
-    }
-});
-
-
 router.post('/', async (req, res) => {
     const { email, password } = req.body;
     let client;
     try {
         client = await pg.connect();
 
-        const result = await client.query('SELECT id, email, password, nick FROM public.trap_users WHERE email = $1;', [email]);
+        const result = await client.query('SELECT * FROM public.trap_users WHERE email = $1;', [email]);
 
         if (result.rows.length > 0) {
             const dbPassword = result.rows[0].password;
