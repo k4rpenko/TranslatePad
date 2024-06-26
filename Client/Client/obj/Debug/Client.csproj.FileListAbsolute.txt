@@ -8,3 +8,13 @@ D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.GenerateResour
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.exe
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.pdb
+E:\програмування\Git_C#\TranslatePad\Client\Client\bin\Debug\Client.exe.config
+E:\програмування\Git_C#\TranslatePad\Client\Client\bin\Debug\Client.exe
+E:\програмування\Git_C#\TranslatePad\Client\Client\bin\Debug\Client.pdb
+E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.Dictionary.resources
+E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.Properties.Resources.resources
+E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.csproj.GenerateResource.cache
+E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.exe
+E:\програмування\Git_C#\TranslatePad\Client\Client\obj\Debug\Client.pdb

@@ -47,5 +47,26 @@ namespace Client
         {
 
         }
+
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Нотатка1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
