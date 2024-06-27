@@ -17,3 +17,4 @@ bin/
 obj/
 Client/.vs/Client/v17/.suo
 /Client/Client/obj
+/Client/.vs
