@@ -1,12 +1,2 @@
 
 *.vsidx
-# Ignore Visual Studio .vs folder
-Client/.vs/
-
-# Ignore build output folders
-Client/bin/
-Client/obj/
-
-# Ignore specific files
-Client/Client/Client.exe.config
-Client/Client/Client.pdb
