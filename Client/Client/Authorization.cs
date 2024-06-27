@@ -5,13 +5,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Client.pass;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 using Client.api;
 using System.Net.Http;
 using System.Net;
-using System.IO;
 using Newtonsoft.Json.Linq;
 
 
@@ -20,7 +16,7 @@ namespace Client
 
     public partial class Authorization : Form
     {
-        private static string cookieFilePath = "cookies.dat";
+        private static string RefreshFilePath = "user_refresh.txt";
         PassValidation passValidation = new PassValidation();
         EmailValidation emailValidation = new EmailValidation();
         Http_Send httpSend = new Http_Send();
@@ -30,7 +26,7 @@ namespace Client
         {
             try
             {
-                using (FileStream fs = File.Create("user_refresh.txt"))
+                using (FileStream fs = File.Create(RefreshFilePath))
                 {
                     byte[] info = new UTF8Encoding(true).GetBytes(refreshToken);
                     fs.Write(info, 0, info.Length);

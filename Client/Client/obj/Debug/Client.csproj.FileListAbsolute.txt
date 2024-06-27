@@ -41,3 +41,4 @@ D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Text.Json.xml
 D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.ValueTuple.xml
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.Up2Date
+D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.Menu.resources
