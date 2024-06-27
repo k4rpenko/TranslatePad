@@ -1,6 +1,6 @@
 ﻿namespace Client
 {
-    partial class Dictionary
+    partial class Translate
     {
         /// <summary>
         /// Required designer variable.

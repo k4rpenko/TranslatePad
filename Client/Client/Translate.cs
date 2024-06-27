@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Client
 {
-    public partial class Dictionary : Form
+    public partial class Translate : Form
     {
-        public Dictionary()
+        public Translate()
         {
             InitializeComponent();
         }
