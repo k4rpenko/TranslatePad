@@ -79,6 +79,12 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Translate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Translate.Designer.cs">
+      <DependentUpon>Translate.cs</DependentUpon>
 <ItemGroup>
     <Compile Include="Dictionary.cs">
       <SubType>Form</SubType>
@@ -103,6 +109,8 @@
     <Compile Include="pass\ValidPass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Translate.resx">
+      <DependentUpon>Translate.cs</DependentUpon>
     <EmbeddedResource Include="Dictionary.resx">
       <DependentUpon>Dictionary.cs</DependentUpon>
     </EmbeddedResource>
