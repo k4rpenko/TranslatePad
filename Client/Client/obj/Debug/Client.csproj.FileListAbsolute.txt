@@ -42,3 +42,4 @@ D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.Threading.Tasks.Exten
 D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.ValueTuple.xml
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.Up2Date
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.Menu.resources
+D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\Guna.UI2.dll
