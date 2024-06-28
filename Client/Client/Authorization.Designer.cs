@@ -119,10 +119,9 @@
             // 
             this.Sign_up_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Sign_up_pass.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Sign_up_pass.Font = new System.Drawing.Font("Segoe UI", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_up_pass.ForeColor = System.Drawing.Color.White;
             this.Sign_up_pass.Location = new System.Drawing.Point(346, 266);
-            this.Sign_up_pass.Multiline = true;
             this.Sign_up_pass.Name = "Sign_up_pass";
             this.Sign_up_pass.Size = new System.Drawing.Size(300, 35);
             this.Sign_up_pass.TabIndex = 3;
@@ -133,10 +132,9 @@
             // 
             this.Sign_up_pass2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_pass2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Sign_up_pass2.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Sign_up_pass2.Font = new System.Drawing.Font("Segoe UI", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_up_pass2.ForeColor = System.Drawing.Color.White;
             this.Sign_up_pass2.Location = new System.Drawing.Point(346, 213);
-            this.Sign_up_pass2.Multiline = true;
             this.Sign_up_pass2.Name = "Sign_up_pass2";
             this.Sign_up_pass2.Size = new System.Drawing.Size(300, 35);
             this.Sign_up_pass2.TabIndex = 2;
@@ -241,10 +239,9 @@
             // 
             this.Sign_in_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_in_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Sign_in_pass.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Sign_in_pass.Font = new System.Drawing.Font("Segoe UI", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Sign_in_pass.ForeColor = System.Drawing.SystemColors.Window;
             this.Sign_in_pass.Location = new System.Drawing.Point(346, 213);
-            this.Sign_in_pass.Multiline = true;
             this.Sign_in_pass.Name = "Sign_in_pass";
             this.Sign_in_pass.Size = new System.Drawing.Size(300, 35);
             this.Sign_in_pass.TabIndex = 2;
