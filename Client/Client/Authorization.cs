@@ -342,5 +342,15 @@ namespace Client
         {
 
         }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 1;
+        }
     }
 }
