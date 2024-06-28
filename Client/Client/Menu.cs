@@ -15,6 +15,12 @@ namespace Client
         public Menu()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
+        }
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,7 +50,11 @@ namespace Client
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            Translate _tran = new Translate();
+            _tran.StartPosition = FormStartPosition.Manual;
+            _tran.Location = this.Location;
+            _tran.Show();
+            this.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -54,7 +64,11 @@ namespace Client
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Dictionary _dict = new Dictionary();
+            _dict.StartPosition = FormStartPosition.Manual;
+            _dict.Location = this.Location;
+            _dict.Show();
+            this.Hide();
         }
     }
 }

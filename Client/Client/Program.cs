@@ -17,15 +17,14 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Authorization());
-            /*if (File.Exists("user_refresh.txt"))
+            if (File.Exists("user_refresh.txt"))
             {
                 Application.Run(new Menu());
             }
             else
             {
                 Application.Run(new Authorization());
-            }*/
+            }
         }
     }
 }

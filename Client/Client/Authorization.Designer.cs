@@ -242,6 +242,7 @@
             this.Sign_in_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_in_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Sign_in_pass.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Sign_in_pass.ForeColor = System.Drawing.SystemColors.Window;
             this.Sign_in_pass.Location = new System.Drawing.Point(346, 213);
             this.Sign_in_pass.Multiline = true;
             this.Sign_in_pass.Name = "Sign_in_pass";
@@ -255,6 +256,7 @@
             this.Sign_in_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_in_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Sign_in_email.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Sign_in_email.ForeColor = System.Drawing.Color.White;
             this.Sign_in_email.Location = new System.Drawing.Point(346, 98);
             this.Sign_in_email.Multiline = true;
             this.Sign_in_email.Name = "Sign_in_email";

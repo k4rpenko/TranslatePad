@@ -15,6 +15,7 @@ namespace Client
         public Dictionary()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -22,6 +23,11 @@ namespace Client
 
         }
 
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,6 +73,24 @@ namespace Client
         private void Нотатка1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Translate _dict = new Translate();
+            _dict.StartPosition = FormStartPosition.Manual;
+            _dict.Location = this.Location;
+            _dict.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Menu _menu = new Menu();
+            _menu.StartPosition = FormStartPosition.Manual;
+            _menu.Location = this.Location;
+            _menu.Show();
+            this.Hide();
         }
     }
 }

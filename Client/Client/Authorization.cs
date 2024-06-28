@@ -72,7 +72,12 @@ namespace Client
             Sign_up_pass2.Leave += (sender, e) => SetPasswordPlaceholder(Sign_up_pass2, "Repeat Password");
             Sign_in_pass.Enter += RemovePlaceholder;
             Sign_in_pass.Leave += (sender, e) => SetPasswordPlaceholder(Sign_in_pass, "Password");
+            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
+        }
 
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         #region WorkWithButton
@@ -113,9 +118,12 @@ namespace Client
 
                             label_in.ForeColor = Color.Green;
                             label_in.Text = "Вхід пройшла успішно";
-                            //TestForm form1 = new TestForm();
-                            //form1.Show();
-                            //this.Hide();
+                            Authorization _auth = new Authorization();
+                            Menu _Menu = new Menu();
+                            _Menu.StartPosition = FormStartPosition.Manual;
+                            _Menu.Location = this.Location;
+                            this.Hide();
+                            _Menu.Show();
                         }
                     }
                     else if ((int)response.StatusCode == 404)
@@ -183,10 +191,11 @@ namespace Client
 
                         label1.ForeColor = Color.Green;
                         label1.Text = "Вхід пройшла успішно";
-                        //TestForm form1 = new TestForm();
-                        //Authorization _a = new Authorization();
-                        //form1.Show();
-                        //_a.Hide();
+                        Menu _Menu = new Menu();
+                        _Menu.StartPosition = FormStartPosition.Manual;
+                        _Menu.Location = this.Location;
+                        _Menu.Show();
+                        this.Hide();
                     }
 
                 }
