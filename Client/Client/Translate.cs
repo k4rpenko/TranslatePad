@@ -13,6 +13,7 @@ namespace Client
 {
     public partial class Translate : Form
     {
+        static int id_Butt_Leng = 1;
         public Translate()
         {
             InitializeComponent();
@@ -60,6 +61,20 @@ namespace Client
             _menu.StartPosition = FormStartPosition.Manual;
             _menu.Location = this.Location;
             this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            id_Butt_Leng++;
+            Dictionary<int, string> _Len = new Dictionary<int, string>();
+            _Len.Add(1, "EN");
+            _Len.Add(2, "UA");
+            _Len.Add(3, "PL");
+            if (id_Butt_Leng > 3)
+            {
+                id_Butt_Leng = 1;
+            }
+            button3.Text = _Len[id_Butt_Leng];
         }
     }
 }

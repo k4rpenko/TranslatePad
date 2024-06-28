@@ -321,7 +321,7 @@
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADrGSURBVHhe7Z0J
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADrGSURBVHhe7Z0J
         mKRVdfcjyo7ih4oaTTQxcflckbjroyYYQYS4azTRGBVNjMEsRtxCa+LYXUW9PZZptaMGxbgNKm5xQ42K
         yydRQRbRKBoQQVEgLLLPzPe/zBmm5s6d7qqueqvOvff3e57f0wNdXXXvOW+de+5by/trMF3m5ub2WFhY
         uFvTNAcfc8wxL+r1ekfrZ1++V//+jH6eIs/Wv8/Rz4vNa+RmRDzmMvkz+XV5rAzPobva0wtgRVR/d1le
@@ -578,7 +578,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADr+SURBVHhe7d0H
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADr+SURBVHhe7d0H
         nCRVufdxyUGiCkgSAxkFuRgQESUp+hphDSAgJkSBFxUUXlFp9Lo7XbVVvbQO1xEVREyjyFXQq4CIEiSv
         IIgkJS4gaYHNad7/2X24zB7OhtmZ7j6n6vf9fP6f4XJl95zqp55T1VPheQDS1Ww21504ceKOZVkekOf5
         x4uiOFlp6d+drfxWuVq5WblLeUR5UhkKZI7yuPKwcpf+rL/r5xXKBcrZ+jNPU76iHJFl2Vv19+3U19e3
@@ -833,12 +833,6 @@
         pnqnOyBwPfSZX7+63up6rOu1Z+t/e4x+8krfFfa85/1/6Z1njQusLM8AAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
