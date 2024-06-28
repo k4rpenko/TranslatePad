@@ -91,7 +91,8 @@ namespace Client
             {
                 var translator = new Translator(apiKey);
                 DeepL.Model.TextResult translatedText;
-                if(text_for_trans.Text == null)
+
+                if (text_for_trans.Text == null)
                 {
                     tet_tran.Text = "";
                 }
@@ -101,16 +102,18 @@ namespace Client
                     {
                         if (id_Butt_Leng_YourL == 1)
                         {
-                            tet_tran.Text = "";
+                            tet_tran.Text = text_for_trans.Text;
+
                         }
                         else if (id_Butt_Leng_YourL == 2)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.English); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
                         }
                         else if (id_Butt_Leng_YourL == 3)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.English); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
                         }
+
                     }
                     else if (id_Butt_Leng == 2)
                     {
@@ -120,7 +123,7 @@ namespace Client
                         }
                         else if (id_Butt_Leng_YourL == 2)
                         {
-                            tet_tran.Text = "";
+                            tet_tran.Text = text_for_trans.Text;
                         }
                         else if (id_Butt_Leng_YourL == 3)
                         {
@@ -140,7 +143,7 @@ namespace Client
                         }
                         else if (id_Butt_Leng_YourL == 3)
                         {
-                            tet_tran.Text = "";
+                            tet_tran.Text = text_for_trans.Text;
                         }
                     }
                 }
@@ -162,11 +165,11 @@ namespace Client
             _Len.Add(1, "EN");
             _Len.Add(2, "UA");
             _Len.Add(3, "PL");
-            if (id_Butt_Leng > 3)
+            if (id_Butt_Leng_YourL > 3)
             {
-                id_Butt_Leng = 1;
+                id_Butt_Leng_YourL = 1;
             }
-            button3.Text = _Len[id_Butt_Leng];
+            Your_l.Text = _Len[id_Butt_Leng_YourL];
         }
     }
 }
