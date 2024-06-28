@@ -56,14 +56,14 @@ namespace Client
         public Authorization()
         {
             InitializeComponent();
-            SetEmailPlaceholder(Sign_up_email, "Email");
+            SetEmailPlaceholder(Sign_up_email1, "Email");
             SetEmailPlaceholder(Sign_in_email, "Email");
             SetPasswordPlaceholder(Sign_up_pass, "Password");
             SetPasswordPlaceholder(Sign_up_pass2, "Repeat Password");
             SetPasswordPlaceholder(Sign_in_pass, "Password");
 
-            Sign_up_email.Enter += RemovePlaceholder;
-            Sign_up_email.Leave += (sender, e) => SetEmailPlaceholder(Sign_up_email, "Email");
+            Sign_up_email1.Enter += RemovePlaceholder;
+            Sign_up_email1.Leave += (sender, e) => SetEmailPlaceholder(Sign_up_email1, "Email");
             Sign_in_email.Enter += RemovePlaceholder;
             Sign_in_email.Leave += (sender, e) => SetEmailPlaceholder(Sign_in_email, "Email");
             Sign_up_pass.Enter += RemovePlaceholder;
@@ -144,10 +144,10 @@ namespace Client
 
 
 
-        private async void Sign_up_button_Click(object sender, EventArgs e)
+        private async void guna2Button2_Click(object sender, EventArgs e)
         {
             label1.ForeColor = Color.Red;
-            var aEmail = emailValidation.ValidateEmail(Sign_up_email.Text);
+            var aEmail = emailValidation.ValidateEmail(Sign_up_email1.Text);
             if (!aEmail.IsValid)
             {
                 label1.Text = aEmail.Message;
@@ -168,7 +168,7 @@ namespace Client
             try
             {
                 string url = "http://localhost:3001/api/auth/Regists";
-                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email.Text.ToString(), Sign_up_pass.Text.ToString());
+                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email1.Text.ToString(), Sign_up_pass.Text.ToString());
                 int statusCodeValue = (int)statusCode;
 
                 if ((int)response.StatusCode == 200)
@@ -333,11 +333,7 @@ namespace Client
 
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
