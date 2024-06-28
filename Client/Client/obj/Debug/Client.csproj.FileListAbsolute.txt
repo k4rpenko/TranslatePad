@@ -43,3 +43,40 @@ D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\System.ValueTuple.xml
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.csproj.Up2Date
 D:\Work UA\Git\TranslatePad\Client\Client\obj\Debug\Client.Menu.resources
 D:\Work UA\Git\TranslatePad\Client\Client\bin\Debug\Guna.UI2.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Client.exe.config
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Client.exe
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Client.pdb
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Guna.UI2.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Buffers.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Memory.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Net.Http.Json.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Text.Json.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.ValueTuple.dll
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Buffers.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Memory.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Net.Http.Json.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Text.Json.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\bin\Debug\System.ValueTuple.xml
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.Dictionary.resources
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.Authorization.resources
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.Menu.resources
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.Translate.resources
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.csproj.Up2Date
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.exe
+C:\Users\Оксана\Documents\GitHub\TranslatePad\Client\Client\obj\Debug\Client.pdb
