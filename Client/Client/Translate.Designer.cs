@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Translate));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Your_l = new System.Windows.Forms.Button();
+            this.tet_tran = new System.Windows.Forms.Label();
+            this.text_for_trans = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -44,8 +47,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.text_for_trans = new System.Windows.Forms.TextBox();
-            this.ret_trans = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -53,12 +55,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.panel1.Controls.Add(this.ret_trans);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.Your_l);
             this.panel1.Controls.Add(this.text_for_trans);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button5);
@@ -71,6 +75,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1004, 611);
             this.panel1.TabIndex = 0;
+            // 
+            // Your_l
+            // 
+            this.Your_l.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.Your_l.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Your_l.Location = new System.Drawing.Point(926, 414);
+            this.Your_l.Margin = new System.Windows.Forms.Padding(2);
+            this.Your_l.Name = "Your_l";
+            this.Your_l.Size = new System.Drawing.Size(50, 26);
+            this.Your_l.TabIndex = 9;
+            this.Your_l.Text = "EN";
+            this.Your_l.UseVisualStyleBackColor = false;
+            this.Your_l.Click += new System.EventHandler(this.Your_l_Click);
+            // 
+            // tet_tran
+            // 
+            this.tet_tran.AutoSize = true;
+            this.tet_tran.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tet_tran.ForeColor = System.Drawing.Color.White;
+            this.tet_tran.Location = new System.Drawing.Point(3, 5);
+            this.tet_tran.Name = "tet_tran";
+            this.tet_tran.Size = new System.Drawing.Size(0, 25);
+            this.tet_tran.TabIndex = 8;
+            // 
+            // text_for_trans
+            // 
+            this.text_for_trans.Location = new System.Drawing.Point(255, 418);
+            this.text_for_trans.Multiline = true;
+            this.text_for_trans.Name = "text_for_trans";
+            this.text_for_trans.Size = new System.Drawing.Size(649, 35);
+            this.text_for_trans.TabIndex = 7;
             // 
             // panel2
             // 
@@ -209,7 +244,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(943, 418);
+            this.button3.Location = new System.Drawing.Point(926, 361);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(50, 26);
@@ -247,22 +282,13 @@
             this.Column2.Name = "Column2";
             this.Column2.Width = 363;
             // 
-            // text_for_trans
+            // panel3
             // 
-            this.text_for_trans.Location = new System.Drawing.Point(255, 418);
-            this.text_for_trans.Multiline = true;
-            this.text_for_trans.Name = "text_for_trans";
-            this.text_for_trans.Size = new System.Drawing.Size(649, 35);
-            this.text_for_trans.TabIndex = 7;
-            // 
-            // ret_trans
-            // 
-            this.ret_trans.Location = new System.Drawing.Point(255, 361);
-            this.ret_trans.Multiline = true;
-            this.ret_trans.Name = "ret_trans";
-            this.ret_trans.Size = new System.Drawing.Size(649, 35);
-            this.ret_trans.TabIndex = 8;
-            this.ret_trans.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.panel3.Controls.Add(this.tet_tran);
+            this.panel3.Location = new System.Drawing.Point(255, 352);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(649, 35);
+            this.panel3.TabIndex = 10;
             // 
             // Translate
             // 
@@ -282,6 +308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -303,7 +331,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox ret_trans;
         private System.Windows.Forms.TextBox text_for_trans;
+        private System.Windows.Forms.Label tet_tran;
+        private System.Windows.Forms.Button Your_l;
+        private System.Windows.Forms.Panel panel3;
     }
 }

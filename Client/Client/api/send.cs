@@ -36,28 +36,6 @@ namespace Client.api
 
         }
 
-        public async Task<HttpResponseMessage> PostTranslate(string text, string textLenght)
-        {
-            string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx";
-            string url = "https://api.deepl.com/v2/translate";
 
-            try
-            {
-                var values = new Dictionary<string, string>
-                {
-                     { "auth_key", apiKey },
-                     { "text", text },
-                     { "target_lang", textLenght }
-                };
-
-                HttpResponseMessage response = await _client.PostAsJsonAsync(url, values);
-                return response;
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
-            }
-        }
     }
 }

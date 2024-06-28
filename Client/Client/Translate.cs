@@ -12,13 +12,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using DeepL;
 
 namespace Client
 {
     public partial class Translate : Form
     {
+        string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx";
         Http_Send httpSend = new Http_Send();
         static int id_Butt_Leng = 1;
+        static int id_Butt_Leng_YourL = 1;
         public Translate()
         {
             InitializeComponent();
@@ -86,18 +89,63 @@ namespace Client
         {
             try
             {
-                HttpResponseMessage response = await httpSend.PostTranslate(text_for_trans.Text.ToString(), button3.Text);
-                if ((int)response.StatusCode == 200)
+                var translator = new Translator(apiKey);
+                DeepL.Model.TextResult translatedText;
+                if(text_for_trans.Text == null)
                 {
-                    using (var streamReader = new StreamReader(await response.Content.ReadAsStreamAsync()))
+                    tet_tran.Text = "";
+                }
+                else
+                {
+                    if (id_Butt_Leng == 1)
                     {
-                        var result = await streamReader.ReadToEndAsync();
-                        dynamic jsonResponse = JObject.Parse(result);
-                        string JsonTrans = jsonResponse.refreshToken;
+                        if (id_Butt_Leng_YourL == 1)
+                        {
+                            tet_tran.Text = "";
+                        }
+                        else if (id_Butt_Leng_YourL == 2)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.English); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 3)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.English); tet_tran.Text = translatedText.Text;
+                        }
+                    }
+                    else if (id_Butt_Leng == 2)
+                    {
+                        if (id_Butt_Leng_YourL == 1)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 2)
+                        {
+                            tet_tran.Text = "";
+                        }
+                        else if (id_Butt_Leng_YourL == 3)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
+                        }
 
-                        MessageBox.Show(JsonTrans, "one");
+                    }
+                    else if (id_Butt_Leng == 3)
+                    {
+                        if (id_Butt_Leng_YourL == 1)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 2)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 3)
+                        {
+                            tet_tran.Text = "";
+                        }
                     }
                 }
+
+                
             }
             catch (Exception ex) { throw new Exception("Помилка під час ділення на нуль", ex); }
         }
@@ -105,6 +153,20 @@ namespace Client
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Your_l_Click(object sender, EventArgs e)
+        {
+            id_Butt_Leng_YourL++;
+            Dictionary<int, string> _Len = new Dictionary<int, string>();
+            _Len.Add(1, "EN");
+            _Len.Add(2, "UA");
+            _Len.Add(3, "PL");
+            if (id_Butt_Leng > 3)
+            {
+                id_Butt_Leng = 1;
+            }
+            button3.Text = _Len[id_Butt_Leng];
         }
     }
 }
