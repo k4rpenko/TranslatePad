@@ -56,27 +56,11 @@ namespace Client
         public Authorization()
         {
             InitializeComponent();
-            SetEmailPlaceholder(Sign_up_email1, "Email");
-            SetEmailPlaceholder(Sign_in_email, "Email");
-            SetPasswordPlaceholder(Sign_up_pass, "Password");
-            SetPasswordPlaceholder(Sign_up_pass2, "Repeat Password");
-            SetPasswordPlaceholder(Sign_in_pass, "Password");
-
-            Sign_up_email1.Enter += RemovePlaceholder;
-            Sign_up_email1.Leave += (sender, e) => SetEmailPlaceholder(Sign_up_email1, "Email");
-            Sign_in_email.Enter += RemovePlaceholder;
-            Sign_in_email.Leave += (sender, e) => SetEmailPlaceholder(Sign_in_email, "Email");
-            Sign_up_pass.Enter += RemovePlaceholder;
-            Sign_up_pass.Leave += (sender, e) => SetPasswordPlaceholder(Sign_up_pass, "Password");
-            Sign_up_pass2.Enter += RemovePlaceholder;
-            Sign_up_pass2.Leave += (sender, e) => SetPasswordPlaceholder(Sign_up_pass2, "Repeat Password");
-            Sign_in_pass.Enter += RemovePlaceholder;
-            Sign_in_pass.Leave += (sender, e) => SetPasswordPlaceholder(Sign_in_pass, "Password");
 
         }
 
         #region WorkWithButton
-        private async void Sign_in_button_Click(object sender, EventArgs e)
+        private async void Sign_in_button_Click_1(object sender, EventArgs e)
         {
             label_in.ForeColor = Color.Red;
             var aEmail = emailValidation.ValidateEmail(Sign_in_email.Text);
@@ -147,14 +131,14 @@ namespace Client
         private async void guna2Button2_Click(object sender, EventArgs e)
         {
             label1.ForeColor = Color.Red;
-            var aEmail = emailValidation.ValidateEmail(Sign_up_email1.Text);
+            var aEmail = emailValidation.ValidateEmail(Sign_up_email.Text);
             if (!aEmail.IsValid)
             {
                 label1.Text = aEmail.Message;
                 return;
             }
             if (Sign_up_pass.Text != Sign_up_pass2.Text) { label1.Text = "Pass is not corect"; return; }
-            var aPass = passValidation.ValidatePassword(Sign_up_pass.Text);
+            var aPass = passValidation.ValidatePassword(Sign_up_pass2.Text);
             if (!aPass.IsValid)
             {
 
@@ -168,7 +152,7 @@ namespace Client
             try
             {
                 string url = "http://localhost:3001/api/auth/Regists";
-                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email1.Text.ToString(), Sign_up_pass.Text.ToString());
+                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email.Text.ToString(), Sign_up_pass.Text.ToString());
                 int statusCodeValue = (int)statusCode;
 
                 if ((int)response.StatusCode == 200)
@@ -250,19 +234,7 @@ namespace Client
 
         private void RemovePlaceholder(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null)
-            {
-                if (textBox.Text == "Email" || textBox.Text == "Password" || textBox.Text == "Repeat Password")
-                {
-                    textBox.Text = "";
-                    textBox.ForeColor = Color.Gray;
-                    if (textBox == Sign_up_pass || textBox == Sign_up_pass2 || textBox == Sign_in_pass)
-                    {
-                        textBox.UseSystemPasswordChar = true;
-                    }
-                }
-            }
+            
         }
         #endregion
 
@@ -323,10 +295,6 @@ namespace Client
 
         }
 
-        private bool ArePasswordsMatching()
-        {
-            return Sign_up_pass.Text == Sign_up_pass2.Text;
-        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -348,5 +316,7 @@ namespace Client
         {
             tabControl1.SelectedIndex = 1;
         }
+
+
     }
 }
