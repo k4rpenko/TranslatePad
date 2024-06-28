@@ -3,44 +3,32 @@
   "WorkspaceRootPath": "D:\\Work UA\\Git\\TranslatePad\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\authorization.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|d:\\work ua\\git\\translatepad\\client\\client\\translate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\translate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\dictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\dictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\authorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\dictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\dictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\translate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|D:\\Work UA\\Git\\TranslatePad\\Client\\client\\api\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{619F74FA-E2F5-4843-9B2A-64AD4F172CAC}|Client\\Client.csproj|solutionrelative:client\\api\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -71,128 +59,89 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Authorization.Designer.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.Designer.cs",
-              "RelativeDocumentMoniker": "Client\\Authorization.Designer.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.Designer.cs*",
-              "RelativeToolTip": "Client\\Authorization.Designer.cs*",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAAABcAAAAmAAAA",
+              "Title": "Translate.Designer.cs",
+              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.Designer.cs",
+              "RelativeDocumentMoniker": "Client\\Translate.Designer.cs",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.Designer.cs",
+              "RelativeToolTip": "Client\\Translate.Designer.cs",
+              "ViewState": "AQIAAMkAAAAAAAAAAAAjwNoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T11:18:48.198Z",
+              "WhenOpened": "2024-06-28T18:11:08.379Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Program.cs",
-              "RelativeDocumentMoniker": "Client\\Program.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Program.cs",
-              "RelativeToolTip": "Client\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T11:18:21.048Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Authorization.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
-              "RelativeDocumentMoniker": "Client\\Authorization.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs*",
-              "RelativeToolTip": "Client\\Authorization.cs*",
-              "ViewState": "AQIAAE8BAAAAAAAAAAAjwGABAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:19:42.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
-              "RelativeDocumentMoniker": "Client\\Authorization.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
-              "RelativeToolTip": "Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:19:41.184Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Translate.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs",
-              "RelativeDocumentMoniker": "Client\\Translate.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs",
-              "RelativeToolTip": "Client\\Translate.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAAADIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:19:28.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Translate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs",
-              "RelativeDocumentMoniker": "Client\\Translate.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Client\\Translate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:19:25.134Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Dictionary.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Dictionary.cs",
-              "RelativeDocumentMoniker": "Client\\Dictionary.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Dictionary.cs",
-              "RelativeToolTip": "Client\\Dictionary.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAFIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:19:15.532Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Dictionary.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Dictionary.cs",
               "RelativeDocumentMoniker": "Client\\Dictionary.cs",
               "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Dictionary.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "Client\\Dictionary.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:19:14.144Z",
+              "WhenOpened": "2024-06-28T17:54:41.16Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Menu.cs",
-              "RelativeDocumentMoniker": "Client\\Menu.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Menu.cs",
-              "RelativeToolTip": "Client\\Menu.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAADwAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "Translate.cs",
+              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs",
+              "RelativeDocumentMoniker": "Client\\Translate.cs",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs*",
+              "RelativeToolTip": "Client\\Translate.cs*",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAACsAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:18:49.707Z",
+              "WhenOpened": "2024-06-28T17:27:27.353Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Menu.cs",
-              "RelativeDocumentMoniker": "Client\\Menu.cs",
-              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Client\\Menu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentIndex": 0,
+              "Title": "Translate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs",
+              "RelativeDocumentMoniker": "Client\\Translate.cs",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Translate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "RelativeToolTip": "Client\\Translate.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T09:18:42.493Z",
+              "WhenOpened": "2024-06-28T17:27:19.453Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Authorization.cs",
+              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
+              "RelativeDocumentMoniker": "Client\\Authorization.cs",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
+              "RelativeToolTip": "Client\\Authorization.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAE0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T17:26:53.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs",
+              "RelativeDocumentMoniker": "Client\\Authorization.cs",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Client\\Authorization.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T17:26:51.404Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "send.cs",
+              "DocumentMoniker": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\api\\send.cs",
+              "RelativeDocumentMoniker": "Client\\api\\send.cs",
+              "ToolTip": "D:\\Work UA\\Git\\TranslatePad\\Client\\Client\\api\\send.cs*",
+              "RelativeToolTip": "Client\\api\\send.cs*",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T17:16:02.1Z"
             }
           ]
         },
