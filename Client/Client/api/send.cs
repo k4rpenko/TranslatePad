@@ -38,7 +38,7 @@ namespace Client.api
 
         public async Task<HttpResponseMessage> PostTranslate(string text, string textLenght)
         {
-            string apiKey = "your-api-key";
+            string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx";
             string url = "https://api.deepl.com/v2/translate";
 
             try
