@@ -119,8 +119,8 @@ namespace Client
                 }
                 else
                 {
-                    string sourceLang = GetLanguageCode(id_Butt_Leng_YourL);
-                    string targetLang = GetLanguageCode(id_Butt_Leng);
+                    string sourceLang = GetLanguageCode(id_Butt_Leng_YourL).ToLower();
+                    string targetLang = GetLanguageCode(id_Butt_Leng).ToLower();
 
                     if (sourceLang == targetLang)
                     {
@@ -130,7 +130,7 @@ namespace Client
                     {
                         translatedText = await translator.TranslateTextAsync(text_for_trans.Text, sourceLang, targetLang);
                         tet_tran.Text = translatedText.Text;
-                        AddToTranslationHistory(text_for_trans.Text, translatedText.Text, targetLang);
+                        AddToTranslationHistory(text_for_trans.Text, translatedText.Text, GetLanguageCode(id_Butt_Leng).ToUpper());
                     }
                 }
             }
@@ -144,10 +144,10 @@ namespace Client
         {
             switch (id)
             {
-                case 1: return "en-US"; // or "en-GB" depending on your preference
+                case 1: return "en-US";
                 case 2: return "uk";
                 case 3: return "pl";
-                default: return "en-US"; // or "en-GB" depending on your preference
+                default: return "en-US";
             }
         }
 
@@ -220,7 +220,7 @@ namespace Client
 
                 switch (GetLanguageCode(id_Butt_Leng_YourL))
                 {
-                    case "en-US": // or "en-GB" depending on your preference
+                    case "en-US":
                         id_Butt_Leng_YourL = 1;
                         Your_l.Text = "EN";
                         break;
@@ -240,5 +240,33 @@ namespace Client
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string fileName = "translation_history.txt";
+                string homePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // Отримати домашню директорію користувача
+
+                string filePath = Path.Combine(homePath, fileName);
+
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (var history in translationHistories)
+                    {
+                        writer.WriteLine($"Original Text: {history.OriginalText}");
+                        writer.WriteLine($"Translated Text: {history.TranslatedText}");
+                        writer.WriteLine($"Language: {history.Language}");
+                        writer.WriteLine();
+                    }
+                }
+                MessageBox.Show($"Translation history saved to {filePath}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in button5_Click: {ex.Message}");
+            }
+        }
+
     }
 }
