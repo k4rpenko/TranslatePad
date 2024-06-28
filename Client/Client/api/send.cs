@@ -39,7 +39,7 @@ namespace Client.api
         public async Task<HttpResponseMessage> PostTranslate(string text, string textLenght)
         {
             string apiKey = "your-api-key";
-            string url = "https:\\api.deepl.com\v2\translate";
+            string url = "https://api.deepl.com/v2/translate";
 
             try
             {
