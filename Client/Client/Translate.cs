@@ -11,7 +11,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using DeepL;
 
 namespace Client
@@ -22,10 +21,32 @@ namespace Client
         Http_Send httpSend = new Http_Send();
         static int id_Butt_Leng = 1;
         static int id_Butt_Leng_YourL = 1;
+
+        // Клас для зберігання історії перекладів
+        public class TranslationHistory
+        {
+            public string OriginalText { get; set; }
+            public string TranslatedText { get; set; }
+            public string Language { get; set; }
+        }
+
+        // Список для зберігання історії перекладів
+        private List<TranslationHistory> translationHistories = new List<TranslationHistory>();
+
         public Translate()
         {
             InitializeComponent();
             this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
+            InitializeListView();
+        }
+
+        private void InitializeListView()
+        {
+            // Додайте ListView на вашу форму в дизайнері або програмно
+            listView1.View = View.Details;
+            listView1.Columns.Add("Original Text", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Translated Text", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Language", -2, HorizontalAlignment.Left);
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
@@ -92,65 +113,65 @@ namespace Client
                 var translator = new Translator(apiKey);
                 DeepL.Model.TextResult translatedText;
 
-                if (text_for_trans.Text == null)
+                if (string.IsNullOrEmpty(text_for_trans.Text))
                 {
                     tet_tran.Text = "";
                 }
                 else
                 {
-                    if (id_Butt_Leng == 1)
+                    string sourceLang = GetLanguageCode(id_Butt_Leng_YourL);
+                    string targetLang = GetLanguageCode(id_Butt_Leng);
+
+                    if (sourceLang == targetLang)
                     {
-                        if (id_Butt_Leng_YourL == 1)
-                        {
-                            tet_tran.Text = text_for_trans.Text;
-
-                        }
-                        else if (id_Butt_Leng_YourL == 2)
-                        {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
-                        }
-                        else if (id_Butt_Leng_YourL == 3)
-                        {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
-                        }
-
+                        tet_tran.Text = text_for_trans.Text;
                     }
-                    else if (id_Butt_Leng == 2)
+                    else
                     {
-                        if (id_Butt_Leng_YourL == 1)
-                        {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
-                        }
-                        else if (id_Butt_Leng_YourL == 2)
-                        {
-                            tet_tran.Text = text_for_trans.Text;
-                        }
-                        else if (id_Butt_Leng_YourL == 3)
-                        {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
-                        }
-
-                    }
-                    else if (id_Butt_Leng == 3)
-                    {
-                        if (id_Butt_Leng_YourL == 1)
-                        {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
-                        }
-                        else if (id_Butt_Leng_YourL == 2)
-                        {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
-                        }
-                        else if (id_Butt_Leng_YourL == 3)
-                        {
-                            tet_tran.Text = text_for_trans.Text;
-                        }
+                        translatedText = await translator.TranslateTextAsync(text_for_trans.Text, sourceLang, targetLang);
+                        tet_tran.Text = translatedText.Text;
+                        AddToTranslationHistory(text_for_trans.Text, translatedText.Text, targetLang);
                     }
                 }
-
-                
             }
-            catch (Exception ex) { throw new Exception("Помилка під час ділення на нуль", ex); }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in button4_Click: {ex.Message}");
+            }
+        }
+
+        private string GetLanguageCode(int id)
+        {
+            switch (id)
+            {
+                case 1: return "en-US"; // or "en-GB" depending on your preference
+                case 2: return "uk";
+                case 3: return "pl";
+                default: return "en-US"; // or "en-GB" depending on your preference
+            }
+        }
+
+        private void AddToTranslationHistory(string originalText, string translatedText, string language)
+        {
+            try
+            {
+                translationHistories.Add(new TranslationHistory
+                {
+                    OriginalText = originalText,
+                    TranslatedText = translatedText,
+                    Language = language
+                });
+
+                // Додавання запису до listView1
+                ListViewItem item = new ListViewItem(originalText);
+                item.SubItems.Add(translatedText);
+                item.SubItems.Add(language);
+                listView1.Items.Add(item);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in AddToTranslationHistory: {ex.Message}");
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -170,6 +191,54 @@ namespace Client
                 id_Butt_Leng_YourL = 1;
             }
             Your_l.Text = _Len[id_Butt_Leng_YourL];
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem item = listView1.SelectedItems[0];
+                text_for_trans.Text = item.SubItems[0].Text;
+                tet_tran.Text = item.SubItems[1].Text;
+
+                string language = item.SubItems[2].Text;
+                switch (language)
+                {
+                    case "EN":
+                        id_Butt_Leng = 1;
+                        button3.Text = "EN";
+                        break;
+                    case "UA":
+                        id_Butt_Leng = 2;
+                        button3.Text = "UA";
+                        break;
+                    case "PL":
+                        id_Butt_Leng = 3;
+                        button3.Text = "PL";
+                        break;
+                }
+
+                switch (GetLanguageCode(id_Butt_Leng_YourL))
+                {
+                    case "en-US": // or "en-GB" depending on your preference
+                        id_Butt_Leng_YourL = 1;
+                        Your_l.Text = "EN";
+                        break;
+                    case "uk":
+                        id_Butt_Leng_YourL = 2;
+                        Your_l.Text = "UA";
+                        break;
+                    case "pl":
+                        id_Butt_Leng_YourL = 3;
+                        Your_l.Text = "PL";
+                        break;
+                }
+            }
+        }
+
+        private void text_for_trans_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
