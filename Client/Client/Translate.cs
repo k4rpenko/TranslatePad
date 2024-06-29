@@ -298,8 +298,30 @@ namespace Client
                 string homePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 string filePath = Path.Combine(homePath, fileName);
 
-                using (StreamWriter writer = new StreamWriter(filePath))
+                // Зчитування існуючої історії з файлу
+                List<string> existingHistory = new List<string>();
+                if (File.Exists(filePath))
                 {
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            existingHistory.Add(line);
+                        }
+                    }
+                }
+
+                // Додавання нових записів до історії
+                using (StreamWriter writer = new StreamWriter(filePath, false)) // false, щоб перезаписати файл
+                {
+                    // Запис існуючої історії
+                    foreach (string line in existingHistory)
+                    {
+                        writer.WriteLine(line);
+                    }
+
+                    // Додавання нових записів
                     foreach (var history in translationHistories)
                     {
                         writer.WriteLine($"Original Text: {history.OriginalText}");
@@ -308,6 +330,7 @@ namespace Client
                         writer.WriteLine();
                     }
                 }
+
                 MessageBox.Show($"Translation history saved to {filePath}");
             }
             catch (Exception ex)
@@ -315,6 +338,7 @@ namespace Client
                 MessageBox.Show($"Error in button5_Click: {ex.Message}");
             }
         }
+
 
         private async void button1_Click_1(object sender, EventArgs e)
         {
@@ -337,5 +361,33 @@ namespace Client
                 Console.WriteLine("error occurred");
             }
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Очищення списку історії перекладів
+                translationHistories.Clear();
+
+                // Очищення ListView
+                ClearListViewItems();
+
+                // Очищення файлу історії перекладів
+                string homePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(homePath, fileName);
+
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
+                MessageBox.Show("Translation history cleared.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in button2_Click_1: {ex.Message}");
+            }
+        }
+
     }
 }
