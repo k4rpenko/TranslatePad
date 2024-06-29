@@ -36,5 +36,39 @@ namespace Client.api
 
         }
 
+
+
+        public async Task<HttpResponseMessage> PostAddDictionary(string url, string token, string H1, string P1)
+        {
+            try
+            {
+                var data = new { token = token, title = H1, content = P1 };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                return null;
+            }
+
+        }
+
+        public async Task<HttpResponseMessage> GetShowNotes(string url, string token)
+        {
+            try
+            {
+                var data = new { token = token };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                return null;
+            }
+
+        }
+
     }
 }
