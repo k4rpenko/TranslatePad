@@ -14,12 +14,16 @@ using System.Windows.Forms;
 using DeepL;
 using DeepL.Model;
 using System.Drawing.Drawing2D;
+using Newtonsoft.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Client
 {
     public partial class Translate : Form
     {
         string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx";
+        private static string RefreshFilePath = "user_refresh.txt";
+        string token = File.ReadAllText(RefreshFilePath);
         Http_Send httpSend = new Http_Send();
         static int id_Butt_Leng = 1;
         static int id_Butt_Leng_YourL = 1;
@@ -38,8 +42,37 @@ namespace Client
         public Translate()
         {
             InitializeComponent();
-            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
             InitializeListView();
+            ShowWords();
+            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
+
+        }
+        private async void ShowWords()
+        {
+            try
+            {
+                ClearListViewItems();
+                string url = "http://localhost:3001/api/Show_translate";
+                HttpResponseMessage response = await httpSend.GetShow_translate(url, token);
+
+                if ((int)response.StatusCode == 200)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    List<Translation> translations = JsonConvert.DeserializeObject<List<Translation>>(jsonResponse);
+
+                    foreach (var translation in translations)
+                    {
+                        var language_button = new string[] { translation.lang_orig_words, translation.lang_orig_words };
+                        AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("NULL");
+                }
+
+            }
+            catch { Console.WriteLine("Error"); }
         }
 
         private void InitializeListView()
@@ -171,7 +204,6 @@ namespace Client
                     }
                 }
                 var language_button = new string[] { button3.Text, Your_l.Text };
-                AddToTranslationHistory(text_for_trans.Text, tet_tran.Text, language_button);
             }
             catch (Exception ex)
             {
@@ -200,6 +232,11 @@ namespace Client
             {
                 MessageBox.Show($"Error in AddToTranslationHistory: {ex.Message}");
             }
+        }
+
+        private void ClearListViewItems()
+        {
+            listView1.Items.Clear();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -280,5 +317,26 @@ namespace Client
             }
         }
 
+        private async void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = "http://localhost:3001/api/Add_translate";
+                HttpResponseMessage response = await httpSend.PostAdd_translate(url, token, Your_l.Text, text_for_trans.Text.ToString(), button3.Text, tet_tran.Text.ToString());
+
+                if ((int)response.StatusCode == 200)
+                {
+                    ShowWords();
+                }
+                else
+                {
+                    Console.WriteLine("NULL");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("error occurred");
+            }
+        }
     }
 }
