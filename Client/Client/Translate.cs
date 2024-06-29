@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DeepL;
+using DeepL.Model;
+using System.Drawing.Drawing2D;
 
 namespace Client
 {
@@ -111,7 +113,7 @@ namespace Client
             try
             {
                 var translator = new Translator(apiKey);
-                DeepL.Model.TextResult translatedText;
+                TextResult translatedText;
 
                 if (string.IsNullOrEmpty(text_for_trans.Text))
                 {
@@ -119,20 +121,57 @@ namespace Client
                 }
                 else
                 {
-                    string sourceLang = GetLanguageCode(id_Butt_Leng_YourL).ToLower();
-                    string targetLang = GetLanguageCode(id_Butt_Leng).ToLower();
+                    if (id_Butt_Leng == 1)
+                    {
+                        if (id_Butt_Leng_YourL == 1)
+                        {
+                            tet_tran.Text = text_for_trans.Text;
 
-                    if (sourceLang == targetLang)
-                    {
-                        tet_tran.Text = text_for_trans.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 2)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 3)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
+                        }
+
                     }
-                    else
+                    else if (id_Butt_Leng == 2)
                     {
-                        translatedText = await translator.TranslateTextAsync(text_for_trans.Text, sourceLang, targetLang);
-                        tet_tran.Text = translatedText.Text;
-                        AddToTranslationHistory(text_for_trans.Text, translatedText.Text, GetLanguageCode(id_Butt_Leng).ToUpper());
+                        if (id_Butt_Leng_YourL == 1)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 2)
+                        {
+                            tet_tran.Text = text_for_trans.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 3)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
+                        }
+
+                    }
+                    else if (id_Butt_Leng == 3)
+                    {
+                        if (id_Butt_Leng_YourL == 1)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 2)
+                        {
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
+                        }
+                        else if (id_Butt_Leng_YourL == 3)
+                        {
+                            tet_tran.Text = text_for_trans.Text;
+                        }
                     }
                 }
+                var language_button = new string[] { button3.Text, Your_l.Text };
+                AddToTranslationHistory(text_for_trans.Text, tet_tran.Text, language_button);
             }
             catch (Exception ex)
             {
@@ -140,18 +179,7 @@ namespace Client
             }
         }
 
-        private string GetLanguageCode(int id)
-        {
-            switch (id)
-            {
-                case 1: return "en-US";
-                case 2: return "uk";
-                case 3: return "pl";
-                default: return "en-US";
-            }
-        }
-
-        private void AddToTranslationHistory(string originalText, string translatedText, string language)
+        private void AddToTranslationHistory(string originalText, string translatedText, string[] language)
         {
             try
             {
@@ -159,13 +187,13 @@ namespace Client
                 {
                     OriginalText = originalText,
                     TranslatedText = translatedText,
-                    Language = language
+                    Language = string.Join("/", language)
                 });
 
                 // Додавання запису до listView1
                 ListViewItem item = new ListViewItem(originalText);
                 item.SubItems.Add(translatedText);
-                item.SubItems.Add(language);
+                item.SubItems.Add(string.Join("/", language));
                 listView1.Items.Add(item);
             }
             catch (Exception ex)
@@ -215,22 +243,6 @@ namespace Client
                     case "PL":
                         id_Butt_Leng = 3;
                         button3.Text = "PL";
-                        break;
-                }
-
-                switch (GetLanguageCode(id_Butt_Leng_YourL))
-                {
-                    case "en-US":
-                        id_Butt_Leng_YourL = 1;
-                        Your_l.Text = "EN";
-                        break;
-                    case "uk":
-                        id_Butt_Leng_YourL = 2;
-                        Your_l.Text = "UA";
-                        break;
-                    case "pl":
-                        id_Butt_Leng_YourL = 3;
-                        Your_l.Text = "PL";
                         break;
                 }
             }
