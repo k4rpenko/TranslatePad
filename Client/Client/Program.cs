@@ -17,6 +17,8 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Test());
+            /*
             if (File.Exists("user_refresh.txt"))
             {
                 Application.Run(new Menu());
@@ -25,6 +27,7 @@ namespace Client
             {
                 Application.Run(new Authorization());
             }
+            */
         }
     }
 }
