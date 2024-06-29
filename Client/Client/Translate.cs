@@ -295,33 +295,17 @@ namespace Client
         {
             try
             {
+                // Отримання шляху до документа
                 string homePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                // Створення унікального імені файлу на основі дати та часу
+                string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                string fileName = $"TranslationHistory_{timestamp}.txt";
                 string filePath = Path.Combine(homePath, fileName);
 
-                // Зчитування існуючої історії з файлу
-                List<string> existingHistory = new List<string>();
-                if (File.Exists(filePath))
-                {
-                    using (StreamReader reader = new StreamReader(filePath))
-                    {
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            existingHistory.Add(line);
-                        }
-                    }
-                }
-
-                // Додавання нових записів до історії
+                // Запис нової історії в новий файл
                 using (StreamWriter writer = new StreamWriter(filePath, false)) // false, щоб перезаписати файл
                 {
-                    // Запис існуючої історії
-                    foreach (string line in existingHistory)
-                    {
-                        writer.WriteLine(line);
-                    }
-
-                    // Додавання нових записів
                     foreach (var history in translationHistories)
                     {
                         writer.WriteLine($"Original Text: {history.OriginalText}");
