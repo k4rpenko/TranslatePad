@@ -12,6 +12,7 @@ namespace Client
 {
     public partial class Menu : Form
     {
+        FormProfile _FP = new FormProfile();
         public Menu()
         {
             InitializeComponent();
@@ -69,6 +70,23 @@ namespace Client
             _dict.Location = this.Location;
             _dict.Show();
             this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Point buttonLocationOnScreen = button6.PointToScreen(Point.Empty);
+           
+            _FP.StartPosition = FormStartPosition.Manual;
+            _FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button6.Height); 
+            _FP.Show();
+        }
+
+        private void panel3_Click(object sender, PaintEventArgs e)
+        {
+            if (_FP != null && !_FP.IsDisposed)
+            {
+                _FP.Focus();
+            }
         }
     }
 }
