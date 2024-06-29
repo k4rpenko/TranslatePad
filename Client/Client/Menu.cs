@@ -75,7 +75,7 @@ namespace Client
         private void button6_Click(object sender, EventArgs e)
         {
             Point buttonLocationOnScreen = button6.PointToScreen(Point.Empty);
-           
+
             _FP.StartPosition = FormStartPosition.Manual;
             _FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button6.Height); 
             _FP.Show();
