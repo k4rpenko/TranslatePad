@@ -23,6 +23,7 @@ namespace Client
     {
         string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx";
         private static string RefreshFilePath = "user_refresh.txt";
+        string fileName = "translation_history.txt";
         string token = File.ReadAllText(RefreshFilePath);
         Http_Send httpSend = new Http_Send();
         static int id_Butt_Leng = 1;
@@ -62,7 +63,7 @@ namespace Client
 
                     foreach (var translation in translations)
                     {
-                        var language_button = new string[] { translation.lang_orig_words, translation.lang_orig_words };
+                        var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
                         AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button);
                     }
                 }
@@ -294,9 +295,7 @@ namespace Client
         {
             try
             {
-                string fileName = "translation_history.txt";
-                string homePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // Отримати домашню директорію користувача
-
+                string homePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 string filePath = Path.Combine(homePath, fileName);
 
                 using (StreamWriter writer = new StreamWriter(filePath))
