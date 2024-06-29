@@ -80,9 +80,9 @@ namespace Client
         {
             // Додайте ListView на вашу форму в дизайнері або програмно
             listView1.View = View.Details;
-            listView1.Columns.Add("Original Text", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Translated Text", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Language", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Original Text", 280, HorizontalAlignment.Center);
+            listView1.Columns.Add("Translated Text", 280, HorizontalAlignment.Center);
+            listView1.Columns.Add("Language", -2, HorizontalAlignment.Center);
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
