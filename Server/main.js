@@ -4,6 +4,8 @@ require('dotenv').config();
 const Test = require('./api/Test/routes');
 const Login = require('./api/auth/Login/routes');
 const Regists = require('./api/auth/SignUp/routes');
+const Add_translate = require('./api/Translate/Add_words_tr/router');
+const Show_translate = require('./api/Translate/Show_words_tr/router');
 
 var cors = require('cors')
 const helmet = require('helmet');
@@ -53,7 +55,8 @@ app.use(express.json());
 app.use("/api/Test", Test);
 app.use("/api/auth/Login", Login);
 app.use("/api/auth/Regists", Regists);
-
+app.use("/api/Add_translate", Add_translate);
+app.use("/api/Show_translate", Show_translate);
 
 
 
