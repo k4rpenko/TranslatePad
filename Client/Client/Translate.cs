@@ -402,5 +402,6 @@ namespace Client
             _dict.Location = this.Location;
             this.Hide();
         }
+
     }
 }
