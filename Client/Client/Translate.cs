@@ -29,6 +29,16 @@ namespace Client
         static int id_Butt_Leng = 1;
         static int id_Butt_Leng_YourL = 1;
 
+        public class Translation
+        {
+            public int id { get; set; }
+            public int user_id { get; set; }
+            public string lang_orig_words { get; set; }
+            public string orig_words { get; set; }
+            public string lang_trans_words { get; set; }
+            public string trans_words { get; set; }
+        }
+
         // Клас для зберігання історії перекладів
         public class TranslationHistory
         {
