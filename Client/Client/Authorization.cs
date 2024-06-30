@@ -97,9 +97,9 @@ namespace Client
 
                             label_in.ForeColor = Color.Green;
                             label_in.Text = "Вхід пройшла успішно";
-                            //TestForm form1 = new TestForm();
-                            //form1.Show();
-                            //this.Hide();
+                            Menu _menu = new Menu();
+                            _menu.Show();
+                            this.Hide();
                         }
                     }
                     else if ((int)response.StatusCode == 404)
@@ -167,10 +167,9 @@ namespace Client
 
                         label1.ForeColor = Color.Green;
                         label1.Text = "Вхід пройшла успішно";
-                        //TestForm form1 = new TestForm();
-                        //Authorization _a = new Authorization();
-                        //form1.Show();
-                        //_a.Hide();
+                        Menu _menu = new Menu();
+                        _menu.Show();
+                        this.Hide();
                     }
 
                 }
@@ -243,13 +242,13 @@ namespace Client
         {
             if (checkBox1.Checked)
             {
-                Sign_up_pass.UseSystemPasswordChar = false;
-                Sign_up_pass2.UseSystemPasswordChar = false;
+                Sign_up_pass.UseSystemPasswordChar = true;
+                Sign_up_pass2.UseSystemPasswordChar = true;
             }
             else
             {
-                Sign_up_pass.UseSystemPasswordChar = true;
-                Sign_up_pass2.UseSystemPasswordChar = true;
+                Sign_up_pass.UseSystemPasswordChar = false;
+                Sign_up_pass2.UseSystemPasswordChar = false;
             }
         }
 
@@ -257,11 +256,11 @@ namespace Client
         {
             if (checkBox2.Checked)
             {
-                Sign_in_pass.UseSystemPasswordChar = false;
+                Sign_in_pass.UseSystemPasswordChar = true;
             }
             else
             {
-                Sign_in_pass.UseSystemPasswordChar = true;
+                Sign_in_pass.UseSystemPasswordChar = false;
             }
         }
         #endregion

@@ -42,6 +42,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Sign_in_pass = new Guna.UI2.WinForms.Guna2TextBox();
+            this.Sign_in_email = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -49,8 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label_in = new System.Windows.Forms.Label();
-            this.Sign_in_email = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Sign_in_pass = new Guna.UI2.WinForms.Guna2TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -100,6 +100,7 @@
             this.Sign_up_email.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_email.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Sign_up_email.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sign_up_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.Sign_up_email.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Sign_up_email.Location = new System.Drawing.Point(346, 132);
             this.Sign_up_email.Name = "Sign_up_email";
@@ -120,6 +121,7 @@
             this.Sign_up_pass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_pass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Sign_up_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sign_up_pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.Sign_up_pass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Sign_up_pass.Location = new System.Drawing.Point(346, 297);
             this.Sign_up_pass.Name = "Sign_up_pass";
@@ -142,6 +144,7 @@
             this.Sign_up_pass2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.Sign_up_pass2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Sign_up_pass2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sign_up_pass2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.Sign_up_pass2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Sign_up_pass2.Location = new System.Drawing.Point(346, 246);
             this.Sign_up_pass2.Name = "Sign_up_pass2";
@@ -266,6 +269,49 @@
             this.tabPage2.Text = "Sign in";
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // Sign_in_pass
+            // 
+            this.Sign_in_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Sign_in_pass.DefaultText = "";
+            this.Sign_in_pass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Sign_in_pass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Sign_in_pass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Sign_in_pass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Sign_in_pass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Sign_in_pass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Sign_in_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sign_in_pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.Sign_in_pass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Sign_in_pass.Location = new System.Drawing.Point(346, 247);
+            this.Sign_in_pass.Name = "Sign_in_pass";
+            this.Sign_in_pass.PasswordChar = '●';
+            this.Sign_in_pass.PlaceholderText = "";
+            this.Sign_in_pass.SelectedText = "";
+            this.Sign_in_pass.Size = new System.Drawing.Size(300, 35);
+            this.Sign_in_pass.TabIndex = 18;
+            this.Sign_in_pass.UseSystemPasswordChar = true;
+            // 
+            // Sign_in_email
+            // 
+            this.Sign_in_email.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Sign_in_email.DefaultText = "";
+            this.Sign_in_email.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Sign_in_email.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Sign_in_email.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Sign_in_email.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Sign_in_email.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.Sign_in_email.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Sign_in_email.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sign_in_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.Sign_in_email.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Sign_in_email.Location = new System.Drawing.Point(346, 132);
+            this.Sign_in_email.Name = "Sign_in_email";
+            this.Sign_in_email.PasswordChar = '\0';
+            this.Sign_in_email.PlaceholderText = "";
+            this.Sign_in_email.SelectedText = "";
+            this.Sign_in_email.Size = new System.Drawing.Size(300, 35);
+            this.Sign_in_email.TabIndex = 17;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -358,46 +404,6 @@
             this.label_in.Size = new System.Drawing.Size(0, 13);
             this.label_in.TabIndex = 6;
             this.label_in.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // Sign_in_email
-            // 
-            this.Sign_in_email.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Sign_in_email.DefaultText = "";
-            this.Sign_in_email.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Sign_in_email.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Sign_in_email.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Sign_in_email.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Sign_in_email.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Sign_in_email.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Sign_in_email.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Sign_in_email.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Sign_in_email.Location = new System.Drawing.Point(346, 132);
-            this.Sign_in_email.Name = "Sign_in_email";
-            this.Sign_in_email.PasswordChar = '\0';
-            this.Sign_in_email.PlaceholderText = "";
-            this.Sign_in_email.SelectedText = "";
-            this.Sign_in_email.Size = new System.Drawing.Size(300, 35);
-            this.Sign_in_email.TabIndex = 17;
-            // 
-            // Sign_in_pass
-            // 
-            this.Sign_in_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Sign_in_pass.DefaultText = "";
-            this.Sign_in_pass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Sign_in_pass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Sign_in_pass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Sign_in_pass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Sign_in_pass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Sign_in_pass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Sign_in_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Sign_in_pass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Sign_in_pass.Location = new System.Drawing.Point(346, 247);
-            this.Sign_in_pass.Name = "Sign_in_pass";
-            this.Sign_in_pass.PasswordChar = '\0';
-            this.Sign_in_pass.PlaceholderText = "";
-            this.Sign_in_pass.SelectedText = "";
-            this.Sign_in_pass.Size = new System.Drawing.Size(300, 35);
-            this.Sign_in_pass.TabIndex = 18;
             // 
             // Authorization
             // 

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Translate));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new Guna.UI2.WinForms.Guna2Button();
             this.Your_l = new Guna.UI2.WinForms.Guna2Button();
             this.Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -47,7 +48,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tet_tran = new System.Windows.Forms.Label();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.button3 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -75,6 +75,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1004, 611);
             this.panel1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.BorderRadius = 5;
+            this.button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(157)))), ((int)(((byte)(106)))));
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(910, 352);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(50, 35);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "EN";
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Your_l
             // 
@@ -332,23 +349,6 @@
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // button3
-            // 
-            this.button3.BorderRadius = 5;
-            this.button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(157)))), ((int)(((byte)(106)))));
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(910, 352);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 35);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "EN";
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Translate
             // 
