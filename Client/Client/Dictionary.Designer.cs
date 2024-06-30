@@ -165,7 +165,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(230, 518);
+            this.button4.Location = new System.Drawing.Point(220, 518);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 45);
@@ -179,21 +179,20 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(554, 9);
+            this.label2.Location = new System.Drawing.Point(559, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 28);
             this.label2.TabIndex = 13;
             this.label2.Text = "Нотатки";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Silver;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(230, 40);
+            this.textBox2.Location = new System.Drawing.Point(220, 40);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(748, 458);
+            this.textBox2.Size = new System.Drawing.Size(758, 473);
             this.textBox2.TabIndex = 7;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
