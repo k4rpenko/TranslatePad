@@ -5,15 +5,6 @@ const pg = require("../../cone");
 
 router.use(express.json());
 
-router.get('/', async (req, res) => {
-    try {
-
-        return res.status(200).json({ message: "ok" });
-    } catch (error) {
-        console.error('Internal Server Error:', error);
-        return res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
 
 router.post('/', async (req, res) => {
     const { token, title, content } = req.body;
