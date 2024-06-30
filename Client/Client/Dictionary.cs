@@ -27,6 +27,13 @@ namespace Client
             public string content { get; set; }
             public string updated_at { get; set; }
         }
+
+        private int buttonCounter = 0;
+        private int startX = 7; // Початкова позиція по X
+        private int startY = 264; // Початкова позиція по Y
+        private int buttonWidth = 183; // Ширина кнопки
+        private int buttonHeight = 46; // Висота кнопки
+        private int spacing = 10; // Відстань між кнопками
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
         private static string RefreshFilePath = "user_refresh.txt";
         string token = File.ReadAllText(RefreshFilePath);
@@ -36,6 +43,14 @@ namespace Client
         {
             InitializeComponent();
             ShowDictionary();
+        }
+
+        private void CreateButton()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                GenerateElements(i, "one");
+            }
         }
 
 
@@ -49,12 +64,12 @@ namespace Client
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
                     List<Notes> translations = JsonConvert.DeserializeObject<List<Notes>>(jsonResponse);
+                    int a = translations.Count;
                     Console.WriteLine(translations.Count);
-                    ClearElements();
-                    for (int i = 0; i < translations.Count; i++)
+                    if(a >=5) { a = 5; }
+                    for (int i = 0; i < a; i++)
                     {
-                        GenerateElements(translations[i].id, translations[i].title);
-                        if(i == 5) { return; }
+                        GenerateElements(translations[i].id, translations[i].title.ToString());
                     }
                     this.Refresh();
                 }
@@ -180,43 +195,39 @@ namespace Client
             Console.WriteLine("Start create");
             // Створюємо Button
 
+            //CreatePictureBox(id);
             CreateButton(id, title);
-            CreatePictureBox(id);
         }
 
 
         private void CreatePictureBox(int index)
         {
-            Console.WriteLine("Start Picture");
             PictureBox pictureBox = new PictureBox();
-            Controls.Add(pictureBox);
-            pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("free-icon-font-file.png")));
-            pictureBox.Location = new System.Drawing.Point(11, 259 + (index * 70));
-            pictureBox.Margin = new Padding(2);
-            pictureBox.Name = $"dynamicPictureBox{index}";
-            pictureBox.Size = new System.Drawing.Size(20, 26);
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.TabIndex = 12;
-            pictureBox.TabStop = false;
+            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox.Image = Image.FromFile("free-icon-font-file.png"); // Замініть шлях на реальний шлях до вашого зображення
+            pictureBox.Location = new Point((this.ClientSize.Width - pictureBox.Width) / 2, (this.ClientSize.Height - pictureBox.Height) / 2);
+            panel2.Controls.Add(pictureBox);
         }
 
         private void CreateButton(int index, string text)
         {
-            Console.WriteLine("Start button");
-            Button button = new Button();
-            Controls.Add(button);
-            button.BackColor = Color.FromArgb(37, 37, 37);
-            button.FlatStyle = FlatStyle.Popup;
-            button.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button.ForeColor = Color.FromArgb(140, 140, 140);
-            button.Location = new System.Drawing.Point(7, 252 + (index * 70));
-            button.Margin = new Padding(2);
-            button.Name = $"dynamicButton{index}";
-            button.Size = new System.Drawing.Size(183, 46);
-            button.TabIndex = 11;
-            button.Text = text;
-            button.UseVisualStyleBackColor = false;
+            Button newButton = new Button();
+            newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            newButton.FlatStyle = FlatStyle.Popup;
+            newButton.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            newButton.ForeColor = Color.FromArgb(140, 140, 140);
+            newButton.Margin = new Padding(2);
+            newButton.Name = $"dynamicButton{index}";
+            newButton.Size = new Size(buttonWidth, buttonHeight);
+            newButton.Text = text;
 
+            // Розрахунок позиції нової кнопки
+            int x = startX;
+            int y = startY + (buttonCounter * (buttonHeight + spacing));
+
+            newButton.Location = new Point(x, y);
+            panel2.Controls.Add(newButton);
+            buttonCounter++;
         }
     }
 }
