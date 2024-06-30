@@ -15,6 +15,11 @@ namespace Client
         public Dictionary()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
+        }
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void Form1_Load(object sender, EventArgs e)

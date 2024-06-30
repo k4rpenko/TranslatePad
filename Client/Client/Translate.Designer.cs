@@ -30,166 +30,253 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Translate));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tet_tran = new System.Windows.Forms.Label();
+            this.Your_l = new System.Windows.Forms.Button();
+            this.text_for_trans = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.ret_tr = new Guna.UI2.WinForms.Guna2TextBox();
-            this.text_for_tr = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.panel1.Controls.Add(this.text_for_tr);
-            this.panel1.Controls.Add(this.ret_tr);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.Your_l);
+            this.panel1.Controls.Add(this.text_for_trans);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1004, 611);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // panel4
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.pictureBox7);
-            this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(173, 611);
-            this.panel2.TabIndex = 9;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panel4.Controls.Add(this.guna2PictureBox1);
+            this.panel4.Controls.Add(this.pictureBox7);
+            this.panel4.Controls.Add(this.guna2PictureBox3);
+            this.panel4.Controls.Add(this.guna2Button1);
+            this.panel4.Controls.Add(this.guna2Button2);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 611);
+            this.panel4.TabIndex = 14;
             // 
-            // pictureBox1
+            // guna2PictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.ImageRotate = 0F;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(17, 10);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(32, 33);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 12;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.ImageRotate = 0F;
-            this.pictureBox7.Location = new System.Drawing.Point(14, 150);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Location = new System.Drawing.Point(17, 151);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox7.Size = new System.Drawing.Size(25, 27);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 12;
+            this.pictureBox7.TabIndex = 8;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.UseTransparentBackground = true;
             // 
-            // pictureBox4
+            // guna2PictureBox3
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.ImageRotate = 0F;
-            this.pictureBox4.Location = new System.Drawing.Point(19, 87);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.UseTransparentBackground = true;
+            this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(19, 92);
+            this.guna2PictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(20, 20);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox3.TabIndex = 11;
+            this.guna2PictureBox3.TabStop = false;
+            this.guna2PictureBox3.UseTransparentBackground = true;
             // 
-            // button1
+            // guna2Button1
             // 
-            this.button1.Animated = true;
-            this.button1.BorderRadius = 12;
-            this.button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.button1.Font = new System.Drawing.Font("Ebrima", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.button1.Location = new System.Drawing.Point(8, 139);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 42);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Перекладач";
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BorderRadius = 12;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Ebrima", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.guna2Button1.Location = new System.Drawing.Point(8, 139);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(200, 50);
+            this.guna2Button1.TabIndex = 10;
+            this.guna2Button1.Text = "Головна";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.Animated = true;
+            this.guna2Button2.BorderRadius = 12;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Ebrima", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.guna2Button2.Location = new System.Drawing.Point(9, 78);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(200, 50);
+            this.guna2Button2.TabIndex = 9;
+            this.guna2Button2.Text = "Нотатки";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Ebrima", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.label2.Location = new System.Drawing.Point(53, 24);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Користувач";
             // 
             // button2
             // 
-            this.button2.Animated = true;
-            this.button2.BorderRadius = 12;
-            this.button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.button2.Font = new System.Drawing.Font("Ebrima", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.button2.Location = new System.Drawing.Point(9, 78);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(255, 458);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 42);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Нотатки";
+            this.button2.Size = new System.Drawing.Size(53, 25);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Ebrima", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(53, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Користувач";
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(495, 507);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 52);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Add translate";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView1.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(255, 28);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(649, 260);
+            this.listView1.TabIndex = 11;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tet_tran);
+            this.panel3.Location = new System.Drawing.Point(255, 352);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(649, 35);
+            this.panel3.TabIndex = 10;
+            // 
+            // tet_tran
+            // 
+            this.tet_tran.AutoSize = true;
+            this.tet_tran.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tet_tran.ForeColor = System.Drawing.Color.White;
+            this.tet_tran.Location = new System.Drawing.Point(3, 5);
+            this.tet_tran.Name = "tet_tran";
+            this.tet_tran.Size = new System.Drawing.Size(0, 25);
+            this.tet_tran.TabIndex = 8;
+            // 
+            // Your_l
+            // 
+            this.Your_l.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.Your_l.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Your_l.Location = new System.Drawing.Point(926, 414);
+            this.Your_l.Margin = new System.Windows.Forms.Padding(2);
+            this.Your_l.Name = "Your_l";
+            this.Your_l.Size = new System.Drawing.Size(50, 26);
+            this.Your_l.TabIndex = 9;
+            this.Your_l.Text = "EN";
+            this.Your_l.UseVisualStyleBackColor = false;
+            this.Your_l.Click += new System.EventHandler(this.Your_l_Click);
+            // 
+            // text_for_trans
+            // 
+            this.text_for_trans.Location = new System.Drawing.Point(255, 418);
+            this.text_for_trans.Multiline = true;
+            this.text_for_trans.Name = "text_for_trans";
+            this.text_for_trans.Size = new System.Drawing.Size(649, 35);
+            this.text_for_trans.TabIndex = 7;
+            this.text_for_trans.TextChanged += new System.EventHandler(this.text_for_trans_TextChanged);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(735, 507);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(169, 52);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Save";
+            this.button5.Text = "Save to file";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(255, 507);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(169, 52);
             this.button4.TabIndex = 4;
@@ -201,61 +288,14 @@
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(943, 414);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(926, 361);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.Size = new System.Drawing.Size(50, 26);
             this.button3.TabIndex = 3;
             this.button3.Text = "EN";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(255, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(649, 313);
-            this.listView1.TabIndex = 10;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // ret_tr
-            // 
-            this.ret_tr.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ret_tr.DefaultText = "";
-            this.ret_tr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ret_tr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ret_tr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ret_tr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ret_tr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ret_tr.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ret_tr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ret_tr.Location = new System.Drawing.Point(255, 347);
-            this.ret_tr.Name = "ret_tr";
-            this.ret_tr.PasswordChar = '\0';
-            this.ret_tr.PlaceholderText = "";
-            this.ret_tr.SelectedText = "";
-            this.ret_tr.Size = new System.Drawing.Size(649, 35);
-            this.ret_tr.TabIndex = 11;
-            // 
-            // text_for_tr
-            // 
-            this.text_for_tr.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_for_tr.DefaultText = "";
-            this.text_for_tr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.text_for_tr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.text_for_tr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_for_tr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.text_for_tr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_for_tr.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.text_for_tr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_for_tr.Location = new System.Drawing.Point(255, 414);
-            this.text_for_tr.Name = "text_for_tr";
-            this.text_for_tr.PasswordChar = '\0';
-            this.text_for_tr.PlaceholderText = "";
-            this.text_for_tr.SelectedText = "";
-            this.text_for_tr.Size = new System.Drawing.Size(649, 35);
-            this.text_for_tr.TabIndex = 12;
             // 
             // Translate
             // 
@@ -263,15 +303,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 611);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Translate";
             this.Text = "Dictionary";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -282,15 +325,19 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2PictureBox pictureBox1;
-        private Guna.UI2.WinForms.Guna2PictureBox pictureBox7;
-        private Guna.UI2.WinForms.Guna2PictureBox pictureBox4;
-        private Guna.UI2.WinForms.Guna2Button button1;
-        private Guna.UI2.WinForms.Guna2Button button2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox text_for_trans;
+        private System.Windows.Forms.Label tet_tran;
+        private System.Windows.Forms.Button Your_l;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ListView listView1;
-        private Guna.UI2.WinForms.Guna2TextBox ret_tr;
-        private Guna.UI2.WinForms.Guna2TextBox text_for_tr;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel4;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.Label label2;
     }
 }
