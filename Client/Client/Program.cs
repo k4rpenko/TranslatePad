@@ -17,7 +17,7 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Authorization());
+            Application.Run(new Translate());
             /*if (File.Exists("user_refresh.txt"))
             {
                 Application.Run(new Menu());
