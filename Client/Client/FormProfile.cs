@@ -39,11 +39,11 @@ namespace Client
                 if (File.Exists(path))
                 {
                     File.Delete(path);
-                    Console.WriteLine("Файл успішно видалено.");
-                }
-                else
-                {
-                    Console.WriteLine("Файл не знайдено.");
+                    Authorization _Auth = new Authorization();
+                    _Auth.StartPosition = FormStartPosition.Manual;
+                    _Auth.Location = this.Location;
+                    this.Hide();
+                    _Auth.Show();
                 }
             }
             catch (Exception ex)
