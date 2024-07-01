@@ -88,9 +88,15 @@ namespace Client
 
 
 
-        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        internal void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit(); 
+            Application.Exit();
+            MenuClosed();
+        }
+
+        internal void MenuClosed()
+        {
+            Application.Exit();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -192,5 +198,6 @@ namespace Client
                 MessageBox.Show($"Error in AddToTranslationHistory: {ex.Message}");
             }
         }
+
     }
 }

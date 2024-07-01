@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Client
 {
@@ -38,12 +39,9 @@ namespace Client
             {
                 if (File.Exists(path))
                 {
+                    Menu _menu = new Menu();
+                    _menu.MenuClosed();
                     File.Delete(path);
-                    Authorization _Auth = new Authorization();
-                    _Auth.StartPosition = FormStartPosition.Manual;
-                    _Auth.Location = this.Location;
-                    this.Hide();
-                    _Auth.Show();
                 }
             }
             catch (Exception ex)
