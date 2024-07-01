@@ -30,9 +30,12 @@ namespace Client
         public Change_Dictionary()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
             H1.TextChanged += new EventHandler(H1_TextChanged);
             P1.TextChanged += new EventHandler(P1_TextChanged);
         }
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e) { Application.Exit(); }
 
         public async void OpenNotes()
         {
@@ -96,6 +99,24 @@ namespace Client
         private void button2_Click(object sender, EventArgs e)
         {
             // Implement logic for saving changes or other functionality
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Translate _tran = new Translate();
+            _tran.StartPosition = FormStartPosition.Manual;
+            _tran.Location = this.Location;
+            _tran.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Menu _Menu = new Menu();
+            _Menu.StartPosition = FormStartPosition.Manual;
+            _Menu.Location = this.Location;
+            _Menu.Show();
+            this.Hide();
         }
     }
 }

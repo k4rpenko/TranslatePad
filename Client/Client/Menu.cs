@@ -193,7 +193,7 @@ namespace Client
             newButton.Name = $"dynamicButton{index}";
             newButton.Size = new Size(buttonWidth, buttonHeight);
             newButton.TabIndex = index;
-            newButton.Text = $"{index} {text}";
+            newButton.Text = text;
             newButton.Click += new EventHandler(DynamicButton_Click);
 
             // Розрахунок позиції нової кнопки
