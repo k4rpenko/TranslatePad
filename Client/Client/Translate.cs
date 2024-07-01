@@ -245,10 +245,7 @@ namespace Client
             }
         }
 
-        private void ClearListViewItems()
-        {
-            listView1.Items.Clear();
-        }
+        private void ClearListViewItems() { listView1.Items.Clear(); }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
