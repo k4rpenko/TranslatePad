@@ -29,5 +29,26 @@ namespace Client
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string path = "user_refresh.txt";
+            try
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                    Console.WriteLine("Файл успішно видалено.");
+                }
+                else
+                {
+                    Console.WriteLine("Файл не знайдено.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Виникла помилка при видаленні файлу: {ex.Message}");
+            }
+        }
     }
-}
+ }
