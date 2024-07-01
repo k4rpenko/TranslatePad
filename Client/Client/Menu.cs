@@ -18,9 +18,9 @@ namespace Client
     public partial class Menu : Form
     {
         FormProfile _FP = new FormProfile();
-        List<Notes> translations;
+        public List<Notes> translations;
 
-        private class Notes
+        public class Notes
         {
             public int id { get; set; }
             public int user_id { get; set; }
@@ -67,7 +67,7 @@ namespace Client
                     string jsonResponse = await response.Content.ReadAsStringAsync();
                     translations = JsonConvert.DeserializeObject<List<Notes>>(jsonResponse);
                     int a = translations.Count;
-                    Console.WriteLine(translations.Count);
+                    
                     if (a >= 5) { a = 5; }
                     for (int i = 0; i < a; i++)
                     {
@@ -86,7 +86,6 @@ namespace Client
             try
             {
                  int a = translations.Count;
-                 Console.WriteLine(translations.Count);
                  for (int i = 0; i < a; i++)
                  {
                     CreateButton(translations[i].id, translations[i].title.ToString());
@@ -194,7 +193,7 @@ namespace Client
             newButton.Name = $"dynamicButton{index}";
             newButton.Size = new Size(buttonWidth, buttonHeight);
             newButton.TabIndex = index;
-            newButton.Text = text;
+            newButton.Text = $"{index} {text}";
             newButton.Click += new EventHandler(DynamicButton_Click);
 
             // Розрахунок позиції нової кнопки
@@ -251,9 +250,10 @@ namespace Client
         {
             Button clickedButton = sender as Button;
             Change_Dictionary _CD = new Change_Dictionary();
+            _CD.NoteId = clickedButton.TabIndex;
             _CD.StartPosition = FormStartPosition.Manual;
             _CD.Location = this.Location;
-            _CD.NoteId = clickedButton.TabIndex;
+            _CD.OpenNotes();
             _CD.Show();
             this.Hide();
 

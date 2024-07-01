@@ -6,6 +6,8 @@ const Login = require('./api/auth/Login/routes');
 const Regists = require('./api/auth/SignUp/routes');
 const Add_Notes = require('./api/Notes/Add_notes/router');
 const Show_Notes = require('./api/Notes/Show_notes/router');
+const Open_notes = require('./api/Notes/Open_notes/router')
+const Change_notes = require('./api/Notes/Change_note/router')
 
 var cors = require('cors')
 const helmet = require('helmet');
@@ -57,6 +59,8 @@ app.use("/api/auth/Login", Login);
 app.use("/api/auth/Regists", Regists);
 app.use("/api/Add_Notesn", Add_Notes);
 app.use("/api/Show_Notes", Show_Notes);
+app.use("/api/Open_notes", Open_notes);
+app.use("/api/Change_notes", Change_notes);
 
 
 
