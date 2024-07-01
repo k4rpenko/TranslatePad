@@ -12,6 +12,7 @@ namespace Client
 {
     public partial class FormProfile : Form
     {
+        private static string RefreshFilePath = "user_refresh.txt";
 
         public FormProfile()
         {
