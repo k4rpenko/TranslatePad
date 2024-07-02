@@ -54,11 +54,11 @@ namespace Client.api
 
         }
 
-        public async Task<HttpResponseMessage> PostChangeNotes(string url, string id, string H1, string P1)
+        public async Task<HttpResponseMessage> PostChangeNotes(string url, int id, string H1, string P1, string date)
         {
             try
             {
-                var data = new { id = id, title = H1, content = P1 };
+                var data = new { id = id, title = H1, content = P1, updated_at = date };
                 HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
                 return response;
             }
