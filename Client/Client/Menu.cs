@@ -92,7 +92,7 @@ namespace Client
 
         internal void MenuClosed()
         {
-            throw new NotImplementedException();
+            Application.Exit();
         }
     }
 }
