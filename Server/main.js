@@ -1,6 +1,5 @@
 const express = require("express");
 require('dotenv').config();
-
 const Test = require('./api/Test/routes');
 const Login = require('./api/auth/Login/routes');
 const Regists = require('./api/auth/SignUp/routes');
@@ -10,7 +9,6 @@ const Open_notes = require('./api/Notes/Open_notes/router')
 const Change_notes = require('./api/Notes/Change_note/router')
 const Add_translate = require('./api/Translate/Add_words_tr/router');
 const Show_translate = require('./api/Translate/Show_words_tr/router');
-
 var cors = require('cors')
 const helmet = require('helmet');
 const csp = require('helmet-csp');
@@ -63,7 +61,6 @@ app.use("/api/Add_Notesn", Add_Notes);
 app.use("/api/Show_Notes", Show_Notes);
 app.use("/api/Open_notes", Open_notes);
 app.use("/api/Change_notes", Change_notes);
-
 app.use("/api/Add_translate", Add_translate);
 app.use("/api/Show_translate", Show_translate);
 
