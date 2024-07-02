@@ -10,6 +10,10 @@ router.post('/', async (req, res) => {
     try {
         client = await pg.connect();
         if (token) {
+            // Додано: перевірка на наявність секретного ключа
+            if (!process.env.JWT_SECRET) {
+                throw new Error("JWT_SECRET is not defined in environment variables");
+            }
             const jwtres = jwt.verify(token, process.env.JWT_SECRET);
             const id = jwtres.data[1];
             if (typeof jwtres === 'object' && jwtres !== null) {
@@ -20,7 +24,9 @@ router.post('/', async (req, res) => {
         }
         return res.status(400).json({ error: 'None Token' });
     } 
-    catch (error) {return res.status(500).json({ error: 'Internal Server Error ' + error.message });}   
+    catch (error) {
+        return res.status(500).json({ error: 'Internal Server Error: ' + error.message });
+    }   
     finally {
         if (client) {
             client.release(); 
