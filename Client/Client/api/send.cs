@@ -1,4 +1,4 @@
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -19,6 +19,7 @@ namespace Client.api
         {
 
         }*/
+        
 
         public async Task<HttpResponseMessage> PostAuth(string url, string email, string password)
         {
@@ -35,19 +36,12 @@ namespace Client.api
             }
 
         }
-
-
-
-        public async Task<HttpResponseMessage> PostAddDictionary(string url, string token, string H1, string P1)
+        
+                public async Task<HttpResponseMessage> PostAddDictionary(string url, string token, string H1, string P1)
         {
             try
             {
                 var data = new { token = token, title = H1, content = P1 };
-        public async Task<HttpResponseMessage> PostAdd_translate(string url, string token, string lang_orig_words, string orig_words, string lang_trans_words, string trans_words)
-        {
-            try
-            {
-                var data = new { token = token, lang_orig_words = lang_orig_words, orig_words = orig_words, lang_trans_words = lang_trans_words, trans_words = trans_words };
                 HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
                 return response;
             }
@@ -64,11 +58,6 @@ namespace Client.api
             try
             {
                 var data = new { id = id, title = H1, content = P1, updated_at = date };
-        public async Task<HttpResponseMessage> GetShow_translate(string url, string token)
-        {
-            try
-            {
-                var data = new { token = token, };
                 HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
                 return response;
             }
@@ -109,6 +98,36 @@ namespace Client.api
             }
         }
 
+
+        public async Task<HttpResponseMessage> PostAdd_translate(string url, string token, string lang_orig_words, string orig_words, string lang_trans_words, string trans_words)
+        {
+            try
+            {
+                var data = new { token = token, lang_orig_words = lang_orig_words, orig_words = orig_words, lang_trans_words = lang_trans_words, trans_words = trans_words };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                return null;
+            }
+
+        }
+
+        public async Task<HttpResponseMessage> GetShow_translate(string url, string token)
+        {
+            try
+            {
+                var data = new { token = token, };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                return null;
+            }
 
         }
     }
