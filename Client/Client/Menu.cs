@@ -49,7 +49,6 @@ namespace Client
 
         private void InitializeListView()
         {
-            // Додайте ListView на вашу форму в дизайнері або програмно
             
             listView1.View = View.Details;
             listView1.Columns.Add("Original Text", 280, HorizontalAlignment.Center);
