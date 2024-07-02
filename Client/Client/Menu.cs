@@ -19,6 +19,7 @@ namespace Client
     {
         FormProfile _FP = new FormProfile();
         public List<Notes> translations;
+        private List<TranslationHistory> translationHistories = new List<TranslationHistory>();
 
         public class Notes
         {
@@ -27,6 +28,32 @@ namespace Client
             public string title { get; set; }
             public string content { get; set; }
             public string updated_at { get; set; }
+        }
+
+        public class Translation
+        {
+            public int id { get; set; }
+            public int user_id { get; set; }
+            public string lang_orig_words { get; set; }
+            public string orig_words { get; set; }
+            public string lang_trans_words { get; set; }
+            public string trans_words { get; set; }
+        }
+
+        public class TranslationHistory
+        {
+            public string OriginalText { get; set; }
+            public string TranslatedText { get; set; }
+            public string Language { get; set; }
+        }
+
+        private void InitializeListView()
+        {
+            // Додайте ListView на вашу форму в дизайнері або програмно
+            listView1.View = View.Details;
+            listView1.Columns.Add("Original Text", 280, HorizontalAlignment.Center);
+            listView1.Columns.Add("Translated Text", 280, HorizontalAlignment.Center);
+            listView1.Columns.Add("Language", -2, HorizontalAlignment.Center);
         }
 
         private int buttonCounter = 0;
@@ -269,6 +296,65 @@ namespace Client
             _FP.Show();
 
             _FP.Deactivate += (s, args) => _FP.Close();
+        }
+
+
+
+        private void AddToTranslationHistory(string originalText, string translatedText, string[] language)
+        {
+            try
+            {
+                translationHistories.Add(new TranslationHistory
+                {
+                    OriginalText = originalText,
+                    TranslatedText = translatedText,
+                    Language = string.Join("/", language)
+                });
+
+                // Додавання запису до listView1
+                ListViewItem item = new ListViewItem(originalText);
+                item.SubItems.Add(translatedText);
+                item.SubItems.Add(string.Join("/", language));
+                listView1.Items.Add(item);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in AddToTranslationHistory: {ex.Message}");
+            }
+        }
+
+        private async void ShowWords()
+        {
+            try
+            {
+                ClearListViewItems();
+                string url = "http://localhost:3001/api/Show_translate";
+                HttpResponseMessage response = await httpSend.GetShow_translate(url, token);
+
+                if ((int)response.StatusCode == 200)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    List<Translation> translations = JsonConvert.DeserializeObject<List<Translation>>(jsonResponse);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        var translation = translations[i];
+                        var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
+                        AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("NULL");
+                }
+
+            }
+            catch { Console.WriteLine("Error"); }
+        }
+        private void ClearListViewItems() { listView1.Items.Clear(); }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
