@@ -6,6 +6,11 @@ using System.Drawing;
 using System.Net.Http;
 using System.Windows.Forms;
 
+
+
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Client
 {
     public partial class Change_Dictionary : Form
@@ -33,9 +38,18 @@ namespace Client
             this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
             H1.TextChanged += new EventHandler(H1_TextChanged);
             P1.TextChanged += new EventHandler(P1_TextChanged);
+
+            // Initially disable the buttons
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button1.BackColor = SystemColors.GrayText;
+            button2.BackColor = SystemColors.GrayText;
         }
 
-        private void Menu_FormClosed(object sender, FormClosedEventArgs e) { Application.Exit(); }
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
         public async void OpenNotes()
         {
@@ -96,9 +110,72 @@ namespace Client
             }
         }
 
+
+
+        public class Http_Send
+        {
+            private readonly HttpClient _httpClient;
+
+            public Http_Send()
+            {
+                _httpClient = new HttpClient();
+            }
+
+            public async Task<HttpResponseMessage> GetOpenNotes(string url, int noteId)
+            {
+                url += "?noteId=" + noteId;
+                return await _httpClient.GetAsync(url);
+            }
+
+            public async Task<HttpResponseMessage> PutAsync(string url, object data)
+            {
+                var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+                return await _httpClient.PutAsync(url, content);
+            }
+        }
+
+
         private void button2_Click(object sender, EventArgs e)
         {
-            // Implement logic for saving changes or other functionality
+
+            try
+            {
+                Notes note = new Notes
+                {
+                    id = NoteId,
+                    user_id = translations[0].user_id,
+                    title = H1.Text,
+                    content = P1.Text,
+                    updated_at = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                };
+
+                string url = "http://localhost:3001/api/Update_note";
+                HttpResponseMessage response = httpSend.PutAsync(url, note).Result;
+                if ((int)response.StatusCode == 200)
+                {
+                    MessageBox.Show("Changes saved successfully!");
+                    initialTitle = H1.Text;
+                    initialContent = P1.Text;
+                    CheckIfTextChanged();
+                }
+                else
+                {
+                    Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            H1.Text = initialTitle;
+            P1.Text = initialContent;
+            CheckIfTextChanged();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -117,6 +194,11 @@ namespace Client
             _Menu.Location = this.Location;
             _Menu.Show();
             this.Hide();
+        }
+
+        private void P1_TextChanged_1(object sender, EventArgs e)
+        {
+            CheckIfTextChanged();
         }
     }
 }
