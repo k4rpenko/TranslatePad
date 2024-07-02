@@ -89,5 +89,10 @@ namespace Client
 
             _FP.Deactivate += (s, args) => _FP.Close();
         }
+
+        internal void MenuClosed()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

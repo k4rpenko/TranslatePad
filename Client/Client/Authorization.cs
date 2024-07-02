@@ -1,15 +1,10 @@
-﻿using System;
+﻿using Client.api;
+using Client.pass;
+using Newtonsoft.Json.Linq;
 using System.Drawing;
 using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using Client.pass;
-using Client.api;
 using System.Net.Http;
 using System.Net;
-using Newtonsoft.Json.Linq;
-
 
 namespace Client
 {
@@ -49,14 +44,15 @@ namespace Client
                 }
             }
             catch (Exception ex) { }
-
         }
-
 
         public Authorization()
         {
             InitializeComponent();
 
+            // Підписка на події для чекбоксів
+            checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
         }
 
         #region WorkWithButton
@@ -72,7 +68,6 @@ namespace Client
             var aPass = passValidation.ValidatePassword(Sign_in_pass.Text);
             if (!aPass.IsValid)
             {
-
                 label_in.Text = aPass.Message;
                 return;
             }
@@ -93,7 +88,6 @@ namespace Client
                             dynamic jsonResponse = JObject.Parse(result);
                             string refreshToken = jsonResponse.refreshToken;
                             SaveRefreshToken(refreshToken);
-
 
                             label_in.ForeColor = Color.Green;
                             label_in.Text = "Вхід пройшла успішно";
@@ -121,12 +115,9 @@ namespace Client
             }
             catch
             {
-
                 label_in.Text = "error occurred";
             }
         }
-
-
 
         private async void guna2Button2_Click(object sender, EventArgs e)
         {
@@ -137,17 +128,19 @@ namespace Client
                 label1.Text = aEmail.Message;
                 return;
             }
-            if (Sign_up_pass.Text != Sign_up_pass2.Text) { label1.Text = "Pass is not corect"; return; }
+            if (Sign_up_pass.Text != Sign_up_pass2.Text)
+            {
+                label1.Text = "Pass is not correct";
+                return;
+            }
             var aPass = passValidation.ValidatePassword(Sign_up_pass2.Text);
             if (!aPass.IsValid)
             {
-
                 label1.Text = aPass.Message;
                 return;
             }
 
             label1.Text = "";
-
 
             try
             {
@@ -164,14 +157,12 @@ namespace Client
                         string refreshToken = jsonResponse.refreshToken;
                         SaveRefreshToken(refreshToken);
 
-
                         label1.ForeColor = Color.Green;
                         label1.Text = "Вхід пройшла успішно";
                         Menu _menu = new Menu();
                         _menu.Show();
                         this.Hide();
                     }
-
                 }
                 else if ((int)response.StatusCode == 404)
                 {
@@ -186,58 +177,12 @@ namespace Client
             }
             catch
             {
-
                 label1.Text = "error occurred";
             }
         }
         #endregion
 
         #region WorkWithPassword
-        private async void Sign_up_pass2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void Sign_up_pass_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private async void Sign_in_pass_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-        #endregion
-
-        #region WorkWithEmail
-        private async void Sign_in_email_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-
-        private async void Sign_up_email_TextChanged(object sender, EventArgs e)
-        {
-        }
-        #endregion
-
-        #region Placeholder
-        private void SetEmailPlaceholder(TextBox textBox, string placeholderText)
-        {
-
-        }
-
-        private void SetPasswordPlaceholder(TextBox textBox, string placeholderText)
-        {
-
-        }
-
-        private void RemovePlaceholder(object sender, EventArgs e)
-        {
-            
-        }
-        #endregion
-
-        #region WorkWithCheck
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -256,11 +201,11 @@ namespace Client
         {
             if (checkBox2.Checked)
             {
-                Sign_in_pass.UseSystemPasswordChar = true;
+                Sign_in_pass.UseSystemPasswordChar = false;
             }
             else
             {
-                Sign_in_pass.UseSystemPasswordChar = false;
+                Sign_in_pass.UseSystemPasswordChar = true;
             }
         }
         #endregion
@@ -288,34 +233,19 @@ namespace Client
 
         private void label2_Click(object sender, EventArgs e) { }
         private void tabPage2_Click(object sender, EventArgs e) { }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        private void tabPage1_Click(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
+        private void guna2Button1_Click(object sender, EventArgs e) { }
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
         }
-
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
         }
 
-
+        private void Sign_up_pass_TextChanged_1(object sender, EventArgs e) { }
+        private void Sign_up_pass2_TextChanged_1(object sender, EventArgs e) { }
     }
 }
