@@ -25,6 +25,8 @@ namespace Client
             {
                 Application.Run(new Authorization());
             }
+
+
         }
     }
 }
