@@ -10,6 +10,8 @@ router.post('/', async (req, res) => {
     let client;
     try {
         client = await pg.connect();
+        console.log(client);
+        console.log(email, password);
         const result = await client.query('SELECT * FROM public.trap_users WHERE email = $1;', [email]);
 
         if (result.rows.length > 0) {
