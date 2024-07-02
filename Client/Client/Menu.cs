@@ -20,6 +20,9 @@ namespace Client
         FormProfile _FP = new FormProfile();
         public List<Notes> translations;
         private List<TranslationHistory> translationHistories = new List<TranslationHistory>();
+        Http_Send httpSend = new Http_Send();
+        private static string RefreshFilePath = "user_refresh.txt";
+        string token = File.ReadAllText(RefreshFilePath);
 
         public class Notes
         {
@@ -70,9 +73,6 @@ namespace Client
         private int buttonHeight_panel = 85; // Висота кнопки
         private int spacing_panel = 10; // Відстань між кнопками
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-        private static string RefreshFilePath = "user_refresh.txt";
-        string token = File.ReadAllText(RefreshFilePath);
-        Http_Send httpSend = new Http_Send();
 
 
 
@@ -80,6 +80,8 @@ namespace Client
         {
             InitializeComponent();
             ShowDictionary();
+            InitializeListView();
+            ShowWords();
             this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
         }
 
@@ -328,7 +330,7 @@ namespace Client
             try
             {
                 ClearListViewItems();
-                string url = "http://localhost:3001/api/Show_translate";
+                string url = "https://translate-pad.vercel.app/api/Show_translate";
                 HttpResponseMessage response = await httpSend.GetShow_translate(url, token);
 
                 if ((int)response.StatusCode == 200)
