@@ -60,7 +60,7 @@ namespace Client
         {
             try
             {
-                string url = "http://localhost:3001/api/Show_Notes";
+                string url = "https://translate-pad.vercel.app/api/Show_Notes";
                 HttpResponseMessage response = await httpSend.GetShowNotes(url, token);
                 if ((int)response.StatusCode == 200)
                 {
@@ -156,15 +156,6 @@ namespace Client
             }
         }
 
-
-        /*private void GenerateElements(int id, string title)
-        {
-            Console.WriteLine("Start create");
-            // Створюємо Button
-
-            //CreatePictureBox(id);
-            CreateButton(id, title);
-        }*/
 
 
         private void CreatePictureBox(int index)
@@ -266,7 +257,18 @@ namespace Client
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            if (_FP == null || _FP.IsDisposed)
+            {
+                _FP = new FormProfile();
+            }
 
+            Point buttonLocationOnScreen = button3.PointToScreen(Point.Empty);
+            _FP.StartPosition = FormStartPosition.Manual;
+            _FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button3.Height);
+            _FP.TopMost = true;
+            _FP.Show();
+
+            _FP.Deactivate += (s, args) => _FP.Close();
         }
     }
 

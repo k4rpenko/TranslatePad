@@ -58,7 +58,7 @@ namespace Client
         {
             try
             {
-                string url = "http://localhost:3001/api/Show_Notes";
+                string url = "https://translate-pad.vercel.app/api/Show_Notes";
                 HttpResponseMessage response = await httpSend.GetShowNotes(url, token);
                 if ((int)response.StatusCode == 200)
                 {
@@ -97,7 +97,7 @@ namespace Client
         {
             try
             {
-                string url = "http://localhost:3001/api/Add_Notesn";
+                string url = "https://translate-pad.vercel.app/api/Add_Notesn";
                 HttpResponseMessage response = await httpSend.PostAddDictionary(url, token, H1.Text.ToString(), P1.Text.ToString());
                 if ((int)response.StatusCode == 200) { Console.WriteLine("Creat note"); }
                 else { Console.WriteLine("NULL"); }

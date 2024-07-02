@@ -63,7 +63,7 @@ namespace Client
             try
             {
                 ClearListViewItems();
-                string url = "http://localhost:3001/api/Show_translate";
+                string url = "https://translate-pad.vercel.app/api/Show_translate";
                 HttpResponseMessage response = await httpSend.GetShow_translate(url, token);
 
                 if ((int)response.StatusCode == 200)
@@ -335,7 +335,7 @@ namespace Client
         {
             try
             {
-                string url = "http://localhost:3001/api/Add_translate";
+                string url = "https://translate-pad.vercel.app/api/Add_translate";
                 HttpResponseMessage response = await httpSend.PostAdd_translate(url, token, Your_l.Text, text_for_trans.Text.ToString(), button3.Text, tet_tran.Text.ToString());
 
                 if ((int)response.StatusCode == 200)

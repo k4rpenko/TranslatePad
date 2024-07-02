@@ -56,7 +56,7 @@ namespace Client
         {
             try
             {
-                string url = "http://localhost:3001/api/Open_notes";
+                string url = "https://translate-pad.vercel.app/api/Open_notes";
                 HttpResponseMessage response = await httpSend.GetOpenNotes(url, NoteId);
                 if ((int)response.StatusCode == 200)
                 {
@@ -148,7 +148,7 @@ namespace Client
             try
             {
                 string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                string url = "http://localhost:3001/api/Change_notes";
+                string url = "https://translate-pad.vercel.app/api/Change_notes";
 
                 HttpResponseMessage response = await httpSend.PostChangeNotes(url, NoteId, H1.Text.ToString(), P1.Text.ToString(), date);
                 Console.WriteLine((int)response.StatusCode);
