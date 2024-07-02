@@ -32,10 +32,6 @@ namespace Client
         private void button1_Click(object sender, EventArgs e)
         {
         }
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
@@ -87,6 +83,15 @@ namespace Client
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Menu _menu = new Menu();
+            _menu.StartPosition = FormStartPosition.Manual;
+            _menu.Location = this.Location;
+            _menu.Show();
+            this.Hide();
         }
     }
 }
