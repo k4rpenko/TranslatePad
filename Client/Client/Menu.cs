@@ -17,18 +17,12 @@ using System.Web.Security;
 
 namespace Client
 {
-
     public partial class Menu : Form
     {
-
         private List<TranslationHistory> translationHistories = new List<TranslationHistory>();
         Http_Send httpSend = new Http_Send();
         private static string RefreshFilePath = "user_refresh.txt";
         string token = File.ReadAllText(RefreshFilePath);
-
-
-
-
 
         public class Translation
         {
@@ -49,33 +43,28 @@ namespace Client
 
         private void InitializeListView()
         {
-            
             listView1.View = View.Details;
             listView1.Columns.Add("Original Text", 280, HorizontalAlignment.Center);
             listView1.Columns.Add("Translated Text", 280, HorizontalAlignment.Center);
             listView1.Columns.Add("Language", -2, HorizontalAlignment.Center);
         }
 
-
- 
-
-
         FormProfile FP = new FormProfile();
         public Menu()
         {
-            InitializeListView();
             InitializeComponent();
+            InitializeListView();
             this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
         }
+
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -92,7 +81,6 @@ namespace Client
         {
 
         }
-
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -148,7 +136,6 @@ namespace Client
 
         }
 
-
         private void AddToTranslationHistory(string originalText, string translatedText, string[] language)
         {
             try
@@ -199,9 +186,7 @@ namespace Client
             }
             catch { Console.WriteLine("Error"); }
         }
+
         private void ClearListViewItems() { listView1.Items.Clear(); }
-
-
-
     }
 }
