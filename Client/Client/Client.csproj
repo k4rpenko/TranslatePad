@@ -116,6 +116,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Change_Dictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change_Dictionary.Designer.cs">
+      <DependentUpon>Change_Dictionary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dictionary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     <Compile Include="Translate.Designer.cs">
       <DependentUpon>Translate.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Change_Dictionary.resx">
+      <DependentUpon>Change_Dictionary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dictionary.resx">
       <DependentUpon>Dictionary.cs</DependentUpon>
     </EmbeddedResource>
