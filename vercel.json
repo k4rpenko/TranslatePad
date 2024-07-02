@@ -10,15 +10,14 @@
       "use": "@vercel/next"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "Server/main.js"
+      "source": "/api/(.*)",
+      "destination": "/Server/main.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "website/$1",
-      "headers": { "Cache-Control": "s-maxage=1, stale-while-revalidate" }
+      "source": "/(.*)",
+      "destination": "/website/$1"
     }
   ],
   "cleanUrls": true,
