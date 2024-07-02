@@ -5,6 +5,9 @@ using System.Drawing;
 using System.IO;
 using System.Net.Http;
 using System.Net;
+using System.Windows.Forms;
+using System.Text;
+using System;
 
 namespace Client
 {
@@ -201,11 +204,11 @@ namespace Client
         {
             if (checkBox2.Checked)
             {
-                Sign_in_pass.UseSystemPasswordChar = false;
+                Sign_in_pass.UseSystemPasswordChar = true;
             }
             else
             {
-                Sign_in_pass.UseSystemPasswordChar = true;
+                Sign_in_pass.UseSystemPasswordChar = false;
             }
         }
         #endregion
@@ -247,5 +250,10 @@ namespace Client
 
         private void Sign_up_pass_TextChanged_1(object sender, EventArgs e) { }
         private void Sign_up_pass2_TextChanged_1(object sender, EventArgs e) { }
+
+        private void Sign_in_pass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

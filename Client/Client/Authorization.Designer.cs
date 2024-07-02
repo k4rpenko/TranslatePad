@@ -61,7 +61,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl1.Location = new System.Drawing.Point(-4, -46);
+            this.tabControl1.Location = new System.Drawing.Point(-4, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(230, 15);
             this.tabControl1.SelectedIndex = 0;
@@ -285,13 +285,14 @@
             this.Sign_in_pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.Sign_in_pass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Sign_in_pass.Location = new System.Drawing.Point(346, 247);
+            this.Sign_in_pass.Multiline = true;
             this.Sign_in_pass.Name = "Sign_in_pass";
             this.Sign_in_pass.PasswordChar = '●';
             this.Sign_in_pass.PlaceholderText = "";
             this.Sign_in_pass.SelectedText = "";
             this.Sign_in_pass.Size = new System.Drawing.Size(300, 35);
             this.Sign_in_pass.TabIndex = 18;
-            this.Sign_in_pass.UseSystemPasswordChar = true;
+            this.Sign_in_pass.TextChanged += new System.EventHandler(this.Sign_in_pass_TextChanged);
             // 
             // Sign_in_email
             // 
