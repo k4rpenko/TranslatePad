@@ -13,7 +13,7 @@ namespace Client
     public partial class Menu : Form
     {
 
-        FormProfile _FP = new FormProfile();
+        FormProfile FP = new FormProfile();
         public Menu()
         {
             InitializeComponent();
@@ -76,23 +76,28 @@ namespace Client
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (_FP == null || _FP.IsDisposed)
+            if (FP == null || FP.IsDisposed)
             {
-                _FP = new FormProfile();
+                FP = new FormProfile();
             }
 
             Point buttonLocationOnScreen = button6.PointToScreen(Point.Empty);
-            _FP.StartPosition = FormStartPosition.Manual;
-            _FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button6.Height);
-            _FP.TopMost = true;
-            _FP.Show();
+            FP.StartPosition = FormStartPosition.Manual;
+            FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button6.Height);
+            FP.TopMost = true;
+            FP.Show();
 
-            _FP.Deactivate += (s, args) => _FP.Close();
+            FP.Deactivate += (s, args) => FP.Close();
         }
 
         internal void MenuClosed()
         {
             Application.Exit();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
