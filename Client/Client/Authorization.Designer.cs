@@ -61,11 +61,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl1.Location = new System.Drawing.Point(-4, 0);
+            this.tabControl1.Location = new System.Drawing.Point(-4, -46);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(230, 15);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1013, 661);
+            this.tabControl1.Size = new System.Drawing.Size(1013, 707);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -84,7 +84,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 46);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1005, 611);
+            this.tabPage1.Size = new System.Drawing.Size(1005, 657);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sign up";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);

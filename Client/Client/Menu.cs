@@ -12,6 +12,8 @@ namespace Client
 {
     public partial class Menu : Form
     {
+
+        FormProfile _FP = new FormProfile();
         public Menu()
         {
             InitializeComponent();
@@ -70,6 +72,22 @@ namespace Client
             _dict.StartPosition = FormStartPosition.Manual;
             _dict.Location = this.Location;
             this.Hide();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (_FP == null || _FP.IsDisposed)
+            {
+                _FP = new FormProfile();
+            }
+
+            Point buttonLocationOnScreen = button6.PointToScreen(Point.Empty);
+            _FP.StartPosition = FormStartPosition.Manual;
+            _FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button6.Height);
+            _FP.TopMost = true;
+            _FP.Show();
+
+            _FP.Deactivate += (s, args) => _FP.Close();
         }
     }
 }
