@@ -1,3 +1,4 @@
 ﻿.vs/
 bin/
 obj/
+/Server/node_modules
