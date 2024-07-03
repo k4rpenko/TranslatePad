@@ -34,10 +34,7 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.button4 = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button6 = new Guna.UI2.WinForms.Guna2Button();
@@ -50,7 +47,6 @@
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,10 +71,7 @@
             this.panel3.Controls.Add(this.listView1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.pictureBox5);
-            this.panel3.Controls.Add(this.guna2PictureBox2);
-            this.panel3.Controls.Add(this.guna2HtmlLabel2);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(214, 0);
@@ -125,33 +118,6 @@
             this.pictureBox5.TabIndex = 16;
             this.pictureBox5.TabStop = false;
             // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(63, 101);
-            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 15;
-            this.guna2PictureBox2.TabStop = false;
-            this.guna2PictureBox2.UseTransparentBackground = true;
-            // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.AutoSize = false;
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Ebrima", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(63, 138);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(56, 18);
-            this.guna2HtmlLabel2.TabIndex = 13;
-            this.guna2HtmlLabel2.Text = "label2";
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
@@ -165,23 +131,6 @@
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.UseTransparentBackground = true;
-            // 
-            // button4
-            // 
-            this.button4.Animated = true;
-            this.button4.BorderRadius = 12;
-            this.button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.button4.Location = new System.Drawing.Point(53, 78);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 96);
-            this.button4.TabIndex = 8;
             // 
             // label2
             // 
@@ -336,7 +285,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -354,15 +302,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button button4;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox3;
         private Guna.UI2.WinForms.Guna2Button button2;
         private Guna.UI2.WinForms.Guna2Button button1;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox4;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox7;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Button button6;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label3;

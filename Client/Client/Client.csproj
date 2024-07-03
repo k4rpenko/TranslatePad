@@ -122,6 +122,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Change_Dictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change_Dictionary.Designer.cs">
+      <DependentUpon>Change_Dictionary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dictionary.cs">
       <SubType>Form</SubType>
     </Compile>
