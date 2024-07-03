@@ -1,0 +1,110 @@
+.Start {
+    width: 80%;
+    margin-top: 150px;
+    display: flex;
+    min-height: 100vh;
+    background-color: #000;
+    color: white;
+    justify-content: flex-end;
+}
+
+.intro {
+    width: 800px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: rgb(113 113 122);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+}
+
+.links button{
+    width: 300px;
+    padding: 10px;
+    color: black;
+    background-color: #DAE0E7;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.links button:hover{
+    transition: 0.3s;
+    background-color: #dae0e7b9;
+}
+
+.notifications {
+    gap: 10px;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.notifications {
+    margin-left: 100px;
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.notificationsOne {
+    width: 600px;
+    height: 250px;
+    padding: 32px;
+    border-radius: 1rem;
+    border: 1px solid #1f2937; /* border-gray-800 */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.089);
+    backdrop-filter: blur(1.5rem);
+    margin-bottom: 16px;
+}
+
+.notificationTwo, .notificationThre{
+    width: 49%;
+    height: 250px;
+    padding: 32px; 
+    border-radius: 1rem; 
+    border: 1px solid #1f2937; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    overflow: hidden;
+    background-color: #121212;
+    backdrop-filter: blur(1.5rem);
+    z-index: 2;
+}
+
+.dark .notificationsOne, .dark .notificationTwo, .dark .notificationThre {
+    background-color: rgba(31, 41, 55, 0.7);
+}
+
+.gradientBackground {
+    position: absolute;
+    left: 50%;
+    top: 24%;
+    height: 30%;
+    width: 40%;
+    transform: scale(0.80);
+    border-radius: 50%;
+    background: linear-gradient(to right, #3b83f680, #14b8a580);
+    filter: blur(3rem);
+}
+
