@@ -188,5 +188,10 @@ namespace Client
         }
 
         private void ClearListViewItems() { listView1.Items.Clear(); }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
