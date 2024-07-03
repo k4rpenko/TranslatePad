@@ -17,7 +17,7 @@ const app = express();
 app.use(helmet());
 const PORT = 3001;
 
-
+//   :(
 app.use(cors({ credentials: true, origin: 'https://translate-pad.vercel.app/' }));
 app.use(helmet.frameguard({ action: 'deny' }));
 app.use(helmet.permittedCrossDomainPolicies());
