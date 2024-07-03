@@ -54,6 +54,7 @@ namespace Client
         {
             InitializeComponent();
             InitializeListView();
+            ShowWords();
             this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
         }
 

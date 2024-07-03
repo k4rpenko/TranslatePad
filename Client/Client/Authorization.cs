@@ -79,7 +79,7 @@ namespace Client
             Console.WriteLine($"email: {Sign_in_email.Text.ToString()}\nPassword: {Sign_in_pass.Text.ToString()}");
             try
             {
-                string url = "http://localhost:3001/api/auth/Login";
+                string url = "https://translate-pad.vercel.app/api/auth/Login";
                 HttpResponseMessage response = await httpSend.PostAuth(url, Sign_in_email.Text.ToString(), Sign_in_pass.Text.ToString());
                 if (response != null)
                 {
@@ -147,7 +147,7 @@ namespace Client
 
             try
             {
-                string url = "http://localhost:3001/api/auth/Regists";
+                string url = "https://translate-pad.vercel.app/api/auth/Regists";
                 HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email.Text.ToString(), Sign_up_pass.Text.ToString());
                 int statusCodeValue = (int)statusCode;
 
