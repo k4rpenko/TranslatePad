@@ -1,24 +1,19 @@
 ﻿using Client.api;
-using Client.Properties;
-using DeepL;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Client
 {
     public partial class Dictionary : Form
     {
+        FormProfile FP = new FormProfile(); // Об'єкт для профілю користувача
+
+        // Клас для представлення нотаток
         private class Notes
         {
             public int id { get; set; }
@@ -28,32 +23,25 @@ namespace Client
             public string updated_at { get; set; }
         }
 
-        private int buttonCounter = 0;
+        private int buttonCounter = 0; // Лічильник кнопок
         private int startX = 7; // Початкова позиція по X
         private int startY = 264; // Початкова позиція по Y
         private int buttonWidth = 183; // Ширина кнопки
         private int buttonHeight = 46; // Висота кнопки
         private int spacing = 10; // Відстань між кнопками
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-        private static string RefreshFilePath = "user_refresh.txt";
-        string token = File.ReadAllText(RefreshFilePath);
-        Http_Send httpSend = new Http_Send();
+        private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
+        string token = File.ReadAllText(RefreshFilePath); // Читання токена з файлу
+        Http_Send httpSend = new Http_Send(); // Об'єкт для відправлення HTTP запитів
 
         public Dictionary()
         {
             InitializeComponent();
-            ShowDictionary();
-        }
-
-        private void CreateButton()
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                GenerateElements(i, "one");
-            }
+            ShowDictionary(); // Відображення словника при ініціалізації
         }
 
 
+        // Метод для відображення словника
         private async void ShowDictionary()
         {
             try
@@ -66,40 +54,37 @@ namespace Client
                     List<Notes> translations = JsonConvert.DeserializeObject<List<Notes>>(jsonResponse);
                     int a = translations.Count;
                     Console.WriteLine(translations.Count);
-                    if(a >=5) { a = 5; }
+                    if (a >= 5) { a = 5; }
                     for (int i = 0; i < a; i++)
                     {
                         CreateButton(translations[i].id, translations[i].title.ToString());
                     }
-                    this.Refresh();
+                    this.Refresh(); // Оновлення форми після додавання кнопок
                 }
                 else { Console.WriteLine("NULL"); }
             }
-            catch(Exception ex) { Console.WriteLine(ex.ToString()); }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
-
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-
+        // Подія закриття форми
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-
+        // Натискання на кнопку для додавання нової нотатки
         private async void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 string url = "https://translate-pad.vercel.app/api/Add_Notesn";
                 HttpResponseMessage response = await httpSend.PostAddDictionary(url, token, H1.Text.ToString(), P1.Text.ToString());
-                if ((int)response.StatusCode == 200) { Console.WriteLine("Creat note"); }
+                if ((int)response.StatusCode == 200) { Console.WriteLine("Create note"); }
                 else { Console.WriteLine("NULL"); }
             }
             catch (Exception ex) { Console.WriteLine(ex); }
@@ -109,7 +94,6 @@ namespace Client
         {
 
         }
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -127,10 +111,12 @@ namespace Client
 
         }
 
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
+
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
@@ -142,6 +128,7 @@ namespace Client
 
         }
 
+        // Натискання на кнопку для переходу до форми перекладу
         private void button5_Click(object sender, EventArgs e)
         {
             Translate _dict = new Translate();
@@ -151,6 +138,7 @@ namespace Client
             this.Hide();
         }
 
+        // Натискання на кнопку для повернення до меню
         private void button6_Click(object sender, EventArgs e)
         {
             Menu _menu = new Menu();
@@ -160,23 +148,20 @@ namespace Client
             this.Hide();
         }
 
+        
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
-
-
+        // Метод для генерації елементів (кнопок)
         private void GenerateElements(int id, string title)
         {
             Console.WriteLine("Start create");
-            // Створюємо Button
-
-            //CreatePictureBox(id);
             CreateButton(id, title);
         }
 
-
+        // Метод для створення нової кнопки
         private void CreateButton(int index, string text)
         {
             Guna.UI2.WinForms.Guna2Button newButton = new Guna.UI2.WinForms.Guna2Button();
@@ -196,32 +181,30 @@ namespace Client
             newButton.TabIndex = index;
             newButton.Text = text;
             newButton.Click += new EventHandler(DynamicButton_Click);
-            //newButton.Click += new EventHandler(DynamicButton_Click);
-            // Розрахунок позиції нової кнопки
 
             // Розрахунок позиції нової кнопки
             int x = startX;
             int y = startY + (buttonCounter * (buttonHeight + spacing));
-
             newButton.Location = new Point(x, y);
             panel2.Controls.Add(newButton);
             buttonCounter++;
         }
 
+        // Натискання на динамічно створену кнопку
         private async void DynamicButton_Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button newButton = sender as Guna.UI2.WinForms.Guna2Button;
             Change_Dictionary _CD = new Change_Dictionary();
             Console.WriteLine(newButton.TabIndex);
-            _CD.NoteId = newButton.TabIndex;
+            _CD.NoteId = newButton.TabIndex; // Встановлення ідентифікатора нотатки для редагування
             _CD.StartPosition = FormStartPosition.Manual;
             _CD.Location = this.Location;
-            _CD.OpenNotes();
+            _CD.OpenNotes(); // Відкриття нотатки
             _CD.Show();
             this.Hide();
-
         }
 
+        // Натискання на кнопку для повернення до меню
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Menu _menu = new Menu();
@@ -231,6 +214,7 @@ namespace Client
             this.Hide();
         }
 
+        // Натискання на кнопку для переходу до форми перекладу
         private void button2_Click_1(object sender, EventArgs e)
         {
             Translate _tran = new Translate();
@@ -238,6 +222,34 @@ namespace Client
             _tran.StartPosition = FormStartPosition.Manual;
             _tran.Location = this.Location;
             this.Hide();
+        }
+
+        // Натискання на кнопку для відкриття профілю користувача
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (FP == null || FP.IsDisposed)
+            {
+                FP = new FormProfile();
+            }
+
+            Point buttonLocationOnScreen = button7.PointToScreen(Point.Empty);
+            FP.StartPosition = FormStartPosition.Manual;
+            FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button7.Height);
+            FP.TopMost = true;
+            FP.Show();
+
+            FP.Deactivate += (s, args) => FP.Close();
+        }
+
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void H1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

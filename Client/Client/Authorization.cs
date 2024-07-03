@@ -11,15 +11,15 @@ using System;
 
 namespace Client
 {
-
     public partial class Authorization : Form
     {
-        private static string RefreshFilePath = "user_refresh.txt";
-        PassValidation passValidation = new PassValidation();
-        EmailValidation emailValidation = new EmailValidation();
-        Http_Send httpSend = new Http_Send();
-        HttpStatusCode statusCode = HttpStatusCode.NotFound;
+        private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу для збереження токена оновлення
+        PassValidation passValidation = new PassValidation(); // Об'єкт для валідації паролю
+        EmailValidation emailValidation = new EmailValidation(); // Об'єкт для валідації електронної пошти
+        Http_Send httpSend = new Http_Send(); // Об'єкт для відправлення HTTP запитів
+        HttpStatusCode statusCode = HttpStatusCode.NotFound; // Статус відповіді
 
+        // Метод для збереження токена оновлення у файл
         public static void SaveRefreshToken(string refreshToken)
         {
             try
@@ -33,6 +33,7 @@ namespace Client
             catch (Exception ex) { }
         }
 
+        // Метод для відкриття та читання токена оновлення з файлу
         public static void OpenRefreshToken()
         {
             try
@@ -49,25 +50,27 @@ namespace Client
             catch (Exception ex) { }
         }
 
+      
         public Authorization()
         {
             InitializeComponent();
-
-            // Підписка на події для чекбоксів
-            checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
         }
 
         #region WorkWithButton
+        // Метод натискання на кнопку "Sign in"
         private async void Sign_in_button_Click_1(object sender, EventArgs e)
         {
-            label_in.ForeColor = Color.Red;
+            label_in.ForeColor = Color.Red; // Задаємо колір тексту лейбла
+
+            // Валідація електронної пошти
             var aEmail = emailValidation.ValidateEmail(Sign_in_email.Text);
             if (!aEmail.IsValid)
             {
                 label_in.Text = aEmail.Message;
                 return;
             }
+
+            // Валідація паролю
             var aPass = passValidation.ValidatePassword(Sign_in_pass.Text);
             if (!aPass.IsValid)
             {
@@ -79,7 +82,7 @@ namespace Client
             Console.WriteLine($"email: {Sign_in_email.Text.ToString()}\nPassword: {Sign_in_pass.Text.ToString()}");
             try
             {
-                string url = "https://translate-pad.vercel.app/api/auth/Login";
+                string url = "https://translate-pad.vercel.app/api/auth/Login"; // URL для відправлення запиту на вхід
                 HttpResponseMessage response = await httpSend.PostAuth(url, Sign_in_email.Text.ToString(), Sign_in_pass.Text.ToString());
                 if (response != null)
                 {
@@ -93,7 +96,7 @@ namespace Client
                             SaveRefreshToken(refreshToken);
 
                             label_in.ForeColor = Color.Green;
-                            label_in.Text = "Вхід пройшла успішно";
+                            label_in.Text = "Вхід пройшов успішно";
                             Menu _menu = new Menu();
                             _menu.Show();
                             this.Hide();
@@ -122,20 +125,27 @@ namespace Client
             }
         }
 
+        // Метод натискання на кнопку "Sign up"
         private async void guna2Button2_Click(object sender, EventArgs e)
         {
-            label1.ForeColor = Color.Red;
+            label1.ForeColor = Color.Red; // Задаємо колір 
+
+            // Валідація електронної пошти
             var aEmail = emailValidation.ValidateEmail(Sign_up_email.Text);
             if (!aEmail.IsValid)
             {
                 label1.Text = aEmail.Message;
                 return;
             }
+
+            // Перевірка на відповідність паролів
             if (Sign_up_pass.Text != Sign_up_pass2.Text)
             {
-                label1.Text = "Pass is not correct";
+                label1.Text = "Паролі не співпадають";
                 return;
             }
+
+            // Валідація паролю
             var aPass = passValidation.ValidatePassword(Sign_up_pass2.Text);
             if (!aPass.IsValid)
             {
@@ -147,7 +157,7 @@ namespace Client
 
             try
             {
-                string url = "https://translate-pad.vercel.app/api/auth/Regists";
+                string url = "https://translate-pad.vercel.app/api/auth/Regists"; // URL для відправлення запиту на реєстрацію
                 HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email.Text.ToString(), Sign_up_pass.Text.ToString());
                 int statusCodeValue = (int)statusCode;
 
@@ -161,7 +171,7 @@ namespace Client
                         SaveRefreshToken(refreshToken);
 
                         label1.ForeColor = Color.Green;
-                        label1.Text = "Вхід пройшла успішно";
+                        label1.Text = "Реєстрація пройшла успішно";
                         Menu _menu = new Menu();
                         _menu.Show();
                         this.Hide();
@@ -186,6 +196,7 @@ namespace Client
         #endregion
 
         #region WorkWithPassword
+        // Метод зміни стану чекбоксу для показу/приховування паролів при реєстрації
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -200,6 +211,7 @@ namespace Client
             }
         }
 
+        // Метод зміни стану чекбоксу для показу/приховування паролю при вході
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked)
@@ -213,6 +225,7 @@ namespace Client
         }
         #endregion
 
+        // Метод для показу повідомлення про помилку
         private void ShowError(string message)
         {
             label1.Text = message;
@@ -220,6 +233,7 @@ namespace Client
             label1.Visible = true;
         }
 
+        // Метод для показу повідомлення про помилку при вході
         private void ShowError2(string message)
         {
             label_in.Text = message;
@@ -227,29 +241,62 @@ namespace Client
             label_in.Visible = true;
         }
 
+ 
         private void label1_Click(object sender, EventArgs e)
         {
-            label1.Text = "Уведіть правильну адресу електронної пошти";
-            label1.ForeColor = Color.Red;
-            label1.Visible = true;
+
         }
 
-        private void label2_Click(object sender, EventArgs e) { }
-        private void tabPage2_Click(object sender, EventArgs e) { }
-        private void tabPage1_Click(object sender, EventArgs e) { }
-        private void label3_Click(object sender, EventArgs e) { }
-        private void guna2Button1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Метод натискання на кнопку для перемикання вкладок
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
         }
+
+        // Метод натискання на кнопку для перемикання вкладок
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
         }
 
-        private void Sign_up_pass_TextChanged_1(object sender, EventArgs e) { }
-        private void Sign_up_pass2_TextChanged_1(object sender, EventArgs e) { }
+        private void Sign_up_pass_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void Sign_up_pass2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
 
         private void Sign_in_pass_TextChanged(object sender, EventArgs e)
         {

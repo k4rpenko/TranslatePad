@@ -6,18 +6,14 @@ using System.Drawing;
 using System.Net.Http;
 using System.Windows.Forms;
 
-
-
-using System.Text;
-using System.Threading.Tasks;
-using static Client.Menu;
-
 namespace Client
 {
     public partial class Change_Dictionary : Form
     {
-        Http_Send httpSend = new Http_Send();
+        FormProfile FP = new FormProfile(); // Об'єкт для профілю користувача
+        Http_Send httpSend = new Http_Send(); // Об'єкт для відправлення HTTP запитів
 
+        // Клас для представлення нотаток
         private class Notes
         {
             public int id { get; set; }
@@ -27,11 +23,11 @@ namespace Client
             public string updated_at { get; set; }
         }
 
-        private List<Notes> translations;
+        private List<Notes> translations; // Список нотаток
 
-        public int NoteId { get; set; }
-        private string initialTitle;
-        private string initialContent;
+        public int NoteId { get; set; } // Ідентифікатор нотатки
+        private string initialTitle; // Початковий заголовок нотатки
+        private string initialContent; // Початковий вміст нотатки
 
         public Change_Dictionary()
         {
@@ -41,18 +37,20 @@ namespace Client
             H1.TextChanged += new EventHandler(H1_TextChanged);
             P1.TextChanged += new EventHandler(P1_TextChanged);
 
-            // Initially disable the buttons
+            // Початково вимикаємо кнопки
             button1.Enabled = false;
             button2.Enabled = false;
             button1.BackColor = SystemColors.GrayText;
             button2.BackColor = SystemColors.GrayText;
         }
 
+        // Закриття форми
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
+        // Метод для відкриття нотаток
         public async void OpenNotes()
         {
             try
@@ -86,16 +84,19 @@ namespace Client
             }
         }
 
+        //Зміна тексту заголовку
         private void H1_TextChanged(object sender, EventArgs e)
         {
             CheckIfTextChanged();
         }
 
+        // Зміна тексту вмісту
         private void P1_TextChanged(object sender, EventArgs e)
         {
             CheckIfTextChanged();
         }
 
+        // Перевірка, чи змінився текст заголовку або вмісту
         private void CheckIfTextChanged()
         {
             if (P1.Text != initialContent || H1.Text != initialTitle)
@@ -112,8 +113,7 @@ namespace Client
             }
         }
 
-
-
+        // Натискання на кнопку скасування змін
         private void button1_Click(object sender, EventArgs e)
         {
             H1.Text = initialTitle;
@@ -121,6 +121,7 @@ namespace Client
             CheckIfTextChanged();
         }
 
+        // Натискання на кнопку для переходу до форми перекладу
         private void button5_Click(object sender, EventArgs e)
         {
             Translate _tran = new Translate();
@@ -130,6 +131,7 @@ namespace Client
             this.Hide();
         }
 
+        // Натискання на кнопку для повернення до меню
         private void button6_Click(object sender, EventArgs e)
         {
             Menu _Menu = new Menu();
@@ -139,17 +141,19 @@ namespace Client
             this.Hide();
         }
 
+       
         private void P1_TextChanged_1(object sender, EventArgs e)
         {
-            CheckIfTextChanged();
+            
         }
 
+        // Обробник події натискання на кнопку збереження змін
         private async void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                string url = "https://translate-pad.vercel.app/api/Change_notes";
+                string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); // Поточна дата та час у форматі рядка
+                string url = "https://translate-pad.vercel.app/api/Change_notes"; // URL для відправлення запиту на зміну нотаток
 
                 HttpResponseMessage response = await httpSend.PostChangeNotes(url, NoteId, H1.Text.ToString(), P1.Text.ToString(), date);
                 Console.WriteLine((int)response.StatusCode);
@@ -171,6 +175,7 @@ namespace Client
             }
         }
 
+        // Натискання на кнопку для повернення до меню
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             Menu _menu = new Menu();
@@ -180,6 +185,7 @@ namespace Client
             this.Hide();
         }
 
+        // Натискання на кнопку для переходу до форми перекладу
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Translate _tran = new Translate();
@@ -188,8 +194,27 @@ namespace Client
             _tran.Location = this.Location;
             this.Hide();
         }
+
+        // Натискання на кнопку для виклику форми налаштування профілю
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (FP == null || FP.IsDisposed)
+            {
+                FP = new FormProfile();
+            }
+
+            Point buttonLocationOnScreen = button7.PointToScreen(Point.Empty);
+            FP.StartPosition = FormStartPosition.Manual;
+            FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button7.Height);
+            FP.TopMost = true;
+            FP.Show();
+
+            FP.Deactivate += (s, args) => FP.Close();
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-
-
-

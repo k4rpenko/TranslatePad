@@ -13,39 +13,42 @@ namespace Client
 {
     public partial class FormProfile : Form
     {
-        private static string RefreshFilePath = "user_refresh.txt";
+        private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
 
         public FormProfile()
         {
             InitializeComponent();
         }
-        private const int WS_THICKFRAME = 0x40000;
+
+        private const int WS_THICKFRAME = 0x40000; // Константа для додавання рамки форми
+
+        // Перевизначення CreateParams для додавання товстої рамки до форми
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= WS_THICKFRAME;
+                cp.Style |= WS_THICKFRAME; // Додавання стилю товстої рамки
                 return cp;
-
             }
         }
 
+        // Обробник події натискання на кнопку
         private void button1_Click(object sender, EventArgs e)
         {
-            string path = "user_refresh.txt";
+            string path = "user_refresh.txt"; // Шлях до файлу з токеном
             try
             {
-                if (File.Exists(path))
+                if (File.Exists(path)) // Перевірка наявності файлу
                 {
                     Menu _menu = new Menu();
-                    _menu.MenuClosed();
-                    File.Delete(path);
+                    _menu.MenuClosed(); // Виклик методу закриття меню
+                    File.Delete(path); // Видалення файлу
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Виникла помилка при видаленні файлу: {ex.Message}");
+                Console.WriteLine($"Виникла помилка при видаленні файлу: {ex.Message}"); // Виведення повідомлення про помилку
             }
         }
 
@@ -54,10 +57,10 @@ namespace Client
 
         }
 
+
         private void FormProfile_Load(object sender, EventArgs e)
         {
-             
-        }
 
+        }
     }
 }

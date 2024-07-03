@@ -1,34 +1,28 @@
 ﻿using Client.api;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DeepL;
 using DeepL.Model;
-using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Client
 {
     public partial class Translate : Form
     {
-        string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx";
-        private static string RefreshFilePath = "user_refresh.txt";
-        string fileName = "translation_history.txt";
-        string token = File.ReadAllText(RefreshFilePath);
-        Http_Send httpSend = new Http_Send();
-        static int id_Butt_Leng = 1;
-        static int id_Butt_Leng_YourL = 1;
+        FormProfile FP = new FormProfile(); // Виклик форми профілю
+        string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx"; // API ключ для DeepL
+        private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
+        string fileName = "translation_history.txt"; // Назва файлу з історією перекладів
+        string token = File.ReadAllText(RefreshFilePath); // Зчитування токену з файлу
+        Http_Send httpSend = new Http_Send(); // Екземпляр класу для HTTP запитів
+        static int id_Butt_Leng = 1; // Ідентифікатор для кнопки вибору мови перекладу
+        static int id_Butt_Leng_YourL = 1; // Ідентифікатор для кнопки вибору мови оригіналу
 
+        // Клас для зберігання перекладів
         public class Translation
         {
             public int id { get; set; }
@@ -53,18 +47,19 @@ namespace Client
         public Translate()
         {
             InitializeComponent();
-            InitializeListView();
-            ShowWords();
-            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed);
-
+            InitializeListView(); // Ініціалізація ListView для відображення перекладів
+            ShowWords(); // Відображення перекладів
+            this.FormClosed += new FormClosedEventHandler(Menu_FormClosed); // Додавання обробника події закриття форми
         }
+
+        // Метод для відображення перекладів
         private async void ShowWords()
         {
             try
             {
-                ClearListViewItems();
-                string url = "https://translate-pad.vercel.app/api/Show_translate";
-                HttpResponseMessage response = await httpSend.GetShow_translate(url, token);
+                ClearListViewItems(); // Очищення елементів ListView
+                string url = "https://translate-pad.vercel.app/api/Show_translate"; // URL для отримання перекладів
+                HttpResponseMessage response = await httpSend.GetShow_translate(url, token); // Відправка запиту
 
                 if ((int)response.StatusCode == 200)
                 {
@@ -74,27 +69,30 @@ namespace Client
                     foreach (var translation in translations)
                     {
                         var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
-                        AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button);
+                        AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button); // Додавання до історії перекладів
                     }
                 }
                 else
                 {
                     Console.WriteLine("NULL");
                 }
-
             }
-            catch { Console.WriteLine("Error"); }
+            catch
+            {
+                Console.WriteLine("Error");
+            }
         }
 
+        // Метод для ініціалізації ListView
         private void InitializeListView()
         {
-            // Додайте ListView на вашу форму в дизайнері або програмно
             listView1.View = View.Details;
-            listView1.Columns.Add("Original Text", 280, HorizontalAlignment.Center);
+            listView1.Columns.Add("Original Text", 280, HorizontalAlignment.Center); // Додавання колонок до ListView
             listView1.Columns.Add("Translated Text", 280, HorizontalAlignment.Center);
             listView1.Columns.Add("Language", -2, HorizontalAlignment.Center);
         }
 
+        // Закриття форми
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -102,24 +100,25 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-
+           
         }
 
+        // Натискання на кнопку "Словник"
         private void button6_Click(object sender, EventArgs e)
         {
             Dictionary _dict = new Dictionary();
@@ -129,6 +128,7 @@ namespace Client
             this.Hide();
         }
 
+        // Натискання на кнопку "Меню"
         private void button7_Click(object sender, EventArgs e)
         {
             Menu _menu = new Menu();
@@ -138,6 +138,7 @@ namespace Client
             this.Hide();
         }
 
+        // Натискання на кнопку зміни мови перекладу
         private void button3_Click(object sender, EventArgs e)
         {
             id_Butt_Leng++;
@@ -152,6 +153,7 @@ namespace Client
             button3.Text = _Len[id_Butt_Leng];
         }
 
+        // Натискання на кнопку перекладу тексту
         private async void button4_Click(object sender, EventArgs e)
         {
             try
@@ -165,28 +167,29 @@ namespace Client
                 }
                 else
                 {
-                    if (id_Butt_Leng == 1)
+                    if (id_Butt_Leng == 1) // Переклад з англійської мови
                     {
                         if (id_Butt_Leng_YourL == 1)
                         {
                             tet_tran.Text = text_for_trans.Text;
-
                         }
                         else if (id_Butt_Leng_YourL == 2)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.EnglishAmerican);
+                            tet_tran.Text = translatedText.Text;
                         }
                         else if (id_Butt_Leng_YourL == 3)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.EnglishAmerican); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.EnglishAmerican);
+                            tet_tran.Text = translatedText.Text;
                         }
-
                     }
-                    else if (id_Butt_Leng == 2)
+                    else if (id_Butt_Leng == 2) // Переклад з української мови
                     {
                         if (id_Butt_Leng_YourL == 1)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Ukrainian);
+                            tet_tran.Text = translatedText.Text;
                         }
                         else if (id_Butt_Leng_YourL == 2)
                         {
@@ -194,19 +197,21 @@ namespace Client
                         }
                         else if (id_Butt_Leng_YourL == 3)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.Ukrainian); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Polish, LanguageCode.Ukrainian);
+                            tet_tran.Text = translatedText.Text;
                         }
-
                     }
-                    else if (id_Butt_Leng == 3)
+                    else if (id_Butt_Leng == 3) // Переклад з польської мови
                     {
                         if (id_Butt_Leng_YourL == 1)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.English, LanguageCode.Polish);
+                            tet_tran.Text = translatedText.Text;
                         }
                         else if (id_Butt_Leng_YourL == 2)
                         {
-                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.Polish); tet_tran.Text = translatedText.Text;
+                            translatedText = await translator.TranslateTextAsync(text_for_trans.Text, LanguageCode.Ukrainian, LanguageCode.Polish);
+                            tet_tran.Text = translatedText.Text;
                         }
                         else if (id_Butt_Leng_YourL == 3)
                         {
@@ -214,7 +219,7 @@ namespace Client
                         }
                     }
                 }
-                var language_button = new string[] { button3.Text, Your_l.Text };
+                var language_button = new string[] { button3.Text, Your_l.Text }; // Масив з вибраними мовами
             }
             catch (Exception ex)
             {
@@ -222,6 +227,7 @@ namespace Client
             }
         }
 
+        // Метод для додавання перекладу до історії перекладів
         private void AddToTranslationHistory(string originalText, string translatedText, string[] language)
         {
             try
@@ -233,7 +239,7 @@ namespace Client
                     Language = string.Join("/", language)
                 });
 
-                // Додавання запису до listView1
+                // Додавання запису до ListView
                 ListViewItem item = new ListViewItem(originalText);
                 item.SubItems.Add(translatedText);
                 item.SubItems.Add(string.Join("/", language));
@@ -245,6 +251,7 @@ namespace Client
             }
         }
 
+        // Метод для очищення елементів ListView
         private void ClearListViewItems()
         {
             listView1.Items.Clear();
@@ -252,9 +259,10 @@ namespace Client
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
+        // Натискання на кнопку зміни мови оригіналу
         private void Your_l_Click(object sender, EventArgs e)
         {
             id_Butt_Leng_YourL++;
@@ -269,13 +277,14 @@ namespace Client
             Your_l.Text = _Len[id_Butt_Leng_YourL];
         }
 
+        //  Вибір елемента в ListView
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
                 ListViewItem item = listView1.SelectedItems[0];
-                text_for_trans.Text = item.SubItems[0].Text;
-                tet_tran.Text = item.SubItems[1].Text;
+                text_for_trans.Text = item.SubItems[0].Text; // Заповнення тексту для перекладу
+                tet_tran.Text = item.SubItems[1].Text; // Заповнення перекладеного тексту
 
                 string language = item.SubItems[2].Text;
                 switch (language)
@@ -301,6 +310,7 @@ namespace Client
 
         }
 
+        // Натискання на кнопку для збереження історії перекладів у файл
         private void button5_Click(object sender, EventArgs e)
         {
             try
@@ -333,17 +343,17 @@ namespace Client
             }
         }
 
-
+        // Натискання на кнопку додавання нового перекладу
         private async void button1_Click_1(object sender, EventArgs e)
         {
             try
             {
-                string url = "https://translate-pad.vercel.app/api/Add_translate";
+                string url = "https://translate-pad.vercel.app/api/Add_translate"; // URL для додавання нового перекладу
                 HttpResponseMessage response = await httpSend.PostAdd_translate(url, token, Your_l.Text, text_for_trans.Text.ToString(), button3.Text, tet_tran.Text.ToString());
 
                 if ((int)response.StatusCode == 200)
                 {
-                    ShowWords();
+                    ShowWords(); // Оновлення відображення перекладів
                 }
                 else
                 {
@@ -356,6 +366,7 @@ namespace Client
             }
         }
 
+        // Натискання на кнопку очищення історії перекладів
         private void button2_Click_1(object sender, EventArgs e)
         {
             try
@@ -383,24 +394,47 @@ namespace Client
             }
         }
 
-
-
+        // Натискання на кнопку для переходу до головного меню
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             Menu _menu = new Menu();
-            _menu.Show();
-            _menu.StartPosition = FormStartPosition.Manual;
-            _menu.Location = this.Location;
-            this.Hide();
+            _menu.Show(); 
+            _menu.StartPosition = FormStartPosition.Manual; 
+            _menu.Location = this.Location; // Встановлює таке ж місце для форми Menu як і для цієї форми
+            this.Hide(); // Ховає поточну форму
         }
 
+        // Натискання на кнопку для переходу до словника
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
             Dictionary _dict = new Dictionary();
-            _dict.Show();
-            _dict.StartPosition = FormStartPosition.Manual;
-            _dict.Location = this.Location;
-            this.Hide();
+            _dict.Show(); // Показує форму Dictionary
+            _dict.StartPosition = FormStartPosition.Manual; 
+            _dict.Location = this.Location; // Встановлює таке ж місце для форми Dictionary як і для цієї форми
+            this.Hide(); // Ховає поточну форму
+        }
+
+        // Натискання на кнопку для відкриття профілю користувача
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            // Перевіряє, чи форма профілю є null або закрита, і створює новий екземпляр, якщо це так
+            if (FP == null || FP.IsDisposed)
+            {
+                FP = new FormProfile();
+            }
+
+            // Отримує позицію кнопки на екрані
+            Point buttonLocationOnScreen = button6.PointToScreen(Point.Empty);
+
+            // Встановлює ручне позиціонування форми профілю користувача
+            FP.StartPosition = FormStartPosition.Manual;
+            // Встановлює позицію форми профілю користувача відразу під кнопкою
+            FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button6.Height);
+            FP.TopMost = true; // Робить форму профілю користувача завжди поверх інших форм
+            FP.Show(); 
+
+            // Закриває форму профілю при деактивації (натисканні поза формою)
+            FP.Deactivate += (s, args) => FP.Close();
         }
 
     }
