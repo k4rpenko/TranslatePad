@@ -163,6 +163,9 @@
     <Compile Include="Translate.Designer.cs">
       <DependentUpon>Translate.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Change_Dictionary.resx">
+      <DependentUpon>Change_Dictionary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dictionary.resx">
       <DependentUpon>Dictionary.cs</DependentUpon>
     </EmbeddedResource>

@@ -15,6 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO;
 using System.Web.Security;
 using static System.Windows.Forms.AxHost;
+using static Client.Menu;
 
 namespace Client
 {
@@ -286,7 +287,7 @@ namespace Client
             newButton.Size = new Size(buttonWidth, buttonHeight);
             newButton.TabIndex = index;
             newButton.Text = text;
-            //newButton.Click += new EventHandler(DynamicButton_Click);
+            newButton.Click += new EventHandler(DynamicButton_Click);
             // Розрахунок позиції нової кнопки
             int x = startX + (buttonCounter * (buttonWidth + spacing));
             int y = startY;
@@ -342,17 +343,18 @@ namespace Client
             buttonCounter++;
         }
 
-        /*private async void DynamicButton_Click(object sender, EventArgs e)
+        private async void DynamicButton_Click(object sender, EventArgs e)
         {
-            Guna.UI2.WinForms.Guna2Button newButton = new Guna.UI2.WinForms.Guna2Button();
+            Guna.UI2.WinForms.Guna2Button newButton = sender as Guna.UI2.WinForms.Guna2Button;
             Change_Dictionary _CD = new Change_Dictionary();
-            _CD.NoteId = clickedButton.TabIndex;
+            Console.WriteLine(newButton.TabIndex);
+            _CD.NoteId = newButton.TabIndex;
             _CD.StartPosition = FormStartPosition.Manual;
             _CD.Location = this.Location;
             _CD.OpenNotes();
             _CD.Show();
             this.Hide();
 
-        }*/
+        }
     }
 }

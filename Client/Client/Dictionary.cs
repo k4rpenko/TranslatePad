@@ -69,7 +69,7 @@ namespace Client
                     if(a >=5) { a = 5; }
                     for (int i = 0; i < a; i++)
                     {
-                        GenerateElements(translations[i].id, translations[i].title.ToString());
+                        CreateButton(translations[i].id, translations[i].title.ToString());
                     }
                     this.Refresh();
                 }
@@ -167,24 +167,6 @@ namespace Client
 
 
 
-
-
-
-
-
-
-
-        private void ClearElements() 
-        {
-            foreach (var control in this.Controls.OfType<Control>().ToArray())
-            {
-                if (control.Name.StartsWith("dynamic"))
-                {
-                    this.Controls.Remove(control);
-                }
-            }
-        }
-
         private void GenerateElements(int id, string title)
         {
             Console.WriteLine("Start create");
@@ -195,26 +177,27 @@ namespace Client
         }
 
 
-        private void CreatePictureBox(int index)
-        {
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox.Image = Image.FromFile("free-icon-font-file.png"); // Замініть шлях на реальний шлях до вашого зображення
-            pictureBox.Location = new Point((this.ClientSize.Width - pictureBox.Width) / 2, (this.ClientSize.Height - pictureBox.Height) / 2);
-            panel2.Controls.Add(pictureBox);
-        }
-
         private void CreateButton(int index, string text)
         {
-            Button newButton = new Button();
-            newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            newButton.FlatStyle = FlatStyle.Popup;
-            newButton.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            newButton.ForeColor = Color.FromArgb(140, 140, 140);
-            newButton.Margin = new Padding(2);
+            Guna.UI2.WinForms.Guna2Button newButton = new Guna.UI2.WinForms.Guna2Button();
+            newButton.Animated = true;
+            newButton.BorderRadius = 12;
+            newButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            newButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            newButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            newButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            newButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            newButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            newButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            newButton.Location = new System.Drawing.Point(53, 78);
+            newButton.Margin = new System.Windows.Forms.Padding(2);
             newButton.Name = $"dynamicButton{index}";
             newButton.Size = new Size(buttonWidth, buttonHeight);
+            newButton.TabIndex = index;
             newButton.Text = text;
+            newButton.Click += new EventHandler(DynamicButton_Click);
+            //newButton.Click += new EventHandler(DynamicButton_Click);
+            // Розрахунок позиції нової кнопки
 
             // Розрахунок позиції нової кнопки
             int x = startX;
@@ -223,6 +206,38 @@ namespace Client
             newButton.Location = new Point(x, y);
             panel2.Controls.Add(newButton);
             buttonCounter++;
+        }
+
+        private async void DynamicButton_Click(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2Button newButton = sender as Guna.UI2.WinForms.Guna2Button;
+            Change_Dictionary _CD = new Change_Dictionary();
+            Console.WriteLine(newButton.TabIndex);
+            _CD.NoteId = newButton.TabIndex;
+            _CD.StartPosition = FormStartPosition.Manual;
+            _CD.Location = this.Location;
+            _CD.OpenNotes();
+            _CD.Show();
+            this.Hide();
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Menu _menu = new Menu();
+            _menu.Show();
+            _menu.StartPosition = FormStartPosition.Manual;
+            _menu.Location = this.Location;
+            this.Hide();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Translate _tran = new Translate();
+            _tran.Show();
+            _tran.StartPosition = FormStartPosition.Manual;
+            _tran.Location = this.Location;
+            this.Hide();
         }
     }
 }
