@@ -2,8 +2,31 @@ const express = require("express");
 const router = express.Router();
 const pg = require("../../cone");
 const bcrypt = require('bcryptjs');
+var cookieParser = require('cookie-parser')
 
 router.use(express.json());
+router.use(cookieParser());
+
+router.get('/', async (req, res) => {
+    let client;
+    try {
+        client = await pg.connect();
+        const refreshToken = req.cookies['auth_token'];
+        if (refreshToken) {
+            const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
+            const id = jwtres.data[1];
+            if (typeof jwtres === 'object' && jwtres !== null) {
+                const result = await client.query('SELECT * FROM public.trap_users WHERE email = $1;', [email]);
+                const Avatar = result.rows[0].avatar;
+                const Email = result.rows[0].email;
+                return res.status(200).json({ id });
+            }
+        }
+        return res.status(400).json({ error: 'None coockie' });
+    } catch (error) {
+        return res.status(500).json({ error: 'Internal Server Error ' + error.message });
+    }
+});
 
 router.post('/', async (req, res) => {
     const { email, password } = req.body;

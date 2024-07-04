@@ -36,6 +36,7 @@
 }
 
 .Left a{
+    cursor: pointer;
     padding-right: 15px;
 }
 
@@ -44,7 +45,8 @@
     align-items: center;
 }
 
-.Right button{
+.Right a{
+    cursor: pointer;
     margin-left: 15px;
 }
 
