@@ -9,6 +9,7 @@ const Open_notes = require('./api/Notes/Open_notes/router')
 const Change_notes = require('./api/Notes/Change_note/router')
 const Add_translate = require('./api/Translate/Add_words_tr/router');
 const Show_translate = require('./api/Translate/Show_words_tr/router');
+const Show_Users = require('./api/Users/Show_Users/router');
 var cors = require('cors')
 const helmet = require('helmet');
 const csp = require('helmet-csp');
@@ -63,7 +64,7 @@ app.use("/api/Open_notes", Open_notes);
 app.use("/api/Change_notes", Change_notes);
 app.use("/api/Add_translate", Add_translate);
 app.use("/api/Show_translate", Show_translate);
-
+app.use("/api/Show_users", Show_Users);
 
 
 
