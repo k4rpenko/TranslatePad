@@ -29,6 +29,7 @@ namespace Client
 
         FormProfile _FP = new FormProfile(); // Стоврення форми для налаштувань профіля
         public List<Notes> translations; // Список для зберігання нотаток
+        public List<Users> Users_p;
         private List<TranslationHistory> translationHistories = new List<TranslationHistory>(); // Список для зберігання історії перекладів
         Http_Send httpSend = new Http_Send(); // Об'єкт для надсилання HTTP запитів
         private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
@@ -63,6 +64,14 @@ namespace Client
             public string Language { get; set; }
         }
 
+        public class Users
+        {
+            public int id { get; set; }
+            public string nick { get; set; }
+            public string email { get; set; }
+            public string avatar { get; set; }
+        }
+
         // Ініціалізація ListView для відображення історії перекладів
         private void InitializeListView()
         {
@@ -79,6 +88,7 @@ namespace Client
             InitializeListView();
             ShowWords(); // Відображення перекладів
             ShowDictionary(); // Відображення словника
+            Show_users();
             this.FormClosed += new FormClosedEventHandler(Menu_FormClosed); // Обробник закриття форми
         }
 
@@ -86,6 +96,24 @@ namespace Client
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        async void Show_users()
+        {
+            try
+            {
+                string url = "https://translate-pad.vercel.app/api/Show_users";
+                HttpResponseMessage response = await httpSend.GetShowNotes(url, token);
+                if ((int)response.StatusCode == 200)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    Users_p = JsonConvert.DeserializeObject<List<Users>>(jsonResponse);
+                    button6.Text = Users_p[0].nick;
+                    pictureBox1.ImageLocation = Users_p[0].avatar;
+                }
+                else { Console.WriteLine("NULL"); }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
         // Метод для відображення словника
