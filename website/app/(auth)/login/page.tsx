@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from '../../../styles/LR.module.css';
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 export default function Register() {
   const [email, setEmail] = useState('');
