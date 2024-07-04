@@ -22,9 +22,6 @@ export default function Right() {
             setAvatar(data.Avatar || '');
             setEmail(data.Email || '');
             setAuth(true);
-          } else if (res.status === 400) {
-            console.error('Failed to fetch topics');
-            window.location.href = '/';
           }
         } catch (error) {
           console.error('Error during topic fetch:', error);
