@@ -53,6 +53,7 @@ namespace Client
       
         public Authorization()
         {
+
             InitializeComponent();
         }
 

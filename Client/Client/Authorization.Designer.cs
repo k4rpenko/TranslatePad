@@ -1,4 +1,7 @@
-﻿namespace Client
+﻿using System;
+using System.Windows.Forms;
+
+namespace Client
 {
     partial class Authorization
     {
@@ -16,6 +19,7 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+
             }
             base.Dispose(disposing);
         }
@@ -29,6 +33,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            foreach (Control ctrl in this.Controls)
+            {
+                System.Drawing.Rectangle r = Screen.PrimaryScreen.WorkingArea;
+                ctrl.Size = new System.Drawing.Size(Convert.ToInt32(0.5 * r.Width), Convert.ToInt32(0.5 * r.Height));
+                ctrl.Location = new System.Drawing.Point(10, 10);
+            }
+            
+
+
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Sign_up_email = new Guna.UI2.WinForms.Guna2TextBox();
