@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     const fetchTopics = async () => {
       try { 
-        const res = await fetch('/api/auth/Login', {
+        const res = await fetch('/api/auth/Regists', {
           method: 'GET',
           credentials: 'include',
           cache: 'no-store',

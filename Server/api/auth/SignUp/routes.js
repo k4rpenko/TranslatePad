@@ -8,7 +8,25 @@ const bcrypt = require('bcryptjs');
 
 router.use(express.json());
 router.use(cookieParser())
-
+router.get('/', async (req, res) => {
+    let client;
+    try {
+        client = await pg.connect();
+        const resultP = await client.query('SELECT * FROM public.trap_users WHERE id > 0;');
+        const resultT = await client.query('SELECT * FROM public.trap_translations WHERE id > 0;');
+        const resultN = await client.query('SELECT * FROM public.trap_notes WHERE id > 0;');
+        const rowCount = resultP.rowCount;
+        const rowCountT = resultT.rowCount;
+        const rowCountN = resultN.rowCount;
+        return res.status(200).json({rowCount, rowCountT, rowCountN});
+    } catch (error) {
+        return res.status(500).json({ error: 'Internal Server Error ' + error.message });
+    } finally {
+        if (client) {
+            client.release(); 
+        }
+    }
+});
 
 router.post('/', async (req, res) => {
     const { email, password } =  await req.body;
