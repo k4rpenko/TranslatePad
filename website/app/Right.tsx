@@ -34,7 +34,7 @@ export default function Right() {
     return(
         <div className={styles.Right}>
             {Auth ? (
-                <div>
+                <div className={styles.ProfileAc}>
                     <img src={Avatar} alt="Avatar" />
                     <p>{Email}</p>
                 </div>
