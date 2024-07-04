@@ -19,9 +19,10 @@ router.get('/', async (req, res) => {
             const id = jwtres.data[1];
             if (typeof jwtres === 'object' && jwtres !== null) {
                 const result = await client.query('SELECT * FROM public.trap_users WHERE id = $1;', [id]);
-                const resultT = await client.query('SELECT * FROM public.trap_translations WHERE user_id = $1;', [id]);
-                const resultN = await client.query('SELECT * FROM public.trap_notes WHERE user_id = $1;', [id]);
-                const rowCount = result.rowCount;
+                const resultP = await client.query('SELECT * FROM public.trap_users WHERE id > 0;');
+                const resultT = await client.query('SELECT * FROM public.trap_translations WHERE id > 0;');
+                const resultN = await client.query('SELECT * FROM public.trap_notes WHERE id > 0;');
+                const rowCount = result.resultP;
                 const rowCountT = resultT.rowCount;
                 const rowCountN = resultN.rowCount;
                 const Avatar = result.rows[0].avatar;
