@@ -11,6 +11,7 @@
     background-color: hsl(0 0 0 /.6);
     border-bottom-width: 1px;
     backdrop-filter: blur(1.5rem);
+    z-index: 100;
 }
 
 .main{
