@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 var cookieParser = require('cookie-parser')
 const jwt = require('jsonwebtoken');
 
+
 router.use(express.json());
 router.use(cookieParser());
 
@@ -22,12 +23,18 @@ router.get('/', async (req, res) => {
                 const Email = result.rows[0].email;
                 return res.status(200).json({ Avatar, Email });
             }
+        } else {
+            return res.status(400).json({ error: 'No cookie found' });
         }
-        return res.status(400).json({ error: 'None coockie' });
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error ' + error.message });
+    } finally {
+        if (client) {
+            client.release(); 
+        }
     }
 });
+
 
 router.post('/', async (req, res) => {
     const { email, password } = req.body;
