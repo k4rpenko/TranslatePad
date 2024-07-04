@@ -16,10 +16,10 @@ router.get('/', async (req, res) => {
             const jwtres = jwt.verify(refreshToken, process.env.JWT_SECRET);
             const id = jwtres.data[1];
             if (typeof jwtres === 'object' && jwtres !== null) {
-                const result = await client.query('SELECT * FROM public.trap_users WHERE email = $1;', [email]);
+                const result = await client.query('SELECT * FROM public.trap_users WHERE id = $1;', [id]);
                 const Avatar = result.rows[0].avatar;
                 const Email = result.rows[0].email;
-                return res.status(200).json({ id });
+                return res.status(200).json({ Avatar, Email });
             }
         }
         return res.status(400).json({ error: 'None coockie' });
