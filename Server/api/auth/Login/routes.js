@@ -19,9 +19,14 @@ router.get('/', async (req, res) => {
             const id = jwtres.data[1];
             if (typeof jwtres === 'object' && jwtres !== null) {
                 const result = await client.query('SELECT * FROM public.trap_users WHERE id = $1;', [id]);
+                const resultT = await client.query('SELECT * FROM public.trap_translations WHERE user_id = $1;', [id]);
+                const resultN = await client.query('SELECT * FROM public.trap_notes WHERE user_id = $1;', [id]);
+                const rowCount = result.rowCount;
+                const rowCountT = resultT.rowCount;
+                const rowCountN = resultN.rowCount;
                 const Avatar = result.rows[0].avatar;
                 const Email = result.rows[0].email;
-                return res.status(200).json({ Avatar, Email });
+                return res.status(200).json({ Avatar, Email, rowCount, rowCountT, rowCountN });
             }
         } else {
             return res.status(400).json({ error: 'No cookie found' });
