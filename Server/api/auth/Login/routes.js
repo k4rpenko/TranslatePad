@@ -3,6 +3,7 @@ const router = express.Router();
 const pg = require("../../cone");
 const bcrypt = require('bcryptjs');
 var cookieParser = require('cookie-parser')
+const jwt = require('jsonwebtoken');
 
 router.use(express.json());
 router.use(cookieParser());
