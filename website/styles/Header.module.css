@@ -1,0 +1,76 @@
+.headers{
+    display: flex;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    background-color: hsl(0 0 0 /.6);
+    border-bottom-width: 1px;
+    backdrop-filter: blur(1.5rem);
+}
+
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Left{
+    display: flex;
+    align-items: center;
+}
+
+.Left h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-weight: bold;
+}
+
+.Left nav{
+    margin-left: 20px;
+    color: rgb(113 113 122);
+}
+
+.Left a{
+    padding-right: 15px;
+}
+
+.Right{
+    display: flex;
+    align-items: center;
+}
+
+.Right button{
+    margin-left: 15px;
+}
+
+.Login{
+    padding: 8px;
+    border-radius: 10px;
+    background-color: transparent;
+    border-width: 1px;
+    border-color: #363636;
+    transition: 0.3s;
+}
+
+.Login:hover{
+    transition: 0.3s;
+    background-color: #1D283A;
+}
+
+.Sign{
+    padding: 8px;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.Sign:hover{
+    transition: 0.3s;
+    background-color: rgb(187, 187, 187);
+}
