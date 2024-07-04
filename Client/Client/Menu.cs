@@ -107,6 +107,7 @@ namespace Client
                         Create_Recent_Button(translations[i].id, translations[i].title.ToString());
                     }
                     this.Refresh();
+                    showDictionary_panel();
                 }
                 else { Console.WriteLine("NULL"); }
             }
@@ -329,25 +330,26 @@ namespace Client
             newButton.Margin = new System.Windows.Forms.Padding(2);
             newButton.Name = $"dynamicButton{index}";
             newButton.Size = new Size(buttonWidth, buttonHeight);
+            newButton.Text = text;
             newButton.TabIndex = index;
-            //newButton.Click += new EventHandler(DynamicButton_Click);
+            newButton.Click += new EventHandler(DynamicButton_Click);
 
             // Розрахунок позиції нової кнопки
-            int x = startX + (buttonCounter * (buttonWidth + spacing));
-            int y = startY;
+            int x = startX_panel + (buttonCounter_panel * (buttonWidth_panel + spacing_panel));
+            int y = startY_panel;
 
             // Якщо кнопка не вміщується в ширину форми, переносимо на наступний рядок
-            if (x + buttonWidth > this.ClientSize.Width)
+            if (x + buttonWidth_panel > this.ClientSize.Width)
             {
-                buttonCounter = 0;
-                startY += buttonHeight + spacing;
-                x = startX + (buttonCounter * (buttonWidth + spacing));
-                y = startY;
+                buttonCounter_panel = 0;
+                startY_panel += buttonHeight_panel + spacing_panel;
+                x = startX_panel + (buttonCounter_panel * (buttonWidth_panel + spacing_panel));
+                y = startY_panel;
             }
 
             newButton.Location = new Point(x, y);
-            panel3.Controls.Add(newButton);
-            buttonCounter++;
+            panel_for_button.Controls.Add(newButton);
+            buttonCounter_panel++;
         }
 
         // Натискання на динамічну кнопку
