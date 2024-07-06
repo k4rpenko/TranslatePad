@@ -72,7 +72,7 @@ namespace Client
         // Метод для відображення словника
         private async void ShowDictionary()
         {
-            Notes.translations = await httpSend.GetShowNotes(token);
+            if( Notes.translations == null) {Notes.translations = await httpSend.GetShowNotes(token);}
             if (Notes.translations != null)
             {
                 int a = Notes.translations.Count;
