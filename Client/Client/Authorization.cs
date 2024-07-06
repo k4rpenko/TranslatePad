@@ -80,50 +80,16 @@ namespace Client
             }
 
             label_in.Text = "";
-            Console.WriteLine($"email: {Sign_in_email.Text.ToString()}\nPassword: {Sign_in_pass.Text.ToString()}");
-            try
-            {
-                string url = "https://translate-pad.vercel.app/api/auth/Login"; // URL для відправлення запиту на вхід
-                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_in_email.Text.ToString(), Sign_in_pass.Text.ToString());
-                if (response != null)
-                {
-                    if ((int)response.StatusCode == 200)
-                    {
-                        using (var streamReader = new StreamReader(await response.Content.ReadAsStreamAsync()))
-                        {
-                            var result = await streamReader.ReadToEndAsync();
-                            dynamic jsonResponse = JObject.Parse(result);
-                            string refreshToken = jsonResponse.refreshToken;
-                            SaveRefreshToken(refreshToken);
 
-                            label_in.ForeColor = Color.Green;
-                            label_in.Text = "Вхід пройшов успішно";
-                            Menu _menu = new Menu();
-                            _menu.Show();
-                            this.Hide();
-                        }
-                    }
-                    else if ((int)response.StatusCode == 404)
-                    {
-                        label_in.ForeColor = Color.Red;
-                        label_in.Text = "За вказаною адресою електронної пошти немає облікового запису. Ви можете зареєструвати обліковий запис на цю адресу електронної пошти";
-                    }
-                    else if ((int)response.StatusCode == 401)
-                    {
-                        label_in.ForeColor = Color.Red;
-                        label_in.Text = "Невірні облікові дані";
-                    }
-                }
-                else
-                {
-                    label_in.ForeColor = Color.Red;
-                    label_in.Text = "NULL";
-                }
-            }
-            catch
+            string _SaveT = await httpSend.PostAuthLogin(Sign_in_email.Text, Sign_in_pass.Text, label_in);
+            if (_SaveT != null)
             {
-                label_in.Text = "error occurred";
+                SaveRefreshToken(_SaveT);
+                Menu _menu = new Menu();
+                _menu.Show();
+                this.Hide();
             }
+            
         }
 
         // Метод натискання на кнопку "Sign up"
@@ -156,42 +122,13 @@ namespace Client
 
             label1.Text = "";
 
-            try
+            string _SaveT = await httpSend.PostAuthRegister(Sign_up_email.Text, Sign_up_pass2.Text, label1);
+            if (_SaveT != null)
             {
-                string url = "https://translate-pad.vercel.app/api/auth/Regists"; // URL для відправлення запиту на реєстрацію
-                HttpResponseMessage response = await httpSend.PostAuth(url, Sign_up_email.Text.ToString(), Sign_up_pass.Text.ToString());
-                int statusCodeValue = (int)statusCode;
-
-                if ((int)response.StatusCode == 200)
-                {
-                    using (var streamReader = new StreamReader(await response.Content.ReadAsStreamAsync()))
-                    {
-                        var result = await streamReader.ReadToEndAsync();
-                        dynamic jsonResponse = JObject.Parse(result);
-                        string refreshToken = jsonResponse.refreshToken;
-                        SaveRefreshToken(refreshToken);
-
-                        label1.ForeColor = Color.Green;
-                        label1.Text = "Реєстрація пройшла успішно";
-                        Menu _menu = new Menu();
-                        _menu.Show();
-                        this.Hide();
-                    }
-                }
-                else if ((int)response.StatusCode == 404)
-                {
-                    label1.ForeColor = Color.Red;
-                    label1.Text = "Вказана електронна адреса вже використовується, будь ласка, спробуйте ввести іншу або авторизуйтесь.";
-                }
-                else
-                {
-                    label1.ForeColor = Color.Red;
-                    label1.Text = "Виникла непередбачувана помилка, будь ласка, спробуйте пізніше";
-                }
-            }
-            catch
-            {
-                label1.Text = "error occurred";
+                SaveRefreshToken(_SaveT);
+                Menu _menu = new Menu();
+                _menu.Show();
+                this.Hide();
             }
         }
         #endregion

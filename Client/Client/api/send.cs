@@ -3,6 +3,14 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using System.Drawing;
+using System.IO;
+using System.Net.Http;
+using System.Net;
+using System.Windows.Forms;
+using System.Text;
+using System;
 
 namespace Client.api
 {
@@ -20,24 +28,105 @@ namespace Client.api
 
         }*/
         
-
-        public async Task<HttpResponseMessage> PostAuth(string url, string email, string password)
+        #region Authoruzation
+        public async Task<string> PostAuthLogin(string email, string password, Label label_in)
         {
             try
             {
                 var data = new { email = email, password = password };
+                string url = "https://translate-pad.vercel.app/api/auth/Login"; // URL для відправлення запиту на вхід
                 HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
-                return response;
+                if (response != null)
+                {
+                    if ((int)response.StatusCode == 200)
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        JObject _JO = JObject.Parse(responseBody);
+                        string refreshToken = _JO["refreshToken"].ToString();
+
+                        label_in.ForeColor = Color.Green;
+                        label_in.Text = "Вхід пройшов успішно";
+
+
+                        return refreshToken;
+                    }
+                    else if ((int)response.StatusCode == 404)
+                    {
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text =
+                            "За вказаною адресою електронної пошти немає облікового запису. Ви можете зареєструвати обліковий запис на цю адресу електронної пошти";
+                    }
+                    else if ((int)response.StatusCode == 401)
+                    {
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text = "Невірні облікові дані";
+                    }
+                }
+                else
+                {
+                    label_in.ForeColor = Color.Red;
+                    label_in.Text = "NULL";
+                }
             }
-            catch (HttpRequestException ex)
+            catch
             {
-                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
+                label_in.Text = "error occurred";
             }
 
+            return null;
         }
+
+        public async Task<string> PostAuthRegister(string email, string password, Label label_in)
+        {
+            try
+            {
+                var data = new { email = email, password = password };
+                string url = "https://translate-pad.vercel.app/api/auth/Regists"; // URL для відправлення запиту на вхід
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                if (response != null)
+                {
+                    if ((int)response.StatusCode == 200)
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        JObject _JO = JObject.Parse(responseBody);
+                        string refreshToken = _JO["refreshToken"].ToString();
+
+                        label_in.ForeColor = Color.Green;
+                        label_in.Text = "Вхід пройшов успішно";
+
+
+                        return refreshToken;
+                    }
+                    else if ((int)response.StatusCode == 404)
+                    {
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text =
+                            "За вказаною адресою електронної пошти немає облікового запису. Ви можете зареєструвати обліковий запис на цю адресу електронної пошти";
+                    }
+                    else if ((int)response.StatusCode == 401)
+                    {
+                        label_in.ForeColor = Color.Red;
+                        label_in.Text = "Невірні облікові дані";
+                    }
+                }
+                else
+                {
+                    label_in.ForeColor = Color.Red;
+                    label_in.Text = "NULL";
+                }
+            }
+            catch
+            {
+                label_in.Text = "error occurred";
+            }
+
+            return null;
+        }
+        #endregion
         
-                public async Task<HttpResponseMessage> PostAddDictionary(string url, string token, string H1, string P1)
+       
+        
+        public async Task<HttpResponseMessage> PostAddDictionary(string url, string token, string H1, string P1)
         {
             try
             {

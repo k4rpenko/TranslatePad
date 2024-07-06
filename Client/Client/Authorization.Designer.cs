@@ -447,7 +447,7 @@ namespace Client
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label_in;
+        public System.Windows.Forms.Label label_in;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
