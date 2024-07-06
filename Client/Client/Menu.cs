@@ -70,7 +70,7 @@ namespace Client
 
 
         // Метод для відображення словника
-        private async void ShowDictionary()
+        public async void ShowDictionary()
         {
             if( Notes.translations == null) {Notes.translations = await httpSend.GetShowNotes(token);}
             if (Notes.translations != null)
@@ -196,7 +196,7 @@ namespace Client
         }
 
         // Метод для відображення перекладів
-        private async void ShowWords()
+        public async void ShowWords()
         {
             ClearListViewItems();
             if(Translation.translations == null) { Translation.translations = await httpSend.GetShow_translate(token);}

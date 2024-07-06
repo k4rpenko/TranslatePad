@@ -120,7 +120,6 @@ namespace Client.api
         }
         #endregion
         
-        #region Menu
         
         #region Dictionary
         public async Task<List<Users>> GetShowUsers(string token)
@@ -168,7 +167,63 @@ namespace Client.api
             return null;
         }
         
+        public async Task<HttpResponseMessage> PostAddNotes(string token, string H1, string P1)
+        {
+            try
+            {
+                string url = "https://translate-pad.vercel.app/api/Add_Notesn";
+                var data = new { token = token, title = H1, content = P1 };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                return null;
+            }
+
+        }
         
+        
+        public async Task<List<Change_Dictionary.NodeId>>GetOpenNotes(int id)
+        {
+            string url = "https://translate-pad.vercel.app/api/Open_notes";
+            try
+            {
+                var data = new { id = id };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                if ((int)response.StatusCode == 200)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<List<Change_Dictionary.NodeId>>(jsonResponse);
+                }
+                else { Console.WriteLine("NULL"); }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                
+            }
+            return null;
+        }
+        
+        public async Task<HttpResponseMessage> PostChangeNotes(int id, string H1, string P1)
+        {
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); // Поточна дата та час у форматі рядка
+            string url = "https://translate-pad.vercel.app/api/Change_notes"; // URL для відправлення запиту на зміну нотаток
+            try
+            {
+                var data = new { id = id, title = H1, content = P1, updated_at = date };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                
+            }
+            return null;
+        }
         #endregion
             
         #region Translate
@@ -193,72 +248,28 @@ namespace Client.api
             }
             return null;
         }
-        #endregion
-            
-        #endregion
         
-        public async Task<HttpResponseMessage> PostAddDictionary(string url, string token, string H1, string P1)
+        public async Task PostAdd_translate(string token, string lang_orig_words, string orig_words, string lang_trans_words, string trans_words)
         {
-            try
-            {
-                var data = new { token = token, title = H1, content = P1 };
-                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
-                return response;
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
-            }
-
-        }
-
-        public async Task<HttpResponseMessage> PostChangeNotes(string url, int id, string H1, string P1, string date)
-        {
-            try
-            {
-                var data = new { id = id, title = H1, content = P1, updated_at = date };
-                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
-                return response;
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
-            }
-        }
-
-
-        public async Task<HttpResponseMessage> GetOpenNotes(string url, int id)
-        {
-            try
-            {
-                var data = new { id = id };
-                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
-                return response;
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
-            }
-        }
-
-
-        public async Task<HttpResponseMessage> PostAdd_translate(string url, string token, string lang_orig_words, string orig_words, string lang_trans_words, string trans_words)
-        {
+            Refresh _refresh = new Refresh();
+            string url = "https://translate-pad.vercel.app/api/Add_translate";
             try
             {
                 var data = new { token = token, lang_orig_words = lang_orig_words, orig_words = orig_words, lang_trans_words = lang_trans_words, trans_words = trans_words };
                 HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
-                return response;
+                if ((int)response.StatusCode == 200)
+                {
+                    _refresh.RefreshT();
+                    
+                }
+                else { Console.WriteLine("NULL"); }
             }
             catch (HttpRequestException ex)
             {
                 Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
             }
 
         }
+        #endregion
     }
 }

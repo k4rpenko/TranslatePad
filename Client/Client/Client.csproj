@@ -158,6 +158,7 @@
     <Compile Include="pass\ValidPass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refresh.cs" />
     <Compile Include="Translate.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -13,6 +13,7 @@ namespace Client
 {
     public partial class Translate : Form
     {
+        private Refresh _refresh = new Refresh();
         FormProfile FP = new FormProfile(); // Виклик форми профілю
         string apiKey = "7701e92c-c850-490b-ac45-0011d6d74a16:fx"; // API ключ для DeepL
         private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
@@ -43,20 +44,27 @@ namespace Client
         }
 
         // Метод для відображення перекладів
-        private async void ShowWords()
+        public async void ShowWords()
         {
             ClearListViewItems();
             if(Translation.translations == null) { Translation.translations = await httpSend.GetShow_translate(token);}
 
-            if (Translation.translations != null)
+            try
             {
-                foreach (var translation in Translation.translations)
+                if (Translation.translations != null)
                 {
-                    var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
-                    AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button); // Додавання до історії перекладів
+                    foreach (var translation in Translation.translations)
+                    {
+                        var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
+                        AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button); // Додавання до історії перекладів
+                    }
                 }
+            }            
+            catch (ArgumentOutOfRangeException ex)
+            {
+                // Обробка винятку, можливо, виведення повідомлення або журналювання помилки
+                Console.WriteLine($"Помилка доступу до елементу масиву: {ex.Message}");
             }
-
         }
 
         // Метод для ініціалізації ListView
@@ -313,24 +321,10 @@ namespace Client
         // Натискання на кнопку додавання нового перекладу
         private async void button1_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                string url = "https://translate-pad.vercel.app/api/Add_translate"; // URL для додавання нового перекладу
-                HttpResponseMessage response = await httpSend.PostAdd_translate(url, token, Your_l.Text, text_for_trans.Text.ToString(), button3.Text, tet_tran.Text.ToString());
-
-                if ((int)response.StatusCode == 200)
-                {
-                    ShowWords(); // Оновлення відображення перекладів
-                }
-                else
-                {
-                    Console.WriteLine("NULL");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("error occurred");
-            }
+            await httpSend.PostAdd_translate(token, Your_l.Text, text_for_trans.Text.ToString(), button3.Text, tet_tran.Text.ToString());
+            var language_button = new string[] { Your_l.Text, button3.Text };
+            AddToTranslationHistory(text_for_trans.Text, tet_tran.Text, language_button); 
+            _refresh.RefreshT();
         }
 
         // Натискання на кнопку очищення історії перекладів

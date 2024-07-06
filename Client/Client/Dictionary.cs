@@ -11,6 +11,7 @@ namespace Client
 {
     public partial class Dictionary : Form
     {
+        Refresh _refresh = new Refresh();
         FormProfile FP = new FormProfile(); // Об'єкт для профілю користувача
 
         private int buttonCounter = 0; // Лічильник кнопок
@@ -40,7 +41,7 @@ namespace Client
         }
 
         // Метод для відображення словника
-        private async void ShowDictionary()
+        public async void ShowDictionary()
         {
             
             if(Notes.translations == null) { Notes.translations = await httpSend.GetShowNotes(token); }
@@ -71,14 +72,8 @@ namespace Client
         // Натискання на кнопку для додавання нової нотатки
         private async void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string url = "https://translate-pad.vercel.app/api/Add_Notesn";
-                HttpResponseMessage response = await httpSend.PostAddDictionary(url, token, H1.Text.ToString(), P1.Text.ToString());
-                if ((int)response.StatusCode == 200) { Console.WriteLine("Create note"); }
-                else { Console.WriteLine("NULL"); }
-            }
-            catch (Exception ex) { Console.WriteLine(ex); }
+            await httpSend.PostAddNotes(token, H1.Text, P1.Text);
+            _refresh.RefreshN();
         }
 
         private void label1_Click_1(object sender, EventArgs e)
