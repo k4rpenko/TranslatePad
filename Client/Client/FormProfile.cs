@@ -17,43 +17,24 @@ namespace Client
 {
     public partial class FormProfile : Form
     {
-        private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
-        string token = File.ReadAllText(RefreshFilePath); // Зчитування токену з файлу
+        string token = File.ReadAllText("user_refresh.txt");
         public List<Users> Users_p;
         Http_Send httpSend = new Http_Send();
-
-        public class Users
-        {
-            public int id { get; set; }
-            public string nick { get; set; }
-            public string email { get; set; }
-            public string avatar { get; set; }
-        }
-
-
         public FormProfile()
         {
             Show_users();
             InitializeComponent();
         }
 
-        async void Show_users() 
+        async void Show_users()
         {
-            try
+            Users_p = await httpSend.GetShowUsers(token);
+            if (Users_p != null)
             {
-                string url = "https://translate-pad.vercel.app/api/Show_users";
-                HttpResponseMessage response = await httpSend.GetShowNotes(url, token);
-                if ((int)response.StatusCode == 200)
-                {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    Users_p = JsonConvert.DeserializeObject<List<Users>>(jsonResponse);
-                    label2.Text = Users_p[0].nick;
-                    label1.Text = Users_p[0].email; 
-                    pictureBox1.ImageLocation = Users_p[0].avatar;
-                }
-                else { Console.WriteLine("NULL"); }
+                label2.Text = Users_p[0].nick;
+                label1.Text = Users_p[0].email; 
+                pictureBox1.ImageLocation = Users_p[0].avatar;
             }
-            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
         private const int WS_THICKFRAME = 0x40000; // Константа для додавання рамки форми

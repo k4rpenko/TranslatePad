@@ -5,12 +5,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System.Drawing;
-using System.IO;
-using System.Net.Http;
-using System.Net;
 using System.Windows.Forms;
-using System.Text;
-using System;
+using Newtonsoft.Json;
 
 namespace Client.api
 {
@@ -124,7 +120,36 @@ namespace Client.api
         }
         #endregion
         
-       
+        #region Menu
+        
+        #region Dictionary
+        public async Task<List<Users>> GetShowUsers(string token)
+        {
+            string url = "https://translate-pad.vercel.app/api/Show_users";
+            try
+            {
+                var data = new { token = token };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                if ((int)response.StatusCode == 200)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<List<Users>>(jsonResponse);
+                }
+                else { Console.WriteLine("NULL"); }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+            }
+
+            return null;
+        }
+        #endregion
+            
+        #region Translate
+        #endregion
+            
+        #endregion
         
         public async Task<HttpResponseMessage> PostAddDictionary(string url, string token, string H1, string P1)
         {

@@ -64,14 +64,6 @@ namespace Client
             public string Language { get; set; }
         }
 
-        public class Users
-        {
-            public int id { get; set; }
-            public string nick { get; set; }
-            public string email { get; set; }
-            public string avatar { get; set; }
-        }
-
         // Ініціалізація ListView для відображення історії перекладів
         private void InitializeListView()
         {
@@ -98,22 +90,14 @@ namespace Client
             Application.Exit();
         }
 
-        async void Show_users()
+        public async void Show_users()
         {
-            try
+            Users_p = await httpSend.GetShowUsers(token);
+            if (Users_p != null)
             {
-                string url = "https://translate-pad.vercel.app/api/Show_users";
-                HttpResponseMessage response = await httpSend.GetShowNotes(url, token);
-                if ((int)response.StatusCode == 200)
-                {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    Users_p = JsonConvert.DeserializeObject<List<Users>>(jsonResponse);
-                    button6.Text = Users_p[0].nick;
-                    pictureBox1.ImageLocation = Users_p[0].avatar;
-                }
-                else { Console.WriteLine("NULL"); }
+                button6.Text = Users_p[0].nick;
+                pictureBox1.ImageLocation = Users_p[0].avatar;
             }
-            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
         // Метод для відображення словника
