@@ -13,57 +13,48 @@ namespace Client
     {
         FormProfile FP = new FormProfile(); // Об'єкт для профілю користувача
 
-        // Клас для представлення нотаток
-        private class Notes
-        {
-            public int id { get; set; }
-            public int user_id { get; set; }
-            public string title { get; set; }
-            public string content { get; set; }
-            public string updated_at { get; set; }
-        }
-
         private int buttonCounter = 0; // Лічильник кнопок
         private int startX = 7; // Початкова позиція по X
         private int startY = 264; // Початкова позиція по Y
         private int buttonWidth = 183; // Ширина кнопки
         private int buttonHeight = 46; // Висота кнопки
         private int spacing = 10; // Відстань між кнопками
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
         private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
         string token = File.ReadAllText(RefreshFilePath); // Читання токена з файлу
         Http_Send httpSend = new Http_Send(); // Об'єкт для відправлення HTTP запитів
-
+        
         public Dictionary()
         {
             InitializeComponent();
             ShowDictionary(); // Відображення словника при ініціалізації
+            Show_users();
         }
-
+        public async void Show_users()
+        {
+            if(Users.Users_p == null) {Users.Users_p = await httpSend.GetShowUsers(token);}
+            if (Users.Users_p != null && Users.Users_p.Count > 0)
+            {
+                button7.Text = Users.Users_p[0].nick;
+                guna2PictureBox1.ImageLocation = Users.Users_p[0].avatar;
+            }
+        }
 
         // Метод для відображення словника
         private async void ShowDictionary()
         {
-            try
+            
+            if(Notes.translations == null) { Notes.translations = await httpSend.GetShowNotes(token); }
+            if (Notes.translations != null)
             {
-                string url = "https://translate-pad.vercel.app/api/Show_Notes";
-                HttpResponseMessage response = await httpSend.GetShowNotes(url, token);
-                if ((int)response.StatusCode == 200)
+                int a = Notes.translations.Count;
+                Console.WriteLine(Notes.translations.Count);
+                if (a >= 5) { a = 5; }
+                for (int i = 0; i < a; i++)
                 {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    List<Notes> translations = JsonConvert.DeserializeObject<List<Notes>>(jsonResponse);
-                    int a = translations.Count;
-                    Console.WriteLine(translations.Count);
-                    if (a >= 5) { a = 5; }
-                    for (int i = 0; i < a; i++)
-                    {
-                        CreateButton(translations[i].id, translations[i].title.ToString());
-                    }
-                    this.Refresh(); // Оновлення форми після додавання кнопок
+                    CreateButton(Notes.translations[i].id, Notes.translations[i].title.ToString());
                 }
-                else { Console.WriteLine("NULL"); }
+                Refresh();
             }
-            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
         private void Form1_Load(object sender, EventArgs e)

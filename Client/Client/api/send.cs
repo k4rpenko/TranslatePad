@@ -144,9 +144,55 @@ namespace Client.api
 
             return null;
         }
+        
+        public async Task<List<Notes>> GetShowNotes(string token)
+        {
+            string url = "https://translate-pad.vercel.app/api/Show_Notes";
+            try
+            {
+                var data = new { token = token };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                if ((int)response.StatusCode == 200)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<List<Notes>>(jsonResponse);
+                }
+                else { Console.WriteLine("NULL"); }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+                return null;
+            }
+
+            return null;
+        }
+        
+        
         #endregion
             
         #region Translate
+        public async Task<List<Translation>> GetShow_translate(string token)
+        {
+            string url = "https://translate-pad.vercel.app/api/Show_translate";
+            try
+            {
+                var data = new { token = token, };
+                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
+                if ((int)response.StatusCode == 200)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<List<Translation>>(jsonResponse);
+                    
+                }
+                else { Console.WriteLine("NULL"); }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
+            }
+            return null;
+        }
         #endregion
             
         #endregion
@@ -182,20 +228,6 @@ namespace Client.api
             }
         }
 
-        public async Task<HttpResponseMessage> GetShowNotes(string url, string token)
-        {
-            try
-            {
-                var data = new { token = token };
-                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
-                return response;
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
-            }
-        }
 
         public async Task<HttpResponseMessage> GetOpenNotes(string url, int id)
         {
@@ -218,22 +250,6 @@ namespace Client.api
             try
             {
                 var data = new { token = token, lang_orig_words = lang_orig_words, orig_words = orig_words, lang_trans_words = lang_trans_words, trans_words = trans_words };
-                HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
-                return response;
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP POST request failed: {ex.Message}");
-                return null;
-            }
-
-        }
-
-        public async Task<HttpResponseMessage> GetShow_translate(string url, string token)
-        {
-            try
-            {
-                var data = new { token = token, };
                 HttpResponseMessage response = await _client.PostAsJsonAsync(url, data);
                 return response;
             }

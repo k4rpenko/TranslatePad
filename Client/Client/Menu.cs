@@ -28,41 +28,9 @@ namespace Client
         private int spacing_panel = 10; // Відстань між кнопками
 
         FormProfile _FP = new FormProfile(); // Стоврення форми для налаштувань профіля
-        public List<Notes> translations; // Список для зберігання нотаток
-        public List<Users> Users_p;
-        private List<TranslationHistory> translationHistories = new List<TranslationHistory>(); // Список для зберігання історії перекладів
         Http_Send httpSend = new Http_Send(); // Об'єкт для надсилання HTTP запитів
         private static string RefreshFilePath = "user_refresh.txt"; // Шлях до файлу з токеном
         string token = File.ReadAllText(RefreshFilePath); // Зчитування токену з файлу
-
-        // Клас для зберігання нотаток
-        public class Notes
-        {
-            public int id { get; set; }
-            public int user_id { get; set; }
-            public string title { get; set; }
-            public string content { get; set; }
-            public string updated_at { get; set; }
-        }
-
-        // Клас для зберігання перекладів
-        public class Translation
-        {
-            public int id { get; set; }
-            public int user_id { get; set; }
-            public string lang_orig_words { get; set; }
-            public string orig_words { get; set; }
-            public string lang_trans_words { get; set; }
-            public string trans_words { get; set; }
-        }
-
-        // Клас для зберігання історії перекладів
-        public class TranslationHistory
-        {
-            public string OriginalText { get; set; }
-            public string TranslatedText { get; set; }
-            public string Language { get; set; }
-        }
 
         // Ініціалізація ListView для відображення історії перекладів
         private void InitializeListView()
@@ -92,53 +60,41 @@ namespace Client
 
         public async void Show_users()
         {
-            Users_p = await httpSend.GetShowUsers(token);
-            if (Users_p != null)
+            if(Users.Users_p == null) {Users.Users_p = await httpSend.GetShowUsers(token);}
+            if (Users.Users_p != null && Users.Users_p.Count > 0)
             {
-                button6.Text = Users_p[0].nick;
-                pictureBox1.ImageLocation = Users_p[0].avatar;
+                button6.Text = Users.Users_p[0].nick;
+                pictureBox1.ImageLocation = Users.Users_p[0].avatar;
             }
         }
+
 
         // Метод для відображення словника
         private async void ShowDictionary()
         {
-            try
+            Notes.translations = await httpSend.GetShowNotes(token);
+            if (Notes.translations != null)
             {
-                string url = "https://translate-pad.vercel.app/api/Show_Notes";
-                HttpResponseMessage response = await httpSend.GetShowNotes(url, token);
-                if ((int)response.StatusCode == 200)
+                int a = Notes.translations.Count;
+                if (a >= 5) { a = 5; } 
+                for (int i = 0; i < a; i++)
                 {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    translations = JsonConvert.DeserializeObject<List<Notes>>(jsonResponse);
-                    int a = translations.Count;
-
-                    if (a >= 5) { a = 5; } // Відображаємо максимум 5 нотаток
-                    for (int i = 0; i < a; i++)
-                    {
-                        Create_Recent_Button(translations[i].id, translations[i].title.ToString());
-                    }
-                    this.Refresh();
-                    showDictionary_panel();
+                    Create_Recent_Button(Notes.translations[i].id, Notes.translations[i].title.ToString());
                 }
-                else { Console.WriteLine("NULL"); }
+                Refresh();
+                showDictionary_panel();
             }
-            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
         // Метод для відображення словника у панелі
-        private async void showDictionary_panel()
+        private void showDictionary_panel()
         {
-            try
+            if (Notes.translations != null)
             {
-                int a = translations.Count;
-                for (int i = 0; i < a; i++)
-                {
-                    CreateButton(translations[i].id, translations[i].title.ToString());
-                }
-                this.Refresh();
+                int a = Notes.translations.Count;
+                for (int i = 0; i < a; i++) { CreateButton(Notes.translations[i].id, Notes.translations[i].title.ToString()); }
+                Refresh();
             }
-            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -225,54 +181,45 @@ namespace Client
         // Метод для додавання запису до історії перекладів
         private void AddToTranslationHistory(string originalText, string translatedText, string[] language)
         {
-            try
+            TranslationHistory.translationHistories.Add(new TranslationHistory
             {
-                translationHistories.Add(new TranslationHistory
-                {
-                    OriginalText = originalText,
-                    TranslatedText = translatedText,
-                    Language = string.Join("/", language)
-                });
+                OriginalText = originalText,
+                TranslatedText = translatedText,
+                Language = string.Join("/", language)
+            });
 
-                // Додавання запису до listView1
-                ListViewItem item = new ListViewItem(originalText);
-                item.SubItems.Add(translatedText);
-                item.SubItems.Add(string.Join("/", language));
-                listView1.Items.Add(item);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error in AddToTranslationHistory: {ex.Message}");
-            }
+            // Додавання запису до listView1
+            ListViewItem item = new ListViewItem(originalText);
+            item.SubItems.Add(translatedText);
+            item.SubItems.Add(string.Join("/", language));
+            listView1.Items.Add(item);
         }
 
         // Метод для відображення перекладів
         private async void ShowWords()
         {
+            ClearListViewItems();
+            if(Translation.translations == null) { Translation.translations = await httpSend.GetShow_translate(token);}
+            
             try
             {
-                ClearListViewItems();
-                string url = "https://translate-pad.vercel.app/api/Show_translate";
-                HttpResponseMessage response = await httpSend.GetShow_translate(url, token);
-
-                if ((int)response.StatusCode == 200)
+                if (Translation.translations != null && Translation.translations.Count > 0)
                 {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    List<Translation> translations = JsonConvert.DeserializeObject<List<Translation>>(jsonResponse);
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < 5 && i < Translation.translations.Count; i++)
                     {
-                        var translation = translations[i];
-                        var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
+                        var translation = Translation.translations[i];
+                        var language_button = new[] { translation.lang_orig_words, translation.lang_trans_words };
                         AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button);
                     }
                 }
-                else
-                {
-                    Console.WriteLine("NULL");
-                }
 
             }
-            catch { Console.WriteLine("Error"); }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                // Обробка винятку, можливо, виведення повідомлення або журналювання помилки
+                Console.WriteLine($"Помилка доступу до елементу масиву: {ex.Message}");
+            }
+
         }
 
         // Метод для очищення елементів ListView

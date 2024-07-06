@@ -12,19 +12,14 @@ namespace Client
     {
         FormProfile FP = new FormProfile(); // Об'єкт для профілю користувача
         Http_Send httpSend = new Http_Send(); // Об'єкт для відправлення HTTP запитів
+        private List<NodeId> translations; // Список нотаток
 
-        // Клас для представлення нотаток
-        private class Notes
+        class NodeId
         {
-            public int id { get; set; }
-            public int user_id { get; set; }
             public string title { get; set; }
             public string content { get; set; }
             public string updated_at { get; set; }
         }
-
-        private List<Notes> translations; // Список нотаток
-
         public int NoteId { get; set; } // Ідентифікатор нотатки
         private string initialTitle; // Початковий заголовок нотатки
         private string initialContent; // Початковий вміст нотатки
@@ -60,7 +55,7 @@ namespace Client
                 if ((int)response.StatusCode == 200)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    translations = JsonConvert.DeserializeObject<List<Notes>>(jsonResponse);
+                    translations = JsonConvert.DeserializeObject<List<NodeId>>(jsonResponse);
                     if (translations != null && translations.Count > 0)
                     {
                         H1.Text = translations[0].title;

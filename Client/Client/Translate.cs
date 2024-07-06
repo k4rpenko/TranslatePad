@@ -21,66 +21,42 @@ namespace Client
         Http_Send httpSend = new Http_Send(); // Екземпляр класу для HTTP запитів
         static int id_Butt_Leng = 1; // Ідентифікатор для кнопки вибору мови перекладу
         static int id_Butt_Leng_YourL = 1; // Ідентифікатор для кнопки вибору мови оригіналу
-
-        // Клас для зберігання перекладів
-        public class Translation
-        {
-            public int id { get; set; }
-            public int user_id { get; set; }
-            public string lang_orig_words { get; set; }
-            public string orig_words { get; set; }
-            public string lang_trans_words { get; set; }
-            public string trans_words { get; set; }
-        }
-
-        // Клас для зберігання історії перекладів
-        public class TranslationHistory
-        {
-            public string OriginalText { get; set; }
-            public string TranslatedText { get; set; }
-            public string Language { get; set; }
-        }
-
-        // Список для зберігання історії перекладів
-        private List<TranslationHistory> translationHistories = new List<TranslationHistory>();
+        
 
         public Translate()
         {
             InitializeComponent();
             InitializeListView(); // Ініціалізація ListView для відображення перекладів
             ShowWords(); // Відображення перекладів
+            Show_users();
             this.FormClosed += new FormClosedEventHandler(Menu_FormClosed); // Додавання обробника події закриття форми
+        }
+        
+        public async void Show_users()
+        {
+            if(Users.Users_p == null) {Users.Users_p = await httpSend.GetShowUsers(token);}
+            if (Users.Users_p != null && Users.Users_p.Count > 0)
+            {
+                button6.Text = Users.Users_p[0].nick;
+                pictureBox1.ImageLocation = Users.Users_p[0].avatar;
+            }
         }
 
         // Метод для відображення перекладів
         private async void ShowWords()
         {
-            try
+            ClearListViewItems();
+            if(Translation.translations == null) { Translation.translations = await httpSend.GetShow_translate(token);}
+
+            if (Translation.translations != null)
             {
-                ClearListViewItems(); // Очищення елементів ListView
-                string url = "https://translate-pad.vercel.app/api/Show_translate"; // URL для отримання перекладів
-                HttpResponseMessage response = await httpSend.GetShow_translate(url, token); // Відправка запиту
-
-                if ((int)response.StatusCode == 200)
+                foreach (var translation in Translation.translations)
                 {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    List<Translation> translations = JsonConvert.DeserializeObject<List<Translation>>(jsonResponse);
-
-                    foreach (var translation in translations)
-                    {
-                        var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
-                        AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button); // Додавання до історії перекладів
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("NULL");
+                    var language_button = new string[] { translation.lang_orig_words, translation.lang_trans_words };
+                    AddToTranslationHistory(translation.orig_words, translation.trans_words, language_button); // Додавання до історії перекладів
                 }
             }
-            catch
-            {
-                Console.WriteLine("Error");
-            }
+
         }
 
         // Метод для ініціалізації ListView
@@ -230,25 +206,18 @@ namespace Client
         // Метод для додавання перекладу до історії перекладів
         private void AddToTranslationHistory(string originalText, string translatedText, string[] language)
         {
-            try
+            TranslationHistory.translationHistories.Add(new TranslationHistory
             {
-                translationHistories.Add(new TranslationHistory
-                {
-                    OriginalText = originalText,
-                    TranslatedText = translatedText,
-                    Language = string.Join("/", language)
-                });
+                OriginalText = originalText,
+                TranslatedText = translatedText,
+                Language = string.Join("/", language)
+            });
 
-                // Додавання запису до ListView
-                ListViewItem item = new ListViewItem(originalText);
-                item.SubItems.Add(translatedText);
-                item.SubItems.Add(string.Join("/", language));
-                listView1.Items.Add(item);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error in AddToTranslationHistory: {ex.Message}");
-            }
+            // Додавання запису до ListView
+            ListViewItem item = new ListViewItem(originalText);
+            item.SubItems.Add(translatedText);
+            item.SubItems.Add(string.Join("/", language));
+            listView1.Items.Add(item);
         }
 
         // Метод для очищення елементів ListView
@@ -315,18 +284,16 @@ namespace Client
         {
             try
             {
-                // Отримання шляху до документа
                 string homePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-                // Створення унікального імені файлу на основі дати та часу
+                
                 string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                 string fileName = $"TranslationHistory_{timestamp}.txt";
                 string filePath = Path.Combine(homePath, fileName);
 
                 // Запис нової історії в новий файл
-                using (StreamWriter writer = new StreamWriter(filePath, false)) // false, щоб перезаписати файл
+                using (StreamWriter writer = new StreamWriter(filePath, false)) 
                 {
-                    foreach (var history in translationHistories)
+                    foreach (var history in TranslationHistory.translationHistories)
                     {
                         writer.WriteLine($"Original Text: {history.OriginalText}");
                         writer.WriteLine($"Translated Text: {history.TranslatedText}");
@@ -372,7 +339,7 @@ namespace Client
             try
             {
                 // Очищення списку історії перекладів
-                translationHistories.Clear();
+                TranslationHistory.translationHistories.Clear();
 
                 // Очищення ListView
                 ClearListViewItems();
@@ -417,23 +384,18 @@ namespace Client
         // Натискання на кнопку для відкриття профілю користувача
         private void button6_Click_1(object sender, EventArgs e)
         {
-            // Перевіряє, чи форма профілю є null або закрита, і створює новий екземпляр, якщо це так
             if (FP == null || FP.IsDisposed)
             {
                 FP = new FormProfile();
             }
-
-            // Отримує позицію кнопки на екрані
+            
             Point buttonLocationOnScreen = button6.PointToScreen(Point.Empty);
-
-            // Встановлює ручне позиціонування форми профілю користувача
+            
             FP.StartPosition = FormStartPosition.Manual;
-            // Встановлює позицію форми профілю користувача відразу під кнопкою
             FP.Location = new Point(buttonLocationOnScreen.X, buttonLocationOnScreen.Y + button6.Height);
-            FP.TopMost = true; // Робить форму профілю користувача завжди поверх інших форм
+            FP.TopMost = true; 
             FP.Show(); 
-
-            // Закриває форму профілю при деактивації (натисканні поза формою)
+            
             FP.Deactivate += (s, args) => FP.Close();
         }
 

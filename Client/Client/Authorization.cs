@@ -33,23 +33,6 @@ namespace Client
             catch (Exception ex) { }
         }
 
-        // Метод для відкриття та читання токена оновлення з файлу
-        public static void OpenRefreshToken()
-        {
-            try
-            {
-                using (StreamReader sr = File.OpenText("user_refresh.txt"))
-                {
-                    string s = "";
-                    while ((s = sr.ReadLine()) != null)
-                    {
-                        Console.WriteLine(s);
-                    }
-                }
-            }
-            catch (Exception ex) { }
-        }
-
       
         public Authorization()
         {
@@ -87,7 +70,7 @@ namespace Client
                 SaveRefreshToken(_SaveT);
                 Menu _menu = new Menu();
                 _menu.Show();
-                this.Hide();
+                Hide();
             }
             
         }

@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +19,6 @@ namespace Client
     public partial class FormProfile : Form
     {
         string token = File.ReadAllText("user_refresh.txt");
-        public List<Users> Users_p;
         Http_Send httpSend = new Http_Send();
         public FormProfile()
         {
@@ -28,12 +28,17 @@ namespace Client
 
         async void Show_users()
         {
-            Users_p = await httpSend.GetShowUsers(token);
-            if (Users_p != null)
+            if(Users.Users_p == null) { Users.Users_p = await httpSend.GetShowUsers(token); }
+            while (Users.Users_p == null)
             {
-                label2.Text = Users_p[0].nick;
-                label1.Text = Users_p[0].email; 
-                pictureBox1.ImageLocation = Users_p[0].avatar;
+                Thread.Sleep(500); 
+                if (Users.Users_p != null && Users.Users_p.Count > 0)
+                {
+                    label2.Text = Users.Users_p[0].nick;
+                    label1.Text = Users.Users_p[0].email;
+                    pictureBox1.ImageLocation = Users.Users_p[0].avatar;
+                    break;
+                }
             }
         }
 

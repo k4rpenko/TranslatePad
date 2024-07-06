@@ -153,6 +153,7 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notes.cs" />
     <Compile Include="pass\ValidEmail.cs" />
     <Compile Include="pass\ValidPass.cs" />
     <Compile Include="Program.cs" />
@@ -163,6 +164,8 @@
     <Compile Include="Translate.Designer.cs">
       <DependentUpon>Translate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Translation.cs" />
+    <Compile Include="TranslationHistory.cs" />
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="Change_Dictionary.resx">
       <DependentUpon>Change_Dictionary.cs</DependentUpon>
