@@ -28,13 +28,20 @@ export default function Home() {
     
     fetchTopics();
   }, []);
+
+  const Download = {
+    redirectToHome: function() {
+      window.location.href = '/home';
+    }
+  };
+
   return (
     <div className={styles.Start}>
       <div className={styles.intro}>
         <div className={styles.title}>Translate-pad: A new Words? Make ur life easyer.</div>
         <div className={styles.subtitle}>Your complete All-in-One solution for to combine a dictionary and notes. Build awesome notes and fast Add words with translations to the dictionary.</div>
         <div className={styles.links}>
-          <button className="btn">Download</button>
+          <button className="btn" onClick={Download.redirectToHome}>Download</button>
         </div>
       </div>
       <div className={styles.gradientBackground}></div>
