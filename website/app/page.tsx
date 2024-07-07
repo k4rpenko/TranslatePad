@@ -31,7 +31,7 @@ export default function Home() {
 
   const Download = {
     redirectToHome: function() {
-      window.location.href = '/home';
+      window.location.href = 'https://54hmmo3zqtgtsusj.public.blob.vercel-storage.com/TranslatePad/TranslatePad-BaAmv6qt6jMGbHmDKYIdpjSOHBQ0z8.zip';
     }
   };
 
