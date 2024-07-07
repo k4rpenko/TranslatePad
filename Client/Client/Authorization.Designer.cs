@@ -33,12 +33,6 @@ namespace Client
         /// </summary>
         private void InitializeComponent()
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                System.Drawing.Rectangle r = Screen.PrimaryScreen.WorkingArea;
-                ctrl.Size = new System.Drawing.Size(Convert.ToInt32(0.5 * r.Width), Convert.ToInt32(0.5 * r.Height));
-                ctrl.Location = new System.Drawing.Point(10, 10);
-            }
             
 
 
