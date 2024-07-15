@@ -9,11 +9,11 @@ namespace Server.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class Auth : ControllerBase
+public class auth : ControllerBase
 {
     public readonly ConnectDB _Connect; 
 
-    public Auth(ConnectDB Connect) { _Connect = Connect; }
+    public auth(ConnectDB Connect) { _Connect = Connect; }
     
     [HttpPost("Login")]
     public async Task<IActionResult> LoginPost(AuthM _model)
@@ -73,7 +73,7 @@ public class Auth : ControllerBase
         }
     }
     
-    [HttpPost("Register")]
+    [HttpPost("Regists")]
     public async Task<IActionResult> RegisterPost(AuthM _model)
     {
         string id;
