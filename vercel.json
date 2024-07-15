@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "./Server/main.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "./website/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/Server/main.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/website/$1"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

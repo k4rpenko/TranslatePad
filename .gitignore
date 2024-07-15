@@ -1,0 +1,5 @@
+﻿.vs/
+bin/
+obj/
+/Server/node_modules
+Server/.env
