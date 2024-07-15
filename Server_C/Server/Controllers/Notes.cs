@@ -18,7 +18,7 @@ public class Notes : ControllerBase
     public Notes(ConnectDB Connect) { _Connect = Connect; }
 
     [HttpPost("Add_Notesn")]
-    public async Task<IActionResult> LoginPost(NotesMAdd _model)
+    public async Task<IActionResult> Add_Notesn(NotesMAdd _model)
     {
         bool AddNote = false;
         string token = null;
@@ -59,7 +59,7 @@ public class Notes : ControllerBase
     }
     
     [HttpPost("Show_Notes")]
-    public async Task<IActionResult> LoginPost(OnlyToken _model)
+    public async Task<IActionResult> Show_Notes(OnlyToken _model)
     {
         bool Show = false;
         string result = null;
@@ -104,7 +104,7 @@ public class Notes : ControllerBase
     }
     
     [HttpPost("Change_note")]
-    public async Task<IActionResult> LoginPost(Change_note _model)
+    public async Task<IActionResult> Change_note(Change_note _model)
     {
         bool Change = false;
         try
@@ -143,7 +143,7 @@ public class Notes : ControllerBase
     }
     
     [HttpPost("Show_one_Notes")]
-    public async Task<IActionResult> LoginPost(NotesMShow _model)
+    public async Task<IActionResult> Show_one_Notes(NotesMShow _model)
     {
         bool Show = false;
         string result = null;
