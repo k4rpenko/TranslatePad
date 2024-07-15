@@ -11,7 +11,7 @@ namespace Server.Controllers;
 [ApiController]
 public class Auth : ControllerBase
 {
-    public readonly ConnectDB _Connect;
+    public readonly ConnectDB _Connect; 
 
     public Auth(ConnectDB Connect) { _Connect = Connect; }
     
@@ -36,8 +36,6 @@ public class Auth : ControllerBase
                         {
                             password = reader["password"].ToString();
                             token = reader["token_refresh"].ToString();
-                            Console.WriteLine($"Password SQl {password}");
-                            Console.WriteLine($"Password User {_hash.HashPassword256()}");
                             if (_hash.HashPassword256() == password)
                             {
                                 userExists = true;

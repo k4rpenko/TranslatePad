@@ -22,4 +22,13 @@ public class tokenService
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
     }
+
+    public static string DecodeToken(string Token)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var jwtToken = tokenHandler.ReadJwtToken(Token);
+
+        var dataClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "data");
+        return dataClaim?.Value;
+    }
 }

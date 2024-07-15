@@ -1,9 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Connections;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore;
 using Npgsql;
-using Microsoft.Extensions.Options;
 
 public class ConnectDB : DbContext
 {
